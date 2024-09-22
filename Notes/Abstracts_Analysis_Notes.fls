@@ -32,13 +32,18 @@ INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 OUTPUT Abstracts_Analysis_Notes.pdf
 INPUT c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT ./Use of Gamification and Game-Based Learning in Educating Generation Alpha.tex
+INPUT ./Use of Gamification and Game-Based Learning in Educating Generation Alpha.tex
+INPUT Use of Gamification and Game-Based Learning in Educating Generation Alpha.tex
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT ./Generative AI for Customizable Learning Experiences.tex
 INPUT ./Generative AI for Customizable Learning Experiences.tex
 INPUT Generative AI for Customizable Learning Experiences.tex
 INPUT Abstracts_Analysis_Notes.aux
+INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
