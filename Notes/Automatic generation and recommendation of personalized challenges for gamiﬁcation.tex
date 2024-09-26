@@ -1,0 +1,165 @@
+\section{Automatic Generation and Recommendation of Personalized Challenges for Gamification}
+
+\subsection{Authors}
+\begin{itemize}
+    \item \textbf{Authors:} Reza Khoshkangini, Giuseppe Valetto, Annapaola Marconi, Marco Pistore
+\end{itemize}
+
+\subsection{Publication}
+\begin{itemize}
+    \item \textbf{Publication:} Springer Nature
+    \item \textbf{Date:} 24 May 2020
+\end{itemize}
+
+\subsection{Relevant to My Research}
+Yes
+
+\subsection{Aim}
+The study aims to address common gamification limitations by proposing an automatic system for generating personalized and contextualized challenges based on player preferences, game status, and performance.
+
+\begin{itemize}
+    \item Overcoming boredom and frustration caused by generic game elements like points, badges, and leaderboards.
+    \item Automatically generating challenges that are tailored to individual players.
+    \item Comparative evaluation between manually designed challenges and those generated automatically.
+\end{itemize}
+
+\subsection{Key Focus Areas}
+\begin{itemize}
+    \item Use of Procedural Content Generation (PCG) for challenges.
+    \item Player-specific challenge personalization and contextualization.
+    \item Efficiency of automatically generated challenges in gamification.
+\end{itemize}
+
+\subsection{Gaps Addressed}
+\begin{itemize}
+    \item The lack of personalized game elements in many gamification systems.
+    \item Reliance on static game elements, which fail to engage players long-term.
+\end{itemize}
+
+\subsection{Findings}
+\begin{itemize}
+    \item Automatically generated challenges showed comparable, if not superior, results in keeping players engaged compared to manually designed challenges.
+    \item Personalized challenges improved user engagement and retention in a 12-week urban mobility experiment.
+    \item Dynamic challenge assignment aligned with player performance and game objectives can reduce the effort required by human game designers.
+\end{itemize}
+
+\subsection{Limitations}
+\begin{itemize}
+    \item period of the experiment was relatively short (3 weeks).
+    \item it does not include
+    players’ characteristics and physiological signals, which are widely used in digital
+    games for advanced personalization and to increase players’ engagement
+    \item player's elevation status was not considered in the challenges.
+\end{itemize}
+
+\subsection{Future Work}
+\begin{itemize}
+    \item \textbf{Expansion of the System to Other Domains:} The system could be adapted to other gamification contexts beyond urban mobility.
+    
+    \item \textbf{Further Research on Procedural Content Generation in Gamification:} More studies on PCG for challenge personalization in different application domains.
+    
+    \item \textbf{Integration of Machine Learning Techniques:} Explore the use of ML to enhance personalization and adapt challenges in real-time.
+    
+    \item \textbf{Long-Term Impact Assessment:} Future work could focus on assessing the long-term impact of personalized challenges on user behavior and sustained engagement.
+    
+\end{itemize}
+
+\section{Notes}
+\subsection{Research Questions}
+
+\begin{itemize}
+    \item \textbf{RQ1: Player Acceptance:} How does the player acceptance rate for automatically generated challenges compare to the acceptance rate of manually assigned challenges?
+    \item \textbf{RQ2: Challenge Impact:} How does the improvement recorded on the target goal for automatically generated challenges compare to the improvement recorded for manually assigned challenges?
+    \item \textbf{RQ3: Reward Efficiency:} How do the rewards computed for automatically generated challenges compare to those of manually assigned challenges?
+\end{itemize}
+
+\subsection{Trento Play\&Go: A Gamification Campaign}
+
+Trento Play\&Go was a large-scale, long-running open-field gamification campaign that lasted 12 weeks (from September 10 to December 2, 2016). The game targeted residents of Trento, Italy, and commuters from the surrounding Trentino province. Participants used the Viaggia Play\&Go mobile app to plan and track journeys, check their game status, share results, and receive notifications.
+
+\subsection{The Challenge Model}
+
+A challenge model is a system for creating personalized tasks for players. It consists of the following components:
+
+\begin{itemize}
+    \item \textbf{Player (P)}: The individual playing the game.
+    \item \textbf{Goal (G)}: The task or objective to be completed.
+    \item \textbf{Constraint (C)}: Conditions for reaching the goal (e.g., deadline).
+    \item \textbf{Difficulty (D)}: The level of challenge for the player.
+    \item \textbf{Reward (R)}: The prize awarded for completing the challenge.
+    \item \textbf{Weight (W)}: The importance of the challenge.
+\end{itemize}
+
+\subsection{Example Challenges}
+
+\begin{itemize}
+    \item \textbf{Example 1:} Increase walking distance by 10\% next week and earn 200 points (Green Leaves).
+    \item \textbf{Example 2:} Increase train trips by 30\% next month and earn an additional 20 points per trip.
+    \item \textbf{Example 3:} Complete at least 1 bike-sharing trip next week and earn 80 points.
+\end{itemize}
+
+\subsection{How the System Works}
+
+\begin{enumerate}
+    \item The **challenge generator** creates a set of possible challenges.
+    \item The **challenge valuator** calculates difficulty and assigns rewards.
+    \item The **filtering and sorting module** recommends challenges based on player profile, game history, and campaign objectives.
+\end{enumerate}
+
+\subsection{RQ1: Player Acceptance}
+
+To evaluate RQ1, the success rates of players in completing automatically generated challenges (RS challenges) were compared to those assigned manually. The analysis focused on 82 RS players during weeks 10-12 of Trento Play\&Go, who received a total of 220 RS challenges. The completion rates of these players were contrasted with those of non-RS players categorized into four distinct groups:
+
+\begin{itemize}
+    \item \textbf{Group 1:} This group includes both RS and non-RS players.
+    \item \textbf{Group 2:} A subset of Group 1, consisting solely of active players during weeks 10-12.
+    \item \textbf{Group 3:} This group excludes top performers.
+    \item \textbf{Group 4:} This group compares the performance of RS players on RS challenges versus challenges assigned by experts.
+\end{itemize}
+
+An equivalence test (TOST) was employed to determine if the completion rates were statistically similar. The results indicated the following:
+
+\begin{itemize}
+    \item RS players exhibited superior performance in Group 1; however, this group included a significant number of inactive players.
+    \item In Group 2, non-RS players demonstrated slightly better performance, likely due to the presence of weekly champions.
+    \item In Groups 3 and 4, RS and non-RS challenges were found to be statistically equivalent, suggesting no significant difference in player acceptance between the two types of challenges.
+\end{itemize}
+
+Therefore, it can be concluded that there is no significant difference in player acceptance between RS challenges and expert-assigned challenges.
+
+\subsection{RQ2: Challenge Impact}
+
+For RQ2, improvement during a challenge was measured relative to a player’s performance in the previous week using the following formula:
+
+\begin{equation}
+\text{Imp} = \frac{\text{counter} - \text{base}}{\text{base}}
+\end{equation}
+
+In this equation, \textit{counter} represents the current performance indicator value (ranging from $0$ to $+\infty$) and \textit{base} refers to the previous week’s value. Improvement ($\text{Imp}$) ranges from $\left[-1, +\infty\right]$, where $-1$ indicates no action towards the goal, and $0$ signifies no improvement.
+
+The focus was placed on \textit{percentageIncrement} challenges, with 129 out of 164 categorized as such. These challenges were divided into those aimed at improving the number of trips and those focused on distance (Km). Comparisons between RS and non-RS challenges revealed that RS challenges generally resulted in greater improvements.
+
+Quantitative analysis utilizing the area under the improvement curve (AUiC) demonstrated that RS challenges frequently yielded higher values, with significant differences in positive improvement highlighted through the Wilcoxon test (p-values of 0.0003194 for Km-related challenges and 6.549e-06 for trip-related challenges). Thus, RS challenges appear to facilitate greater improvement compared to manually assigned challenges.
+
+\section{RQ3: Reward Efficiency}
+
+To evaluate RQ3, the improvement achieved through various challenge types was correlated with the rewards allocated by the game for challenge completion. Improvement was characterized using the AUiC+ data in Table 3, concentrating on players who achieved improvement in their challenges, as non-RS challenges often resulted in negative total AUiC.
+
+Given the differing sizes of player sets yielding improvement in RS versus non-RS scenarios, the data were normalized based on the number of players contributing to that improvement (as detailed in the "players improved" column of Table 3). The per capita reward attributed by the system per unit of AUiC+ (denoted as Reward\textsubscript{pc}) was computed using the formula:
+
+\begin{equation}
+\text{Reward}_{pc} = \frac{\text{Reward}_{tot}/\text{players}_{imp}}{\text{AUiC}^+}
+\end{equation}
+
+The data suggest that challenge proposals generated by the system are more cost-effective concerning rewards as incentives per unit of improvement. RS challenges consistently yield lower rewards per unit of improvement when compared to non-RS challenges. Specifically, the per capita reward attributed per unit of improvement in non-RS trip-based challenges is 1.91 times higher (561/293) than in the RS case, while in non-RS Km-based challenges, it is 2.3 times higher (782/340).
+
+Moreover, the experiment indicates that players could enhance their performance even without completing the assigned challenges. For instance, one player increased his walking performance from 3 km in week "x" to approximately 4 km in week "x + 1," despite not completing the challenge aimed at improving to 5 km. This observation illustrates that the primary objective of gamified systems is to influence player behavior, with challenges serving as mechanisms to encourage such improvement. Therefore, further normalization (using Eq. 1) is essential for calculating the unit of improvement, irrespective of challenge completion.
+
+In conclusion, challenges assigned by the system provide greater improvement for the same per capita reward, effectively achieving similar levels of improvement for lower rewards.
+
+
+\section{Terminlology}
+\begin{itemize}
+    \item \textbf{Procedural Content Generation (PCG):} The automatic generation of game content, such as levels, challenges, and environments, using algorithms.
+    \item \textbf{Recommendation System (RS):} A system that suggests items or actions to users based on their preferences, behavior, or context.
+\end{itemize}
