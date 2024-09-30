@@ -2,8 +2,8 @@ PWD c:/Users/Eyad Tamer/Downloads/Bachelor/Notes
 INPUT c:/texlive/2024/texmf.cnf
 INPUT c:/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/Eyad Tamer/Downloads/Bachelor/Notes/Abstracts_Analysis_Notes.tex
-OUTPUT Abstracts_Analysis_Notes.log
+INPUT c:/Users/Eyad Tamer/Downloads/Bachelor/Notes/Paper_Analysis.tex
+OUTPUT Paper_Analysis.log
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/size10.clo
@@ -82,18 +82,18 @@ INPUT c:/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./Abstracts_Analysis_Notes.aux
-INPUT ./Abstracts_Analysis_Notes.aux
-INPUT Abstracts_Analysis_Notes.aux
-OUTPUT Abstracts_Analysis_Notes.aux
-INPUT ./Abstracts_Analysis_Notes.out
-INPUT ./Abstracts_Analysis_Notes.out
-INPUT Abstracts_Analysis_Notes.out
-INPUT Abstracts_Analysis_Notes.out
-OUTPUT Abstracts_Analysis_Notes.pdf
-INPUT ./Abstracts_Analysis_Notes.out
-INPUT ./Abstracts_Analysis_Notes.out
-OUTPUT Abstracts_Analysis_Notes.out
+INPUT ./Paper_Analysis.aux
+INPUT ./Paper_Analysis.aux
+INPUT Paper_Analysis.aux
+OUTPUT Paper_Analysis.aux
+INPUT ./Paper_Analysis.out
+INPUT ./Paper_Analysis.out
+INPUT Paper_Analysis.out
+INPUT Paper_Analysis.out
+OUTPUT Paper_Analysis.pdf
+INPUT ./Paper_Analysis.out
+INPUT ./Paper_Analysis.out
+OUTPUT Paper_Analysis.out
 INPUT c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
@@ -136,9 +136,19 @@ INPUT MDA A Formal Approach to Game Design and Game Research.tex
 INPUT ./Categorizing Game Design Elements into Educational Game Design Fundamentals.tex
 INPUT ./Categorizing Game Design Elements into Educational Game Design Fundamentals.tex
 INPUT Categorizing Game Design Elements into Educational Game Design Fundamentals.tex
-INPUT Abstracts_Analysis_Notes.aux
-INPUT ./Abstracts_Analysis_Notes.out
-INPUT ./Abstracts_Analysis_Notes.out
+INPUT ./Analysis of Game Design FrameworkThrough Elemental Tetrad.tex
+INPUT ./Analysis of Game Design FrameworkThrough Elemental Tetrad.tex
+INPUT Analysis of Game Design FrameworkThrough Elemental Tetrad.tex
+INPUT ./SGAME An Authoring Tool to Easily Create Educational Video Games by Integrating SCORM-Compliant Learning Objects.tex
+INPUT ./SGAME An Authoring Tool to Easily Create Educational Video Games by Integrating SCORM-Compliant Learning Objects.tex
+INPUT SGAME An Authoring Tool to Easily Create Educational Video Games by Integrating SCORM-Compliant Learning Objects.tex
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT ./VoRtex Metaverse Platform for Gamified Collaborative Learning.tex
+INPUT ./VoRtex Metaverse Platform for Gamified Collaborative Learning.tex
+INPUT VoRtex Metaverse Platform for Gamified Collaborative Learning.tex
+INPUT Paper_Analysis.aux
+INPUT ./Paper_Analysis.out
+INPUT ./Paper_Analysis.out
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
@@ -149,4 +159,5 @@ INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
+INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb
