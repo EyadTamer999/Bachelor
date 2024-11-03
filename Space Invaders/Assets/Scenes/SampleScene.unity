@@ -4235,6 +4235,10 @@ MonoBehaviour:
   projectileSpeed: 10
   fireRate: 0.5
   projectileLifetime: 2
+  deathSprites:
+  - {fileID: -1368866454, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+  - {fileID: -2060807024, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+  deathSpriteDuration: 0.5
 --- !u!58 &1680446002
 CircleCollider2D:
   m_ObjectHideFlags: 0

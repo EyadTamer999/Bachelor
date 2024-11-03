@@ -12,9 +12,11 @@ public class SpriteVariation
 public class Enemy : MonoBehaviour
 {
     public float speed = 2f; // Movement speed
-    public int health = 1;   // Health of the enemy, can increase for harder enemies
+    public int health = 1;   // Health of the enemy
 
     public List<SpriteVariation> spriteVariations; // List of base sprites and their variations
+    public Sprite[] deathSprites; // Array to hold the two death sprites
+    public float deathSpriteDuration = 0.5f; // Duration to show the death animation
 
     private SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
     private Sprite currentBaseSprite; // Store the currently selected base sprite
@@ -69,8 +71,22 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(ShowDeathAnimation()); // Show death animation before destroying
         }
+    }
+
+    private IEnumerator ShowDeathAnimation()
+    {
+        // Loop through the death sprites
+        for (float elapsed = 0; elapsed < deathSpriteDuration; elapsed += Time.deltaTime)
+        {
+            // Switch between the two death sprites
+            spriteRenderer.sprite = deathSprites[(int)(elapsed / (deathSpriteDuration / 2)) % 2];
+            yield return null; // Wait for the next frame
+        }
+
+        // Destroy the enemy object
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

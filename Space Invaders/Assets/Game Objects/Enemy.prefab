@@ -189,4 +189,8 @@ MonoBehaviour:
   - baseSprite: {fileID: 325619130, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
     variations:
     - {fileID: 539932022, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+  deathSprites:
+  - {fileID: -1368866454, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+  - {fileID: -2060807024, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+  deathSpriteDuration: 0.5
   animationInterval: 0.5

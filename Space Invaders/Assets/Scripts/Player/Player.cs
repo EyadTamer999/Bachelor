@@ -11,13 +11,18 @@ public class Player : MonoBehaviour
     public float projectileSpeed = 10f; // Speed of the projectile
     public float fireRate = 0.5f; // Time interval between shots
     public float projectileLifetime = 2f; // Time after which projectiles are destroyed
+    public Sprite[] deathSprites; // Array to hold the two death sprites
+    public float deathSpriteDuration = 0.5f; // Duration to show the death animation
+
     private Rigidbody2D rb;
     private float nextFireTime; // Tracks when the player can fire next
+    private SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
 
     void Start()
     {
-        // Get the Rigidbody2D component attached to the player
+        // Get the Rigidbody2D and SpriteRenderer components attached to the player
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -85,8 +90,31 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyProjectile") || collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            StartCoroutine(ShowDeathAnimation()); // Trigger death animation instead of immediate destruction
         }
     }
 
+    private IEnumerator ShowDeathAnimation()
+    {
+
+        // Disable the player's collider to prevent further collisions
+        GetComponent<Collider2D>().enabled = false;
+
+        // Disable any movement by setting the velocity to zero
+        rb.velocity = Vector2.zero;
+
+        // Disable any shooting by setting the fire rate to a large value
+        fireRate = float.MaxValue;
+
+        // Loop through the death sprites
+        for (float elapsed = 0; elapsed < deathSpriteDuration; elapsed += Time.deltaTime)
+        {
+            // Switch between the two death sprites
+            spriteRenderer.sprite = deathSprites[(int)(elapsed / (deathSpriteDuration / 2)) % 2];
+            yield return null; // Wait for the next frame
+        }
+
+        // Destroy the player object
+        Destroy(gameObject);
+    }
 }
