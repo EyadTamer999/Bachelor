@@ -422,7 +422,7 @@ Transform:
   m_GameObject: {fileID: 1680445997}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -8, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -517,6 +517,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3032608480918634927, guid: ff901871340cedb41a3fb59580740a52, type: 3}
+      propertyPath: rows
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032608480918634927, guid: ff901871340cedb41a3fb59580740a52, type: 3}
+      propertyPath: columns
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032608480918634927, guid: ff901871340cedb41a3fb59580740a52, type: 3}
+      propertyPath: boundaryX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032608480918634927, guid: ff901871340cedb41a3fb59580740a52, type: 3}
+      propertyPath: moveDownAmount
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3369407620719224578, guid: ff901871340cedb41a3fb59580740a52, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
@@ -527,7 +543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9204098571102518460, guid: ff901871340cedb41a3fb59580740a52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0909743
+      value: 8.25
       objectReference: {fileID: 0}
     - target: {fileID: 9204098571102518460, guid: ff901871340cedb41a3fb59580740a52, type: 3}
       propertyPath: m_LocalPosition.z

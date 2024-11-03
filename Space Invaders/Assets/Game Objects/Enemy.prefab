@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1529983820533075466}
   - component: {fileID: 1835426456748849801}
   - component: {fileID: -1616981783832528053}
-  - component: {fileID: 6005626840549132027}
   - component: {fileID: 8693212579636050534}
+  - component: {fileID: 6005626840549132027}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -114,37 +114,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6005626840549132027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586859379922281888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6c879cd3c82e544eb1c8579d7342738, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  health: 1
-  spriteVariations:
-  - baseSprite: {fileID: 1779086002, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
-    variations:
-    - {fileID: -629862755, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
-  - baseSprite: {fileID: 256566696, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
-    variations:
-    - {fileID: 162158661, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
-  - baseSprite: {fileID: 871042243, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
-    variations:
-    - {fileID: -535824742, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
-  - baseSprite: {fileID: 875209246, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
-    variations:
-    - {fileID: 1451299383, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
-  - baseSprite: {fileID: 325619130, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
-    variations:
-    - {fileID: 539932022, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
-  animationInterval: 0.5
 --- !u!61 &8693212579636050534
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -190,3 +159,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.116, y: 0.08}
   m_EdgeRadius: 0
+--- !u!114 &6005626840549132027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586859379922281888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c879cd3c82e544eb1c8579d7342738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  health: 1
+  spriteVariations:
+  - baseSprite: {fileID: 1779086002, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+    variations:
+    - {fileID: -629862755, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+  - baseSprite: {fileID: 256566696, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+    variations:
+    - {fileID: 162158661, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+  - baseSprite: {fileID: 871042243, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+    variations:
+    - {fileID: -535824742, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+  - baseSprite: {fileID: 875209246, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+    variations:
+    - {fileID: 1451299383, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+  - baseSprite: {fileID: 325619130, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+    variations:
+    - {fileID: 539932022, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
+  animationInterval: 0.5
