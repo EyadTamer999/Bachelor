@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;       // The enemy prefab to instantiate
-    public int rows = 3;                 // Number of rows in the grid
-    public int columns = 6;              // Number of columns in the grid
-    public float spacing = 1.5f;         // Spacing between enemies
-    public float moveSpeed = 1f;         // Horizontal movement speed
-    public float moveDownAmount = 0.5f;  // Distance to move down when changing direction
-    public float boundaryX = 8f;         // Horizontal boundary for edge detection
+    public GameObject enemyPrefab;           // The enemy prefab to instantiate
+    public GameObject projectilePrefab;      // The projectile prefab for enemy shooting
+    public int rows = 3;                     // Number of rows in the grid
+    public int columns = 6;                  // Number of columns in the grid
+    public float spacing = 1.5f;             // Spacing between enemies
+    public float moveSpeed = 1f;             // Horizontal movement speed
+    public float moveDownAmount = 0.5f;      // Distance to move down when changing direction
+    public float boundaryX = 8f;             // Horizontal boundary for edge detection
+    public float shootingInterval = 1.5f;    // Interval between enemy shots
+    public float projectileSpeed = 5f;       // Speed of the projectile
+    public float projectileLifetime = 4f;    // Lifetime of the projectile
 
-    private List<GameObject> enemies;    // List to keep track of enemies
-    private bool movingRight = true;     // Direction flag for horizontal movement
+    private List<GameObject> enemies;        // List to keep track of enemies
+    private bool movingRight = true;         // Direction flag for horizontal movement
 
     void Start()
     {
         enemies = new List<GameObject>();
         SpawnEnemies();
+
+        // Start the enemy shooting coroutine
+        StartCoroutine(EnemyShootingRoutine());
     }
 
     void Update()
@@ -33,12 +40,10 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int col = 0; col < columns; col++)
             {
-                // Calculate the position for each enemy in the grid
                 Vector2 spawnPosition = new Vector2(
                     transform.position.x + col * spacing,
                     transform.position.y - row * spacing);
 
-                // Instantiate the enemy and add it to the list
                 GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
                 enemies.Add(enemy);
             }
@@ -48,11 +53,9 @@ public class EnemySpawner : MonoBehaviour
     // Move the enemies in a group
     void MoveEnemies()
     {
-        // Determine the direction and boundaries
         float direction = movingRight ? 1 : -1;
         Vector3 movement = new Vector3(direction * moveSpeed * Time.deltaTime, 0, 0);
 
-        // Move all enemies horizontally
         foreach (GameObject enemy in enemies)
         {
             if (enemy != null)
@@ -61,12 +64,10 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        // Check for boundary collision
         foreach (GameObject enemy in enemies)
         {
             if (enemy != null)
             {
-                // If any enemy reaches a boundary, reverse direction and move down
                 if (movingRight && enemy.transform.position.x >= boundaryX ||
                     !movingRight && enemy.transform.position.x <= -boundaryX)
                 {
@@ -90,5 +91,46 @@ public class EnemySpawner : MonoBehaviour
                     enemy.transform.position.y - moveDownAmount);
             }
         }
+    }
+
+    // Coroutine to handle enemy shooting
+    IEnumerator EnemyShootingRoutine()
+    {
+        while (enemies.Count > 0) // Loop while there are still enemies
+        {
+            yield return new WaitForSeconds(shootingInterval);
+
+            // Pick a random enemy that is still active in the scene
+            GameObject shootingEnemy = GetRandomActiveEnemy();
+            if (shootingEnemy != null)
+            {
+                ShootProjectile(shootingEnemy.transform.position);
+            }
+        }
+    }
+
+    // Get a random active enemy from the list
+    GameObject GetRandomActiveEnemy()
+    {
+        List<GameObject> activeEnemies = enemies.FindAll(enemy => enemy != null);
+
+        if (activeEnemies.Count > 0)
+        {
+            int randomIndex = Random.Range(0, activeEnemies.Count);
+            return activeEnemies[randomIndex];
+        }
+
+        return null;
+    }
+
+    // Shoot a projectile from a given position
+    void ShootProjectile(Vector2 position)
+    {
+        GameObject projectile = Instantiate(projectilePrefab, position, Quaternion.identity);
+
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.down * projectileSpeed; // Move the projectile downward
+
+        Destroy(projectile, projectileLifetime); // Destroy projectile after a set time
     }
 }

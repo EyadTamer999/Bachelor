@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float speed = 5f; // Movement speed
-    public float boundaryX = 8f; // Horizontal boundary on the x-axis
-    public float boundaryY = 4.5f; // Vertical boundary on the y-axis
+    public float boundaryX = 4.3f; // Horizontal boundary on the x-axis
+    public float boundaryY = 9.5f; // Vertical boundary on the y-axis
     public GameObject projectilePrefab; // Reference to the projectile prefab
     public float projectileSpeed = 10f; // Speed of the projectile
     public float fireRate = 0.5f; // Time interval between shots
@@ -79,6 +79,14 @@ public class PlayerMovement : MonoBehaviour
         projectileRb.velocity = Vector2.up * projectileSpeed;
 
         Destroy(projectile, projectileLifetime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyProjectile") || collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
