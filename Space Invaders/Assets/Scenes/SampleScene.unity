@@ -517,22 +517,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3032608480918634927, guid: ff901871340cedb41a3fb59580740a52, type: 3}
-      propertyPath: rows
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032608480918634927, guid: ff901871340cedb41a3fb59580740a52, type: 3}
-      propertyPath: columns
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032608480918634927, guid: ff901871340cedb41a3fb59580740a52, type: 3}
-      propertyPath: boundaryX
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032608480918634927, guid: ff901871340cedb41a3fb59580740a52, type: 3}
-      propertyPath: moveDownAmount
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3369407620719224578, guid: ff901871340cedb41a3fb59580740a52, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
