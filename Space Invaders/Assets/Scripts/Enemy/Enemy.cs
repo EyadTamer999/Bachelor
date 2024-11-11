@@ -78,6 +78,11 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            // add the letter to the player's string
+            GameManager.Instance.challengeHandler.SetUserString(GameManager.Instance.challengeHandler.GetUserString() + letter);
+
+            //Enable the submit and reset buttons
+
             StartCoroutine(ShowDeathAnimation()); // Show death animation before destroying
         }
     }

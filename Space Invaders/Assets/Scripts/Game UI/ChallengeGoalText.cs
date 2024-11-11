@@ -9,25 +9,25 @@ public class ChallengeGoal : MonoBehaviour
     void Start()
     {
         // Set the goal text to the initial goal string
-        goalText.text = GameManager.Instance.ChallengeHandler.GetGoalString();
+        goalText.text = GameManager.Instance.challengeHandler.GetGoalString();
     }
 
     private void OnEnable()
     {
-        if (GameManager.Instance != null && GameManager.Instance.ChallengeHandler != null)
+        if (GameManager.Instance != null && GameManager.Instance.challengeHandler != null)
         {
             Debug.Log("Subscribing to OnGoalStringChanged event");
             // Subscribe to OnGoalStringChanged event
-            GameManager.Instance.ChallengeHandler.OnGoalStringChanged += UpdateGoalText;
+            GameManager.Instance.challengeHandler.OnGoalStringChanged += UpdateGoalText;
         }
     }
 
     private void OnDisable()
     {
-        if (GameManager.Instance != null && GameManager.Instance.ChallengeHandler != null)
+        if (GameManager.Instance != null && GameManager.Instance.challengeHandler != null)
         {
             // Unsubscribe to prevent memory leaks
-            GameManager.Instance.ChallengeHandler.OnGoalStringChanged -= UpdateGoalText;
+            GameManager.Instance.challengeHandler.OnGoalStringChanged -= UpdateGoalText;
         }
     }
 

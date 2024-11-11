@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalString: 
+  goalStringConverted: 
   userString: 
 --- !u!1 &3916223800459750255
 GameObject:
@@ -91,3 +92,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cf4028eda45d9479e29e5c61caed75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeHandler: {fileID: 6276118701983380590}
