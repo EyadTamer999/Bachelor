@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
 
         if (challengeHandler != null)
         {
-            // Reset the strings in ChallengeHandler
-            challengeHandler.gameObject.GetComponent<ChallengeHandler>().SetUserString("");
+            // Reset the UserString in the ChallengeHandler
+            GameManager.Instance.challengeHandler.SetUserString("");
 
         }
         else

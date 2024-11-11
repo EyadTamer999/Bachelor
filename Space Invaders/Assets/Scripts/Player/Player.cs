@@ -93,6 +93,9 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("EnemyProjectile") || collision.gameObject.CompareTag("Enemy"))
         {
             StartCoroutine(ShowDeathAnimation()); // Trigger death animation instead of immediate destruction
+
+            // Reset the game
+            GameManager.Instance.ResetGame();
         }
     }
 
