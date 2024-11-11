@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     public float shootingInterval = 1.5f;    // Interval between enemy shots
     public float projectileSpeed = 5f;       // Speed of the projectile
     public float projectileLifetime = 4f;    // Lifetime of the projectile
-
+    public char[] enemyLetters;            // Array of letters to assign to enemies
     private List<GameObject> enemies;        // List to keep track of enemies
     private bool movingRight = true;         // Direction flag for horizontal movement
 
@@ -40,11 +40,18 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int col = 0; col < columns; col++)
             {
+                // pick a random letter from the array
+                char letter = enemyLetters[Random.Range(0, enemyLetters.Length)];
+
                 Vector2 spawnPosition = new Vector2(
                     transform.position.x + col * spacing,
                     transform.position.y - row * spacing);
 
                 GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+                // Set the letter for the enemy
+                enemy.GetComponent<Enemy>().SetLetter(letter);
+
                 enemies.Add(enemy);
             }
         }

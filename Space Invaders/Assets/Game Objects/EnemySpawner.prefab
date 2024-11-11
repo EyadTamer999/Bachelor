@@ -55,3 +55,4 @@ MonoBehaviour:
   shootingInterval: 3
   projectileSpeed: 5
   projectileLifetime: 4
+  enemyLetters: 31003000

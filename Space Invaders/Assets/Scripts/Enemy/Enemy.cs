@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [System.Serializable]
 public class SpriteVariation
@@ -24,9 +25,15 @@ public class Enemy : MonoBehaviour
 
     public float animationInterval = 0.5f; // Interval between animation frames
 
+    [SerializeField] private char letter; // The letter associated with the enemy
+    public TextMeshProUGUI letterText; // Reference to the TextMeshProUGUI component
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Set the letter text to the assigned letter
+        letterText.text = letter.ToString();
 
         // Select a random base sprite from the list
         baseSpriteIndex = Random.Range(0, spriteVariations.Count);
@@ -96,5 +103,16 @@ public class Enemy : MonoBehaviour
             TakeDamage(1);
             Destroy(collision.gameObject);
         }
+    }
+
+    public char GetLetter()
+    {
+        return letter;
+    }
+
+    public void SetLetter(char newLetter)
+    {
+        letter = newLetter;
+        letterText.text = letter.ToString();
     }
 }
