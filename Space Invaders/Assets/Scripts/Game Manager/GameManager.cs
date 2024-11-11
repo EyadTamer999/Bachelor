@@ -45,4 +45,17 @@ public class GameManager : MonoBehaviour
         // Reload the current scene
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void Submit()
+    {
+        if (GameManager.Instance.challengeHandler.CheckStrings())
+        {
+            Debug.Log("Challenge complete!");
+            GameManager.Instance.ResetGame();
+        }
+        else
+        {
+            Debug.Log("Challenge incomplete. Try again!");
+        }
+    }
 }

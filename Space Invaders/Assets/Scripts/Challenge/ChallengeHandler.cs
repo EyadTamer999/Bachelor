@@ -12,6 +12,9 @@ public class ChallengeHandler : MonoBehaviour
     // Event to notify listeners when goalString changes
     public event Action<string> OnGoalStringChanged;
 
+    // Event to notify listeners when userString changes
+    public event Action<string> OnUserStringChanged;
+
     public void SetGoalString(string goal)
     {
         goalString = goal;
@@ -24,6 +27,7 @@ public class ChallengeHandler : MonoBehaviour
     public void SetUserString(string user)
     {
         this.userString = user;
+        OnUserStringChanged?.Invoke(user); // Trigger event on change
 
         Debug.Log("User string: " + userString);
     }
@@ -35,7 +39,7 @@ public class ChallengeHandler : MonoBehaviour
 
     public bool CheckStrings()
     {
-        return goalString == userString;
+        return goalStringConverted == userString;
     }
 
     public void ResetStrings()
