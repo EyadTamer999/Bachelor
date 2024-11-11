@@ -4239,6 +4239,9 @@ MonoBehaviour:
   - {fileID: -1368866454, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
   - {fileID: -2060807024, guid: d74be3d40fe37eb4681260a6afaccfb9, type: 3}
   deathSpriteDuration: 0.5
+  sensitivity: 1
+  smoothTime: 0.1
+  verticalInputThreshold: 1
 --- !u!58 &1680446002
 CircleCollider2D:
   m_ObjectHideFlags: 0
