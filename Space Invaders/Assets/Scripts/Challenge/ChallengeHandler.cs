@@ -1,19 +1,50 @@
 using System;
 using UnityEngine;
-
 public class ChallengeHandler : MonoBehaviour
 {
+    public enum ChallengeState
+    {
+        OnGoing,
+        Completed,
+        Failed
+    }
+
     [SerializeField] private string goalString = "";
 
     [SerializeField] private string goalStringConverted = "";
 
     [SerializeField] private string userString = "";
 
+    [SerializeField] private ChallengeState challengeState = ChallengeState.OnGoing;
+
     // Event to notify listeners when goalString changes
     public event Action<string> OnGoalStringChanged;
 
     // Event to notify listeners when userString changes
     public event Action<string> OnUserStringChanged;
+
+    [SerializeField] private GameObject challengeCompleteText;
+
+
+    public void submitChallenge()
+    {
+        // Check if the user's string matches the goal string
+        if (CheckStrings())
+        {
+            setChallengeCompleted();
+        }
+        else
+        {
+            setChallengeFailed();
+        }
+
+        // Find the ChallengeCompleteText object in the scene
+        GameObject challengeCompleteTextObject = GameObject.Find("ChallengeCompleteText");
+
+        // call the Submit method on the ChallengeCompleteText object
+        challengeCompleteTextObject.GetComponent<ChallengeCompleteText>().Submit();
+    }
+
 
     public void SetGoalString(string goal)
     {
@@ -60,5 +91,25 @@ public class ChallengeHandler : MonoBehaviour
     public string GetUserString()
     {
         return userString;
+    }
+
+    public void setChallengeCompleted()
+    {
+        challengeState = ChallengeState.Completed;
+    }
+
+    public void setChallengeFailed()
+    {
+        challengeState = ChallengeState.Failed;
+    }
+
+    public void setChallengeOnGoing()
+    {
+        challengeState = ChallengeState.OnGoing;
+    }
+
+    public ChallengeState getChallengeState()
+    {
+        return challengeState;
     }
 }

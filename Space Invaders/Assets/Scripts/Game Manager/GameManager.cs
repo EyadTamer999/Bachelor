@@ -42,20 +42,18 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("ChallengeHandler is null. Ensure it's a child of GameManager and that GameManager is set to DontDestroyOnLoad.");
         }
 
+        // set the timescale back to 1
+        Time.timeScale = 1;
+
+        // set the challenge state back to OnGoing
+        GameManager.Instance.challengeHandler.setChallengeOnGoing();
+
         // Reload the current scene
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Submit()
     {
-        if (GameManager.Instance.challengeHandler.CheckStrings())
-        {
-            Debug.Log("Challenge complete!");
-            GameManager.Instance.ResetGame();
-        }
-        else
-        {
-            Debug.Log("Challenge incomplete. Try again!");
-        }
+        GameManager.Instance.challengeHandler.submitChallenge();
     }
 }
