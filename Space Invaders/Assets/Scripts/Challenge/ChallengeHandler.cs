@@ -9,6 +9,12 @@ public class ChallengeHandler : MonoBehaviour
         Failed
     }
 
+
+    //TODO: fix impossible to win scenarios like:
+    // 1. the answer does not exist in the list of enemies
+    // 2. there is no connection or path to the correct answer - the answer is not in the first row
+    // how to fix? reshuffle until the answer exists
+
     [SerializeField] private string goalString = "";
 
     [SerializeField] private string goalStringConverted = "";

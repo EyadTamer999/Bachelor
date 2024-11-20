@@ -15,13 +15,19 @@ public class EnemySpawner : MonoBehaviour
     public float shootingInterval = 1.5f;    // Interval between enemy shots
     public float projectileSpeed = 5f;       // Speed of the projectile
     public float projectileLifetime = 4f;    // Lifetime of the projectile
+
+    //TODO get the enemy letters from the range of that the user inputs
     public char[] enemyLetters;            // Array of letters to assign to enemies
+
     private List<GameObject> enemies;        // List to keep track of enemies
+    // TODO create a list that has the previous enemies to not create the same formation
     private bool movingRight = true;         // Direction flag for horizontal movement
 
     void Start()
     {
         enemies = new List<GameObject>();
+
+        //TODO if the answer does not exist then respawn/reshuffle the enemies
         SpawnEnemies();
 
         // Start the enemy shooting coroutine
@@ -56,6 +62,8 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+
+    //TODO Respawn the enemies if the answer does not exist
 
     // Move the enemies in a group
     void MoveEnemies()
