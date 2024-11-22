@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  22 NOV 2024 14:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  22 NOV 2024 21:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -242,27 +242,29 @@ Package hyperref Info: Link coloring OFF on input line 10.
 
 [3]
 
-[4] (./GameNotes.aux)
+[4]
+
+[5] (./GameNotes.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `GameNotes.out' has not changed.
-(rerunfilecheck)             Checksum: 71946E75E5049961967478751E9B3675;439.
+(rerunfilecheck)             Checksum: 58BA36BE2B0FF1067B09E131A898D226;507.
  ) 
 Here is how much of TeX's memory you used:
- 8363 strings out of 473579
- 128532 string characters out of 5732263
+ 8366 strings out of 473579
+ 128558 string characters out of 5732263
  523270 words of memory out of 5000000
- 31190 multiletter control sequences out of 15000+600000
+ 31191 multiletter control sequences out of 15000+600000
  563026 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,6n,79p,324b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on GameNotes.pdf (4 pages, 81661 bytes).
+Output written on GameNotes.pdf (5 pages, 82951 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 84 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
