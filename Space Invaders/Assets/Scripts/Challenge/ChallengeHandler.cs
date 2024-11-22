@@ -32,16 +32,16 @@ public class ChallengeHandler : MonoBehaviour
     [SerializeField] private GameObject challengeCompleteText;
 
 
-    public void submitChallenge()
+    public void SubmitChallenge()
     {
         // Check if the user's string matches the goal string
         if (CheckStrings())
         {
-            setChallengeCompleted();
+            SetChallengeCompleted();
         }
         else
         {
-            setChallengeFailed();
+            SetChallengeFailed();
         }
 
         // Find the ChallengeCompleteText object in the scene
@@ -69,11 +69,6 @@ public class ChallengeHandler : MonoBehaviour
         Debug.Log("User string: " + userString);
     }
 
-    public void test()
-    {
-        Debug.Log("Test");
-    }
-
     public bool CheckStrings()
     {
         return goalStringConverted == userString;
@@ -94,27 +89,32 @@ public class ChallengeHandler : MonoBehaviour
         return goalString;
     }
 
+    public string GetGoalStringConverted()
+    {
+        return goalStringConverted;
+    }
+
     public string GetUserString()
     {
         return userString;
     }
 
-    public void setChallengeCompleted()
+    public void SetChallengeCompleted()
     {
         challengeState = ChallengeState.Completed;
     }
 
-    public void setChallengeFailed()
+    public void SetChallengeFailed()
     {
         challengeState = ChallengeState.Failed;
     }
 
-    public void setChallengeOnGoing()
+    public void SetChallengeOnGoing()
     {
         challengeState = ChallengeState.OnGoing;
     }
 
-    public ChallengeState getChallengeState()
+    public ChallengeState GetChallengeState()
     {
         return challengeState;
     }

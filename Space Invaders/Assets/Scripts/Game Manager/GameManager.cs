@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
         // set the challenge state back to OnGoing
-        GameManager.Instance.challengeHandler.setChallengeOnGoing();
+        GameManager.Instance.challengeHandler.SetChallengeOnGoing();
 
         // Reload the current scene
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
@@ -54,6 +54,6 @@ public class GameManager : MonoBehaviour
 
     public void Submit()
     {
-        GameManager.Instance.challengeHandler.submitChallenge();
+        GameManager.Instance.challengeHandler.SubmitChallenge();
     }
 }

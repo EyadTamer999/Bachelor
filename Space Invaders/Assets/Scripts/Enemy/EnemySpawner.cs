@@ -20,14 +20,19 @@ public class EnemySpawner : MonoBehaviour
     public char[] enemyLetters;            // Array of letters to assign to enemies
 
     private List<GameObject> enemies;        // List to keep track of enemies
-    // TODO create a list that has the previous enemies to not create the same formation
+    private List<char> previousEnemies;      // List to keep track of previous enemies
     private bool movingRight = true;         // Direction flag for horizontal movement
+    private string goalString;               // The goal string to match
 
     void Start()
     {
         enemies = new List<GameObject>();
+        previousEnemies = new List<char>();
+        goalString = GameManager.Instance.challengeHandler.GetGoalStringConverted();
+
 
         //TODO if the answer does not exist then respawn/reshuffle the enemies
+
         SpawnEnemies();
 
         // Start the enemy shooting coroutine
