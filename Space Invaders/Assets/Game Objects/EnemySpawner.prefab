@@ -28,7 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6432047, y: 3.0909743, z: -0.009288113}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,5 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 586859379922281888, guid: 13271fe51252d1e4380c163fa3b6b2be, type: 3}
-  spawnInterval: 1.5
-  spawnRangeX: 4
+  projectilePrefab: {fileID: 8647949076939050005, guid: ecd9204020f930d4ab379170ac87fc27, type: 3}
+  rows: 4
+  columns: 3
+  spacing: 1.5
+  moveSpeed: 1
+  moveDownAmount: 0.2
+  boundaryX: 3
+  shootingInterval: 3
+  projectileSpeed: 5
+  projectileLifetime: 4
+  enemyLetters: 31003000

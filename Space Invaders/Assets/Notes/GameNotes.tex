@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+
+\title{Space Invaders Notes}
+\author{Eyad Hassan}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This document contains Game Notes
+
+
+\newpage
+
+\section{Game Flow}
+
+\begin{itemize}
+    \item Instructor:
+    \begin{itemize}
+        \item \textbf{Chooses number of levels:}
+        \begin{itemize}
+            \item \textbf{Chooses Static Fields:} ex: "Convert to Binary: " and chooses type of challenge: Order/Last killed
+            \item \textbf{Chooses Dynamic Fields:} 
+            \begin{itemize}
+                \item Enters a range to choose from randomly ex: 0 to 15
+                \item Enters the number of turns or sublevels within that level (Should be an odd number)
+            \end{itemize}
+            \item Submit and move on to the next level if there is a next level
+            \item If there are no more levels to show, then show a panel with a summary to each level if the instructor wishes to edit any of the levels
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+\section{Challenge Types}
+This section explains the challenge types within the game.
+A level is won if the number of turns or sublevels is greater than the number of lost levels
+\begin{itemize}
+    \item Order: The answer is inputed based on the order the enemies were killed in.
+    \item Last Killed: The Game Manager checks on the last killed enemy and compares it to the correct answer.
+\end{itemize}
+
+\newpage
+
+\section{Bugs and Issues}
+
+
+\end{document}

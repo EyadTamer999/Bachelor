@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [System.Serializable]
 public class SpriteVariation
@@ -12,9 +13,11 @@ public class SpriteVariation
 public class Enemy : MonoBehaviour
 {
     public float speed = 2f; // Movement speed
-    public int health = 1;   // Health of the enemy, can increase for harder enemies
+    public int health = 1;   // Health of the enemy
 
     public List<SpriteVariation> spriteVariations; // List of base sprites and their variations
+    public Sprite[] deathSprites; // Array to hold the two death sprites
+    public float deathSpriteDuration = 0.5f; // Duration to show the death animation
 
     private SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
     private Sprite currentBaseSprite; // Store the currently selected base sprite
@@ -22,9 +25,15 @@ public class Enemy : MonoBehaviour
 
     public float animationInterval = 0.5f; // Interval between animation frames
 
+    [SerializeField] private char letter; // The letter associated with the enemy
+    public TextMeshProUGUI letterText; // Reference to the TextMeshProUGUI component
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Set the letter text to the assigned letter
+        letterText.text = letter.ToString();
 
         // Select a random base sprite from the list
         baseSpriteIndex = Random.Range(0, spriteVariations.Count);
@@ -69,8 +78,27 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            // add the letter to the player's string
+            GameManager.Instance.challengeHandler.SetUserString(GameManager.Instance.challengeHandler.GetUserString() + letter);
+
+            //Enable the submit and reset buttons
+
+            StartCoroutine(ShowDeathAnimation()); // Show death animation before destroying
         }
+    }
+
+    private IEnumerator ShowDeathAnimation()
+    {
+        // Loop through the death sprites
+        for (float elapsed = 0; elapsed < deathSpriteDuration; elapsed += Time.deltaTime)
+        {
+            // Switch between the two death sprites
+            spriteRenderer.sprite = deathSprites[(int)(elapsed / (deathSpriteDuration / 2)) % 2];
+            yield return null; // Wait for the next frame
+        }
+
+        // Destroy the enemy object
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -80,5 +108,16 @@ public class Enemy : MonoBehaviour
             TakeDamage(1);
             Destroy(collision.gameObject);
         }
+    }
+
+    public char GetLetter()
+    {
+        return letter;
+    }
+
+    public void SetLetter(char newLetter)
+    {
+        letter = newLetter;
+        letterText.text = letter.ToString();
     }
 }
