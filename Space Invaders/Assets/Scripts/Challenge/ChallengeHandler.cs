@@ -118,4 +118,11 @@ public class ChallengeHandler : MonoBehaviour
     {
         return challengeState;
     }
+
+    public bool IsPossibleToFormGoalString(System.Collections.Generic.List<GameObject> enemies, string goalString)
+    {
+        //Check if the goal string can be formed with the current enemies
+        return true;
+
+    }
 }

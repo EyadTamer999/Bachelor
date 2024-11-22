@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     public float projectileLifetime = 4f;    // Lifetime of the projectile
 
     //TODO get the enemy letters from the range of that the user inputs
-    public char[] enemyLetters;            // Array of letters to assign to enemies
+    public char[] enemyLetters;            // Array of letters to assign to enemies, the range of letters or the chosen letters will be determined by the instructor
 
     private List<GameObject> enemies;        // List to keep track of enemies
     private List<char> previousEnemies;      // List to keep track of previous enemies
@@ -31,28 +33,77 @@ public class EnemySpawner : MonoBehaviour
         goalString = GameManager.Instance.challengeHandler.GetGoalStringConverted();
 
 
-        //TODO if the answer does not exist then respawn/reshuffle the enemies
-
         SpawnEnemies();
+        CopyEnemies();
+        CheckIfAnswerExists();
 
         // Start the enemy shooting coroutine
         StartCoroutine(EnemyShootingRoutine());
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        CheckIfAnswerExists();
         MoveEnemies();
     }
 
     // Spawn the enemies in a grid formation
     void SpawnEnemies()
     {
+        int totalEnemies = rows * columns;
+        HashSet<int> goalPathIndices = new HashSet<int>(); // Tracks indices used for the goal path
+        int goalIndex = 0;
+
+        // Ensure the grid has room for the goal string
+        if (goalString.Length > totalEnemies)
+        {
+            Debug.LogError("Goal string is longer than the grid size!");
+            return;
+        }
+
+        // Step 1: Assign letters from goalString to a valid path (bottom or sides)
+        for (int row = rows - 1; row >= 0 && goalIndex < goalString.Length; row--)
+        {
+            for (int col = 0; col < columns && goalIndex < goalString.Length; col++)
+            {
+                int currentIndex = row * columns + col;
+
+                // Choose valid positions starting from bottom or sides
+                if (row == rows - 1 || col == 0 || col == columns - 1)
+                {
+                    Vector2 spawnPosition = new Vector2(
+                        transform.position.x + col * spacing,
+                        transform.position.y - row * spacing);
+
+                    GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+                    // Set the goal letter
+                    enemy.GetComponent<Enemy>().SetLetter(goalString[goalIndex]);
+                    goalIndex++;
+                    goalPathIndices.Add(currentIndex);
+                    enemies.Add(enemy);
+                }
+            }
+        }
+
+        // Step 2: Fill remaining grid positions with random letters
         for (int row = 0; row < rows; row++)
         {
             for (int col = 0; col < columns; col++)
             {
-                // pick a random letter from the array
-                char letter = enemyLetters[Random.Range(0, enemyLetters.Length)];
+                int currentIndex = row * columns + col;
+
+                // Skip positions already assigned for the goal string
+                if (goalPathIndices.Contains(currentIndex))
+                    continue;
+
+                char randomLetter = enemyLetters[Random.Range(0, enemyLetters.Length)];
+
+                // Ensure the random letter is not the same as the previous letter in this spot
+                while (previousEnemies.Count > currentIndex && previousEnemies[currentIndex] == randomLetter)
+                {
+                    randomLetter = enemyLetters[Random.Range(0, enemyLetters.Length)];
+                }
 
                 Vector2 spawnPosition = new Vector2(
                     transform.position.x + col * spacing,
@@ -61,12 +112,12 @@ public class EnemySpawner : MonoBehaviour
                 GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
 
                 // Set the letter for the enemy
-                enemy.GetComponent<Enemy>().SetLetter(letter);
-
+                enemy.GetComponent<Enemy>().SetLetter(randomLetter);
                 enemies.Add(enemy);
             }
         }
     }
+
 
     //TODO Respawn the enemies if the answer does not exist
 
@@ -152,5 +203,70 @@ public class EnemySpawner : MonoBehaviour
         rb.velocity = Vector2.down * projectileSpeed; // Move the projectile downward
 
         Destroy(projectile, projectileLifetime); // Destroy projectile after a set time
+    }
+
+    // Copy the list of enemies to the previousEnemies list
+    void CopyEnemies()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                previousEnemies.Add(enemy.GetComponent<Enemy>().GetLetter());
+            }
+        }
+    }
+
+    // Check if the answer exists in the list of enemies
+    void CheckIfAnswerExists()
+    {
+        string goalString = GameManager.Instance.challengeHandler.GetGoalStringConverted();
+        List<char> currentLetters = enemies
+            .Where(e => e != null)
+            .Select(e => e.GetComponent<Enemy>().GetLetter())
+            .ToList();
+
+        bool answerExists = IsGoalAchievable(goalString, currentLetters);
+
+        if (!answerExists)
+        {
+            Debug.Log("Answer does not exist in the list of enemies, reshuffling...");
+            ReshuffleEnemies();
+        }
+    }
+
+
+    bool IsGoalAchievable(string goal, List<char> letters)
+    {
+        // Simple sliding window to find a substring match
+        for (int i = 0; i <= letters.Count - goal.Length; i++)
+        {
+            if (letters.Skip(i).Take(goal.Length).SequenceEqual(goal))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    // Reshuffle the enemies until the answer exists
+    void ReshuffleEnemies()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                Destroy(enemy);
+            }
+        }
+
+        enemies.Clear();
+        previousEnemies.Clear();
+
+        SpawnEnemies();
+        CopyEnemies();
+        CheckIfAnswerExists();
     }
 }
