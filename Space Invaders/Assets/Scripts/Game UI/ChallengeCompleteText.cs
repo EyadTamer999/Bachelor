@@ -14,7 +14,7 @@ public class ChallengeCompleteText : MonoBehaviour
         ChallengeHandler challengeHandler = GameManager.Instance.challengeHandler;
 
         // Check if the challenge is completed
-        if (challengeHandler.getChallengeState() == ChallengeHandler.ChallengeState.Completed)
+        if (challengeHandler.GetChallengeState() == ChallengeHandler.ChallengeState.Completed)
         {
             // Set the text to display
             GetComponent<TMPro.TextMeshProUGUI>().text = "Challenge Complete!";

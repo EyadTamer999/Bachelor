@@ -9,6 +9,12 @@ public class ChallengeHandler : MonoBehaviour
         Failed
     }
 
+
+    //TODO: fix impossible to win scenarios like:
+    // 1. the answer does not exist in the list of enemies
+    // 2. there is no connection or path to the correct answer - the answer is not in the first row
+    // how to fix? reshuffle until the answer exists
+
     [SerializeField] private string goalString = "";
 
     [SerializeField] private string goalStringConverted = "";
@@ -26,16 +32,16 @@ public class ChallengeHandler : MonoBehaviour
     [SerializeField] private GameObject challengeCompleteText;
 
 
-    public void submitChallenge()
+    public void SubmitChallenge()
     {
         // Check if the user's string matches the goal string
         if (CheckStrings())
         {
-            setChallengeCompleted();
+            SetChallengeCompleted();
         }
         else
         {
-            setChallengeFailed();
+            SetChallengeFailed();
         }
 
         // Find the ChallengeCompleteText object in the scene
@@ -63,11 +69,6 @@ public class ChallengeHandler : MonoBehaviour
         Debug.Log("User string: " + userString);
     }
 
-    public void test()
-    {
-        Debug.Log("Test");
-    }
-
     public bool CheckStrings()
     {
         return goalStringConverted == userString;
@@ -88,28 +89,40 @@ public class ChallengeHandler : MonoBehaviour
         return goalString;
     }
 
+    public string GetGoalStringConverted()
+    {
+        return goalStringConverted;
+    }
+
     public string GetUserString()
     {
         return userString;
     }
 
-    public void setChallengeCompleted()
+    public void SetChallengeCompleted()
     {
         challengeState = ChallengeState.Completed;
     }
 
-    public void setChallengeFailed()
+    public void SetChallengeFailed()
     {
         challengeState = ChallengeState.Failed;
     }
 
-    public void setChallengeOnGoing()
+    public void SetChallengeOnGoing()
     {
         challengeState = ChallengeState.OnGoing;
     }
 
-    public ChallengeState getChallengeState()
+    public ChallengeState GetChallengeState()
     {
         return challengeState;
+    }
+
+    public bool IsPossibleToFormGoalString(System.Collections.Generic.List<GameObject> enemies, string goalString)
+    {
+        //Check if the goal string can be formed with the current enemies
+        return true;
+
     }
 }
