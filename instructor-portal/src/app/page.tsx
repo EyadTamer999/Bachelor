@@ -26,9 +26,20 @@ export default function Home() {
 
         {/* Level Text */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-text mb-2">
-            Challenge Text
-          </label>
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-text">
+              Challenge Text
+            </label>
+            <div className="relative group">
+              <span className="text-neutral-gray hover:text-secondary cursor-pointer">
+                ℹ️
+              </span>
+              <div className="z-50 w-40 absolute right-1/2 top-4 -translate-y-1/2 bg-neutral-gray text-sm text-neutral-white px-3 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Will show in-game as the challenge text: e.g., Convert To
+                Binary: 4
+              </div>
+            </div>
+          </div>
           <input
             type="text"
             placeholder="e.g., Convert To Binary"
@@ -38,9 +49,19 @@ export default function Home() {
 
         {/* Characters */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-text mb-2">
-            Characters
-          </label>
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-text">Characters</label>
+            <div className="relative group">
+              <span className="text-neutral-gray hover:text-secondary cursor-pointer">
+                ℹ️
+              </span>
+              <div className="z-50 w-40 absolute right-1/2 top-4 -translate-y-1/2 bg-neutral-gray text-sm text-neutral-white px-3 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Define the characters that will be used in the game. <br />
+                e.g., 1-10 as in range from 1 to 10, A,B,C as in specifically A,
+                B, and C, or a-z as in range from a to z.
+              </div>
+            </div>
+          </div>
           <input
             type="text"
             placeholder="1-10 or A,B,C or a-z"
@@ -50,9 +71,20 @@ export default function Home() {
 
         {/* Number of Turns */}
         <div className="mb-6">
-          <label className="block text-sm font-medium text-text mb-2">
-            Number Of Turns
-          </label>
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-text">
+              Number Of Turns
+            </label>
+            <div className="relative group">
+              <span className="text-neutral-gray hover:text-secondary cursor-pointer">
+                ℹ️
+              </span>
+              <div className="z-50 w-40 absolute right-1/2 top-4 -translate-y-1/2 bg-neutral-gray text-sm text-neutral-white px-3 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Specify the number of turns has to be odd to calculate if the
+                player will move on to the next level.
+              </div>
+            </div>
+          </div>
           <input
             type="text"
             placeholder="Enter an odd number of turns"
