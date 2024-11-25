@@ -6,11 +6,11 @@ using UnityEngine;
 public class Level
 {
     public int level { get; private set; }
-    public List<string> characters { get; private set; }
+    public List<char> characters { get; private set; }
     public string text { get; private set; }
     public int turns { get; private set; }
 
-    public Level(int level, List<string> characters, string text, int turns)
+    public Level(int level, List<char> characters, string text, int turns)
     {
         this.level = level;
         this.characters = characters;

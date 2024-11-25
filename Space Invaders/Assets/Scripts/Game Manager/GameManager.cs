@@ -9,6 +9,12 @@ public class GameManager : MonoBehaviour
 
     private List<Level> levels;
 
+    // Indicates the current level the player is on
+    private int currentLevel;
+
+    // Indicates the current turn the player is on
+    private int currentTurn;
+
     private async void Awake()
     {
         if (Instance == null)
@@ -34,6 +40,21 @@ public class GameManager : MonoBehaviour
 
             // Fetch levels asynchronously and assign them to the levels list
             levels = await databaseManager.FetchLevels();
+
+            // Set the current level to 1
+            currentLevel = 1;
+
+            // Set the current turn to 1
+            currentTurn = 1;
+
+            Debug.Log("Levels fetched from database.");
+
+            // print out the levels
+            foreach (Level level in levels)
+            {
+                Debug.Log(level.level);
+                Debug.Log(level.characters);
+            }
 
         }
         else
@@ -82,4 +103,20 @@ public class GameManager : MonoBehaviour
     {
         return levels;
     }
+
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
+    }
+
+    public int GetCurrentTurn()
+    {
+        return currentTurn;
+    }
+
+    public List<char> GetLevelLetters(int level)
+    {
+        return GetLevel(level).characters;
+    }
+
 }
