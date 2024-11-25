@@ -15,19 +15,28 @@ public class DatabaseManager : MonoBehaviour
         {
             foreach (DataSnapshot data in level.Child("levels").Children)
             {
+                // Parse the "parsedCharacters" as a List<string>
+                List<string> parsedCharacters = new List<string>();
+
+                // Assuming "parsedCharacters" is stored as an array in Firebase
+                foreach (DataSnapshot character in data.Child("data").Child("parsedCharacters").Children)
+                {
+                    parsedCharacters.Add(character.Value.ToString());
+                }
+
+                // Create a new Level object and add it to the list
                 Level newLevel = new Level(
                     int.Parse(data.Child("level").Value.ToString()),
-                    data.Child("data").Child("characters").Value.ToString(),
+                    parsedCharacters,
                     data.Child("data").Child("text").Value.ToString(),
                     int.Parse(data.Child("data").Child("turns").Value.ToString())
                 );
 
+                // Add the new level to the list
                 levels.Add(newLevel);
             }
         }
 
         return levels;
     }
-
-
 }

@@ -4,33 +4,27 @@ import React, { useState } from "react";
 import { generateGame } from "@/utils/fetchApi";
 
 export default function Home() {
-  // State for the current level
   const [currentLevel, setCurrentLevel] = useState(1);
-
   const [levels, setLevels] = useState([
-    { level: 1, data: { text: "", characters: "", turns: 0 } },
+    { level: 1, data: { text: "", characters: "", turns: "" } },
   ]);
+  const [warning, setWarning] = useState("");
 
-  // Function to handle the increment of the level
   const handleIncrementLevel = () => {
     setCurrentLevel((prev) => {
       const newLevel = prev + 1;
-
-      // Use the latest state of levels to avoid adding duplicates
-      setLevels((prevLevels: any) => {
-        // Check if the new level exists before adding it
-        if (!prevLevels.find((item: any) => item.level === newLevel)) {
+      setLevels((prevLevels) => {
+        if (!prevLevels.find((item) => item.level === newLevel)) {
           return [
             ...prevLevels,
             {
               level: newLevel,
-              data: {}, // Initialize empty data for the new level
+              data: { text: "", characters: "", turns: "" },
             },
           ];
         }
-        return prevLevels; // If it exists, just return the current state
+        return prevLevels;
       });
-
       return newLevel;
     });
   };
@@ -39,9 +33,11 @@ export default function Home() {
     if (currentLevel === 1) return;
 
     setLevels((prevLevels) => {
-      // Remove the last level if data is empty
-      if (Object.keys(prevLevels[prevLevels.length - 1].data).length === 0) {
-        return prevLevels.slice(0, -1); // Remove the last level if data is empty
+      if (
+        prevLevels[prevLevels.length - 1].level === currentLevel &&
+        Object.keys(prevLevels[prevLevels.length - 1].data).length === 0
+      ) {
+        return prevLevels.slice(0, -1);
       }
       return prevLevels;
     });
@@ -71,14 +67,88 @@ export default function Home() {
       return prevLevels.filter((level) => level.level !== currentLevel);
     });
 
-    setCurrentLevel((prev) => prev - 1);
+    setCurrentLevel((prev) => Math.max(1, prev - 1));
   };
 
-  const handleGenerateGame = () => {
-    console.log(levels);
+  const handleGenerateGame = async () => {
+    const incompleteLevels = levels.filter(
+      (level) => !level.data.text || !level.data.characters || !level.data.turns
+    );
 
-    // Call the generateGame function and pass the levels
-    generateGame(levels);
+    if (incompleteLevels.length > 0) {
+      setWarning(
+        `Please fill out all fields for level(s): ${incompleteLevels
+          .map((level) => level.level)
+          .join(", ")}`
+      );
+      return;
+    }
+
+    // Ensure parseCharacters completes before proceeding
+    await new Promise<void>((resolve) => {
+      setLevels((prevLevels) => {
+        const updatedLevels = prevLevels.map((level) => {
+          const { characters } = level.data;
+
+          if (!characters) return level;
+
+          let parsedCharacters: string[] = [];
+
+          const segments = characters.split(",");
+
+          segments.forEach((segment) => {
+            segment = segment.trim();
+
+            if (segment.includes("-")) {
+              const [start, end] = segment.split("-");
+
+              if (!start || !end) return;
+
+              if (!isNaN(Number(start)) && !isNaN(Number(end))) {
+                const startNum = Number(start);
+                const endNum = Number(end);
+
+                for (let i = startNum; i <= endNum; i++) {
+                  parsedCharacters.push(i.toString());
+                }
+              } else if (
+                start.length === 1 &&
+                end.length === 1 &&
+                /[A-Za-z]/.test(start) &&
+                /[A-Za-z]/.test(end)
+              ) {
+                const startCharCode = start.charCodeAt(0);
+                const endCharCode = end.charCodeAt(0);
+
+                if (startCharCode <= endCharCode) {
+                  for (let i = startCharCode; i <= endCharCode; i++) {
+                    parsedCharacters.push(String.fromCharCode(i));
+                  }
+                }
+              }
+            } else {
+              parsedCharacters.push(segment);
+            }
+          });
+
+          return {
+            ...level,
+            data: {
+              ...level.data,
+              parsedCharacters: parsedCharacters,
+            },
+          };
+        });
+
+        resolve(); // Ensure this resolves once the state update logic completes
+        return updatedLevels;
+      });
+    });
+
+    // State has updated here, proceed with other logic
+    console.log(levels); // Log updated levels with parsed characters
+    setWarning(""); // Clear warning if validation passes
+    await generateGame(levels); // Call the generateGame function
   };
 
   return (
@@ -89,10 +159,16 @@ export default function Home() {
         </h1>
       </div>
 
-      <div className="mb-6 w-full max-w-md text-center">
+      <div className="mb-6 w-full max-w-md text-center space-y-2">
         <h2 className="bg-secondary text-neutral-white px-5 py-3 rounded-lg shadow-md text-lg font-semibold md:text-xl lg:px-8 lg:py-4">
           My Level(s): {levels.length || 1}
         </h2>
+
+        {warning && (
+          <div className="text-red-500 font-medium text-center bg-red-100 p-3 rounded-lg">
+            {warning}
+          </div>
+        )}
       </div>
 
       <div className="flex items-center w-full justify-center space-x-4">
@@ -113,11 +189,9 @@ export default function Home() {
           </div>
 
           <div className="mb-4">
-            <div className="flex items-center justify-between">
-              <label className="text-sm font-medium text-text">
-                Challenge Text
-              </label>
-            </div>
+            <label className="text-sm font-medium text-text">
+              Challenge Text
+            </label>
             <input
               type="text"
               placeholder="e.g., Convert To Binary"
@@ -131,11 +205,7 @@ export default function Home() {
           </div>
 
           <div className="mb-4">
-            <div className="flex items-center justify-between">
-              <label className="text-sm font-medium text-text">
-                Characters
-              </label>
-            </div>
+            <label className="text-sm font-medium text-text">Characters</label>
             <input
               type="text"
               placeholder="1-10 or A,B,C or a-z"
@@ -149,11 +219,9 @@ export default function Home() {
           </div>
 
           <div className="mb-6">
-            <div className="flex items-center justify-between">
-              <label className="text-sm font-medium text-text">
-                Number Of Turns
-              </label>
-            </div>
+            <label className="text-sm font-medium text-text">
+              Number Of Turns
+            </label>
             <input
               type="text"
               placeholder="Enter an odd number of turns"
@@ -166,7 +234,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Delete Level Button */}
           {currentLevel !== 1 && (
             <div className="flex justify-center">
               <button
