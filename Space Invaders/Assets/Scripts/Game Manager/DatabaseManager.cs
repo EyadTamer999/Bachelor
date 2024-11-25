@@ -1,42 +1,33 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using Firebase;
+using System.Threading.Tasks;
 using Firebase.Database;
+using UnityEngine;
 
 public class DatabaseManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Fetch levels from the database and return a Task
+    public async Task<List<Level>> FetchLevels()
     {
-        DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
-    }
+        List<Level> levels = new List<Level>();
 
-    // Fetch levels from the database
-    public void FetchLevels()
-    {
-        FirebaseDatabase.DefaultInstance.GetReference("Levels").GetValueAsync().ContinueWith(task =>
+        DataSnapshot snapshot = await FirebaseDatabase.DefaultInstance.GetReference("Levels").GetValueAsync();
+        foreach (DataSnapshot level in snapshot.Children)
         {
-            if (task.IsFaulted)
+            foreach (DataSnapshot data in level.Child("levels").Children)
             {
-                Debug.Log("Error fetching levels");
-            }
-            else if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-                foreach (DataSnapshot level in snapshot.Children)
-                {
-                    Debug.Log(level.Key);
-                    Debug.Log(level.GetRawJsonValue());
-                    Debug.Log(level.Child("levels").GetRawJsonValue());
-                    Debug.Log(level.Child("levels").Child("0").GetRawJsonValue());
-                    Debug.Log(level.Child("levels").Child("0").Child("data").GetRawJsonValue());
-                    // {"createdAt":1732550660619,"levels":[{"data":{"characters":"1-10","text":"Convert to binary","turns":"3"},"level":1}]}
-                    // create a new Level object from the JSON data
+                Level newLevel = new Level(
+                    int.Parse(data.Child("level").Value.ToString()),
+                    data.Child("data").Child("characters").Value.ToString(),
+                    data.Child("data").Child("text").Value.ToString(),
+                    int.Parse(data.Child("data").Child("turns").Value.ToString())
+                );
 
-                }
+                levels.Add(newLevel);
             }
-        });
+        }
+
+        return levels;
     }
+
 
 }
