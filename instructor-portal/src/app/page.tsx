@@ -9,6 +9,8 @@ export default function Home() {
     { level: 1, data: { text: "", characters: "", turns: "" } },
   ]);
   const [warning, setWarning] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleIncrementLevel = () => {
     setCurrentLevel((prev) => {
@@ -84,71 +86,70 @@ export default function Home() {
       return;
     }
 
-    // Ensure parseCharacters completes before proceeding
-    await new Promise<void>((resolve) => {
-      setLevels((prevLevels) => {
-        const updatedLevels = prevLevels.map((level) => {
-          const { characters } = level.data;
+    setLoading(true); // Set loading state
 
-          if (!characters) return level;
+    // Process the updated levels with parsed characters
+    const updatedLevels = levels.map((level) => {
+      const { characters } = level.data;
 
-          let parsedCharacters: string[] = [];
+      if (!characters) return level;
 
-          const segments = characters.split(",");
+      let parsedCharacters: string[] = [];
 
-          segments.forEach((segment) => {
-            segment = segment.trim();
+      const segments = characters.split(",");
 
-            if (segment.includes("-")) {
-              const [start, end] = segment.split("-");
+      segments.forEach((segment) => {
+        segment = segment.trim();
 
-              if (!start || !end) return;
+        if (segment.includes("-")) {
+          const [start, end] = segment.split("-");
 
-              if (!isNaN(Number(start)) && !isNaN(Number(end))) {
-                const startNum = Number(start);
-                const endNum = Number(end);
+          if (!start || !end) return;
 
-                for (let i = startNum; i <= endNum; i++) {
-                  parsedCharacters.push(i.toString());
-                }
-              } else if (
-                start.length === 1 &&
-                end.length === 1 &&
-                /[A-Za-z]/.test(start) &&
-                /[A-Za-z]/.test(end)
-              ) {
-                const startCharCode = start.charCodeAt(0);
-                const endCharCode = end.charCodeAt(0);
+          if (!isNaN(Number(start)) && !isNaN(Number(end))) {
+            const startNum = Number(start);
+            const endNum = Number(end);
 
-                if (startCharCode <= endCharCode) {
-                  for (let i = startCharCode; i <= endCharCode; i++) {
-                    parsedCharacters.push(String.fromCharCode(i));
-                  }
-                }
-              }
-            } else {
-              parsedCharacters.push(segment);
+            for (let i = startNum; i <= endNum; i++) {
+              parsedCharacters.push(i.toString());
             }
-          });
+          } else if (
+            start.length === 1 &&
+            end.length === 1 &&
+            /[A-Za-z]/.test(start) &&
+            /[A-Za-z]/.test(end)
+          ) {
+            const startCharCode = start.charCodeAt(0);
+            const endCharCode = end.charCodeAt(0);
 
-          return {
-            ...level,
-            data: {
-              ...level.data,
-              parsedCharacters: parsedCharacters,
-            },
-          };
-        });
-
-        resolve(); // Ensure this resolves once the state update logic completes
-        return updatedLevels;
+            if (startCharCode <= endCharCode) {
+              for (let i = startCharCode; i <= endCharCode; i++) {
+                parsedCharacters.push(String.fromCharCode(i));
+              }
+            }
+          }
+        } else {
+          parsedCharacters.push(segment);
+        }
       });
+
+      return {
+        ...level,
+        data: {
+          ...level.data,
+          parsedCharacters,
+        },
+      };
     });
 
-    // State has updated here, proceed with other logic
-    console.log(levels); // Log updated levels with parsed characters
-    setWarning(""); // Clear warning if validation passes
-    await generateGame(levels); // Call the generateGame function
+    // Update the state with the fully processed levels
+    setLevels(updatedLevels);
+
+    // Proceed with further logic after state update
+    setWarning(""); // Clear any warnings
+    await generateGame(updatedLevels); // Pass the updated levels to generateGame
+    setSuccess("Game generated successfully!"); // Set success message
+    setLoading(false); // Reset loading state
   };
 
   return (
@@ -167,6 +168,12 @@ export default function Home() {
         {warning && (
           <div className="text-red-500 font-medium text-center bg-red-100 p-3 rounded-lg">
             {warning}
+          </div>
+        )}
+
+        {success && (
+          <div className="text-green-500 font-medium text-center bg-green-100 p-3 rounded-lg">
+            {success}
           </div>
         )}
       </div>
@@ -259,9 +266,11 @@ export default function Home() {
       <div className="mt-6">
         <button
           onClick={handleGenerateGame}
-          className="bg-accent-orange text-neutral-white px-8 py-3 rounded-xl shadow-md hover:bg-accent-orange/90 focus:ring focus:ring-accent-orange/50 transition-all md:px-10 md:py-4"
+          className={`bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md hover:bg-accent-green/90 focus:ring focus:ring-accent-green/50 transition-all ${
+            loading ? "opacity-70 cursor-not-allowed" : ""
+          }`}
         >
-          Generate Game
+          {loading ? "Generating..." : "Generate Game"}
         </button>
       </div>
     </div>
