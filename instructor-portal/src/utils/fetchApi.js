@@ -10,7 +10,7 @@ const generateGame = async (levels) => {
         };
 
         // Create a reference in the Realtime Database
-        const gameRef = ref(db, `games/${Date.now()}`); // Unique key for the game
+        const gameRef = ref(db, `Levels/${Date.now()}`); // Unique key for the game
 
         // Push the data to the database
         await set(gameRef, gameData);

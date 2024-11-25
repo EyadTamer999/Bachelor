@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public ChallengeHandler challengeHandler { get; private set; }
+    public DatabaseManager databaseManager { get; private set; }
 
     private void Awake()
     {
@@ -15,10 +16,21 @@ public class GameManager : MonoBehaviour
             // Retrieve ChallengeHandler as it is a child of this GameObject
             challengeHandler = GetComponentInChildren<ChallengeHandler>();
 
+            // Retrieve DatabaseManager as it is a child of this GameObject
+            databaseManager = GetComponentInChildren<DatabaseManager>();
+
             if (challengeHandler == null)
             {
                 Debug.LogError("ChallengeHandler not found as a child of GameManager.");
             }
+
+            if (databaseManager == null)
+            {
+                Debug.LogError("DatabaseManager not found as a child of GameManager.");
+            }
+
+            // Fetch levels from the database
+            databaseManager.FetchLevels();
         }
         else
         {
