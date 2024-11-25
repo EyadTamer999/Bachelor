@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { generateGame } from "@/utils/fetchApi";
 
 export default function Home() {
   // State for the current level
@@ -65,8 +66,19 @@ export default function Home() {
     });
   };
 
+  const deleteLevel = () => {
+    setLevels((prevLevels) => {
+      return prevLevels.filter((level) => level.level !== currentLevel);
+    });
+
+    setCurrentLevel((prev) => prev - 1);
+  };
+
   const handleGenerateGame = () => {
     console.log(levels);
+
+    // Call the generateGame function and pass the levels
+    generateGame(levels);
   };
 
   return (
@@ -155,11 +167,16 @@ export default function Home() {
           </div>
 
           {/* Delete Level Button */}
-          <div className="flex justify-center">
-            <button className="bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md hover:bg-error focus:ring focus:ring-error transition-all">
-              Delete Level
-            </button>
-          </div>
+          {currentLevel !== 1 && (
+            <div className="flex justify-center">
+              <button
+                onClick={deleteLevel}
+                className="bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md hover:bg-error focus:ring focus:ring-error transition-all"
+              >
+                Delete Level
+              </button>
+            </div>
+          )}
         </div>
 
         <div>
