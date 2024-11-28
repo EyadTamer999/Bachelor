@@ -49,6 +49,7 @@ public class EnemySpawner : MonoBehaviour
     // Spawn the enemies in a grid formation
     void SpawnEnemies()
     {
+        ImportLetters();
         int totalEnemies = rows * columns;
         HashSet<int> goalPathIndices = new HashSet<int>(); // Tracks indices used for the goal path
         int goalIndex = 0;
@@ -116,9 +117,6 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
-
-
-    //TODO Respawn the enemies if the answer does not exist
 
     // Move the enemies in a group
     void MoveEnemies()
