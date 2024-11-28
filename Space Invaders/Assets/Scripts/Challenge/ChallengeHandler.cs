@@ -32,10 +32,16 @@ public class ChallengeHandler : MonoBehaviour
         if (CheckStrings())
         {
             SetChallengeCompleted();
+
+            // go to the next turn
+            GameManager.Instance.levelManager.NextTurn(true);
         }
         else
         {
             SetChallengeFailed();
+
+            // go to the next turn
+            GameManager.Instance.levelManager.NextTurn(false);
         }
 
         // Find the ChallengeCompleteText object in the scene

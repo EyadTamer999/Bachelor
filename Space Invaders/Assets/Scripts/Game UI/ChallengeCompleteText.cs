@@ -8,7 +8,7 @@ public class ChallengeCompleteText : MonoBehaviour
     public void Submit()
     {
         // Pause the game
-        Time.timeScale = 0;
+        // Time.timeScale = 0;
 
         // Get the challenge state from the ChallengeHandler
         ChallengeHandler challengeHandler = GameManager.Instance.challengeHandler;

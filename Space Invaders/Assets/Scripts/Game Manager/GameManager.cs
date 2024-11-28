@@ -35,9 +35,18 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("DatabaseManager not found as a child of GameManager.");
             }
 
+            // TODO wait for the database to complete fetching before starting the game
             // Fetch levels asynchronously and assign them to the levels list in LevelManager
             levelManager.SetLevels(await databaseManager.FetchLevels());
 
+            // print the levels to the console
+            // foreach (Level level in levelManager.levels)
+            // {
+            //     Debug.Log("Level: " + level.level);
+            //     Debug.Log("Characters: " + string.Join(", ", level.characters));
+            //     Debug.Log("Text: " + level.text);
+            //     Debug.Log("Turns: " + level.turns);
+            // }
         }
         else
         {
