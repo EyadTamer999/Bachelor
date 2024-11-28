@@ -272,16 +272,7 @@ public class EnemySpawner : MonoBehaviour
     // Import the letters from the GameManager
     void ImportLetters()
     {
-        // Get the current level, then get the letters for that level
-        int currentLevel = GameManager.Instance.GetCurrentLevel();
-
-        Debug.Log("Current level: " + currentLevel);
-
-        Debug.Log("Importing letters from GameManager...");
-
-        Debug.Log("Current level letters: " + GameManager.Instance.GetLevelLetters(currentLevel));
-
         // Get the letters for the current level
-        enemyLetters = GameManager.Instance.GetLevelLetters(currentLevel);
+        enemyLetters = GameManager.Instance.levelManager.GetLevelLetters();
     }
 }

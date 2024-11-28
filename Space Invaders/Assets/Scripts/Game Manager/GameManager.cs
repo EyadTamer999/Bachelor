@@ -6,14 +6,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public ChallengeHandler challengeHandler { get; private set; }
     public DatabaseManager databaseManager { get; private set; }
+    public LevelManager levelManager { get; private set; }
 
-    private List<Level> levels;
-
-    // Indicates the current level the player is on
-    private int currentLevel;
-
-    // Indicates the current turn the player is on
-    private int currentTurn;
 
     private async void Awake()
     {
@@ -28,6 +22,9 @@ public class GameManager : MonoBehaviour
             // Retrieve DatabaseManager as it is a child of this GameObject
             databaseManager = GetComponentInChildren<DatabaseManager>();
 
+            // Retrieve LevelManager as it is a child of this GameObject
+            levelManager = GetComponentInChildren<LevelManager>();
+
             if (challengeHandler == null)
             {
                 Debug.LogError("ChallengeHandler not found as a child of GameManager.");
@@ -38,23 +35,8 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("DatabaseManager not found as a child of GameManager.");
             }
 
-            // Fetch levels asynchronously and assign them to the levels list
-            levels = await databaseManager.FetchLevels();
-
-            // Set the current level to 1
-            currentLevel = 1;
-
-            // Set the current turn to 1
-            currentTurn = 1;
-
-            Debug.Log("Levels fetched from database.");
-
-            // print out the levels
-            foreach (Level level in levels)
-            {
-                Debug.Log(level.level);
-                Debug.Log(level.characters);
-            }
+            // Fetch levels asynchronously and assign them to the levels list in LevelManager
+            levelManager.SetLevels(await databaseManager.FetchLevels());
 
         }
         else
@@ -93,30 +75,4 @@ public class GameManager : MonoBehaviour
     {
         GameManager.Instance.challengeHandler.SubmitChallenge();
     }
-
-    public Level GetLevel(int level)
-    {
-        return levels.Find(l => l.level == level);
-    }
-
-    public List<Level> GetLevels()
-    {
-        return levels;
-    }
-
-    public int GetCurrentLevel()
-    {
-        return currentLevel;
-    }
-
-    public int GetCurrentTurn()
-    {
-        return currentTurn;
-    }
-
-    public List<char> GetLevelLetters(int level)
-    {
-        return GetLevel(level).characters;
-    }
-
 }
