@@ -17,10 +17,7 @@ public class EnemySpawner : MonoBehaviour
     public float shootingInterval = 1.5f;    // Interval between enemy shots
     public float projectileSpeed = 5f;       // Speed of the projectile
     public float projectileLifetime = 4f;    // Lifetime of the projectile
-
-    //TODO get the enemy letters from the range of that the user inputs
-    public char[] enemyLetters;            // Array of letters to assign to enemies, the range of letters or the chosen letters will be determined by the instructor
-
+    public List<char> enemyLetters;            // Array of letters to assign to enemies, the range of letters or the chosen letters will be determined by the instructor
     private List<GameObject> enemies;        // List to keep track of enemies
     private List<char> previousEnemies;      // List to keep track of previous enemies
     private bool movingRight = true;         // Direction flag for horizontal movement
@@ -28,6 +25,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        ImportLetters();
+
         enemies = new List<GameObject>();
         previousEnemies = new List<char>();
         goalString = GameManager.Instance.challengeHandler.GetGoalStringConverted();
@@ -97,12 +96,12 @@ public class EnemySpawner : MonoBehaviour
                 if (goalPathIndices.Contains(currentIndex))
                     continue;
 
-                char randomLetter = enemyLetters[Random.Range(0, enemyLetters.Length)];
+                char randomLetter = enemyLetters[Random.Range(0, enemyLetters.Count)];
 
                 // Ensure the random letter is not the same as the previous letter in this spot
                 while (previousEnemies.Count > currentIndex && previousEnemies[currentIndex] == randomLetter)
                 {
-                    randomLetter = enemyLetters[Random.Range(0, enemyLetters.Length)];
+                    randomLetter = enemyLetters[Random.Range(0, enemyLetters.Count)];
                 }
 
                 Vector2 spawnPosition = new Vector2(
@@ -268,5 +267,12 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemies();
         CopyEnemies();
         CheckIfAnswerExists();
+    }
+
+    // Import the letters from the GameManager
+    void ImportLetters()
+    {
+        // Get the letters for the current level
+        enemyLetters = GameManager.Instance.levelManager.GetLevelLetters();
     }
 }

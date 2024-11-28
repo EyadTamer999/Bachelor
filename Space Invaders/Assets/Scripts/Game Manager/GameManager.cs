@@ -1,11 +1,15 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public ChallengeHandler challengeHandler { get; private set; }
+    public DatabaseManager databaseManager { get; private set; }
+    public LevelManager levelManager { get; private set; }
 
-    private void Awake()
+
+    private async void Awake()
     {
         if (Instance == null)
         {
@@ -15,10 +19,25 @@ public class GameManager : MonoBehaviour
             // Retrieve ChallengeHandler as it is a child of this GameObject
             challengeHandler = GetComponentInChildren<ChallengeHandler>();
 
+            // Retrieve DatabaseManager as it is a child of this GameObject
+            databaseManager = GetComponentInChildren<DatabaseManager>();
+
+            // Retrieve LevelManager as it is a child of this GameObject
+            levelManager = GetComponentInChildren<LevelManager>();
+
             if (challengeHandler == null)
             {
                 Debug.LogError("ChallengeHandler not found as a child of GameManager.");
             }
+
+            if (databaseManager == null)
+            {
+                Debug.LogError("DatabaseManager not found as a child of GameManager.");
+            }
+
+            // Fetch levels asynchronously and assign them to the levels list in LevelManager
+            levelManager.SetLevels(await databaseManager.FetchLevels());
+
         }
         else
         {
