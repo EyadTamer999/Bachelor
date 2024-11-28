@@ -26,6 +26,21 @@
 # Visual Studio cache directory
 .vs/
 
+# Google Service json file
+google-services.json
+
+google-services-desktop.json
+
+/[Aa]ssets/Editor Default Resources/
+
+/[Aa]ssets/ExternalDependencyManager/
+
+/[Aa]ssets/Firebase/
+
+/[Aa]ssets/Parse/
+
+/[Aa]ssets/Plugins/
+
 # Gradle cache directory
 .gradle/
 
