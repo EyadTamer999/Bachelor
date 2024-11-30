@@ -47,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // Spawn the enemies in a grid formation
-    void SpawnEnemies()
+    public void SpawnEnemies()
     {
         ImportLetters();
         int totalEnemies = rows * columns;
@@ -116,6 +116,19 @@ public class EnemySpawner : MonoBehaviour
                 enemies.Add(enemy);
             }
         }
+    }
+
+    public void DestroyEnemies()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                Destroy(enemy);
+            }
+        }
+
+        enemies.Clear();
     }
 
     // Move the enemies in a group
@@ -213,6 +226,8 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+
+
 
     // Check if the answer exists in the list of enemies
     void CheckIfAnswerExists()

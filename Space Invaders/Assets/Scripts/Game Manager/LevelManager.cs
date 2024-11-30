@@ -16,9 +16,6 @@ public class LevelManager : MonoBehaviour
     // Text for the header, e.g., "Convert the following to binary"
     private string headerText;
 
-    // Letters used in the current level
-    private List<char> letters;
-
     // The goal string for this turn
     private string goalString;
 
@@ -88,6 +85,12 @@ public class LevelManager : MonoBehaviour
             currentLevel++;
             currentTurn = 1;
             passedTurns = 0;
+
+            // Clear the enemies
+            GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().DestroyEnemies();
+
+            // trigger respawn of enemies
+            GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().SpawnEnemies();
         }
     }
 
@@ -96,5 +99,15 @@ public class LevelManager : MonoBehaviour
     {
         int totalTurns = levels[currentLevel - 1].turns;
         return passedTurns > totalTurns / 2 || (totalTurns == 1 && passedTurns == 1);
+    }
+
+    public bool isLastLevel()
+    {
+        return currentLevel == levels.Count;
+    }
+
+    public bool isLastTurn()
+    {
+        return currentTurn == levels[currentLevel - 1].turns;
     }
 }
