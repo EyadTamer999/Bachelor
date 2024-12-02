@@ -43,20 +43,28 @@ public class DatabaseManager : MonoBehaviour
                 // Deserialize JSON for the specified ID
                 var firebaseEntry = JsonConvert.DeserializeObject<FirebaseEntry>(jsonResponse);
 
+                //print response
+                Debug.Log(jsonResponse);
+
                 foreach (var levelInfo in firebaseEntry.levels)
                 {
-                    // Parse the "parsedCharacters" into a List<char>
-                    List<char> parsedCharacters = new List<char>(
-                        levelInfo.data.parsedCharacters.ConvertAll(c => c.ToCharArray()[0])
-                    );
 
                     // Create a new Level object
                     Level newLevel = new Level(
                         levelInfo.level,
-                        parsedCharacters,
+                        levelInfo.data.characters,
+                        levelInfo.data.challengeGoals,
                         levelInfo.data.text,
                         levelInfo.data.turns
                     );
+
+                    // Print the level data
+                    Debug.Log($"Level: {newLevel.level}");
+                    Debug.Log($"Characters: {string.Join(", ", newLevel.characters)}");
+                    Debug.Log($"Goal strings: {string.Join(", ", newLevel.goalStrings)}");
+                    Debug.Log($"Text: {newLevel.text}");
+                    Debug.Log($"Turns: {newLevel.turns}");
+
 
                     // Add the new level to the list
                     levels.Add(newLevel);
@@ -91,7 +99,8 @@ public class LevelInfo
 
 public class LevelData
 {
-    public List<string> parsedCharacters { get; set; }
+    public List<char> characters { get; set; }
+    public List<string> challengeGoals { get; set; }
     public string text { get; set; }
     public int turns { get; set; }
 }
