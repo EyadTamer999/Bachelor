@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public DatabaseManager databaseManager { get; private set; }
     public LevelManager levelManager { get; private set; }
 
+    private string gameId;
 
     private void Start()
     {
@@ -58,5 +59,18 @@ public class GameManager : MonoBehaviour
     public void Submit()
     {
         GameManager.Instance.challengeHandler.SubmitChallenge();
+    }
+
+    public string GetGameId()
+    {
+        return gameId;
+    }
+
+    public void SetGameId(string gameId)
+    {
+        //print the game id
+        Debug.Log("Game ID: " + gameId);
+
+        this.gameId = gameId;
     }
 }

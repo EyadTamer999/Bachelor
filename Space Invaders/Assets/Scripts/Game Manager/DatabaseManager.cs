@@ -31,6 +31,9 @@ public class DatabaseManager : MonoBehaviour
 
             string jsonResponse = request.downloadHandler.text;
 
+            //print the response
+            Debug.Log(jsonResponse);
+
             // Check if the response is empty
             if (string.IsNullOrEmpty(jsonResponse) || jsonResponse == "null")
             {
@@ -43,9 +46,6 @@ public class DatabaseManager : MonoBehaviour
                 // Deserialize JSON for the specified ID
                 var firebaseEntry = JsonConvert.DeserializeObject<FirebaseEntry>(jsonResponse);
 
-                //print response
-                Debug.Log(jsonResponse);
-
                 foreach (var levelInfo in firebaseEntry.levels)
                 {
 
@@ -57,14 +57,6 @@ public class DatabaseManager : MonoBehaviour
                         levelInfo.data.text,
                         levelInfo.data.turns
                     );
-
-                    // Print the level data
-                    // Debug.Log($"Level: {newLevel.level}");
-                    // Debug.Log($"Characters: {string.Join(", ", newLevel.characters)}");
-                    // Debug.Log($"Goal strings: {string.Join(", ", newLevel.goalStrings)}");
-                    // Debug.Log($"Text: {newLevel.text}");
-                    // Debug.Log($"Turns: {newLevel.turns}");
-
 
                     // Add the new level to the list
                     levels.Add(newLevel);

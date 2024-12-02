@@ -39,14 +39,17 @@ public class LevelManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    private async void Awake()
+    public async void LoadLevels()
     {
         while (GameManager.Instance == null || GameManager.Instance.databaseManager == null)
         {
             await Task.Yield(); // Wait until GameManager is fully initialized
         }
 
-        SetLevels(await GameManager.Instance.databaseManager.FetchLevelsById("1733145840102"));
+        string gameId = GameManager.Instance.GetGameId();
+
+        // Fetch the levels from the database
+        SetLevels(await GameManager.Instance.databaseManager.FetchLevelsById(gameId));
 
         if (levels == null || levels.Count == 0)
         {
