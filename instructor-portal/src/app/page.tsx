@@ -11,6 +11,7 @@ export default function Home() {
       data: { text: "", characters: "", turns: "", challengeGoals: "" },
     },
   ]);
+  const [gameId, setGameId] = useState("");
 
   const [warning, setWarning] = useState("");
   const [success, setSuccess] = useState("");
@@ -118,7 +119,7 @@ export default function Home() {
 
     // Proceed with further logic after state update
     setWarning(""); // Clear any warnings
-    await generateGame(updatedLevels); // Pass the updated levels to generateGame
+    setGameId(await generateGame(updatedLevels)); // Pass the updated levels to generateGame)
     setSuccess("Game generated successfully!"); // Set success message
     setLoading(false); // Reset loading state
   };
@@ -188,6 +189,20 @@ export default function Home() {
         {success && (
           <div className="text-green-500 font-medium text-center bg-green-100 p-3 rounded-lg">
             {success}
+            <span className="text-accent-green font-semibold">
+              {" "}
+              Game ID: {gameId}
+            </span>
+            <div className="mt-4">
+              <a
+                href={`https://bachelor-project.itch.io/space-invaders`}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md hover:bg-accent-green/90 focus:ring focus:ring-accent-green/50 transition-all"
+              >
+                View Game
+              </a>
+            </div>
           </div>
         )}
       </div>
