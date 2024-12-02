@@ -9,50 +9,25 @@ public class GameManager : MonoBehaviour
     public LevelManager levelManager { get; private set; }
 
 
-    private async void Awake()
+    private void Start()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // Retrieve ChallengeHandler as it is a child of this GameObject
             challengeHandler = GetComponentInChildren<ChallengeHandler>();
-
-            // Retrieve DatabaseManager as it is a child of this GameObject
             databaseManager = GetComponentInChildren<DatabaseManager>();
-
-            // Retrieve LevelManager as it is a child of this GameObject
             levelManager = GetComponentInChildren<LevelManager>();
 
-            if (challengeHandler == null)
-            {
-                Debug.LogError("ChallengeHandler not found as a child of GameManager.");
-            }
-
-            if (databaseManager == null)
-            {
-                Debug.LogError("DatabaseManager not found as a child of GameManager.");
-            }
-
-            // TODO wait for the database to complete fetching before starting the game
-            // Fetch levels asynchronously and assign them to the levels list in LevelManager
-            levelManager.SetLevels(await databaseManager.FetchLevelsById("1733145840102"));
-
-            // print the levels to the console
-            // foreach (Level level in levelManager.levels)
-            // {
-            //     Debug.Log("Level: " + level.level);
-            //     Debug.Log("Characters: " + string.Join(", ", level.characters));
-            //     Debug.Log("Text: " + level.text);
-            //     Debug.Log("Turns: " + level.turns);
-            // }
+            Debug.Log($"GameManager initialized. DatabaseManager: {databaseManager}, ChallengeHandler: {challengeHandler}");
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
 
     public void ResetGame()
     {

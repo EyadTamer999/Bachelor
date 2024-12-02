@@ -59,11 +59,11 @@ public class DatabaseManager : MonoBehaviour
                     );
 
                     // Print the level data
-                    Debug.Log($"Level: {newLevel.level}");
-                    Debug.Log($"Characters: {string.Join(", ", newLevel.characters)}");
-                    Debug.Log($"Goal strings: {string.Join(", ", newLevel.goalStrings)}");
-                    Debug.Log($"Text: {newLevel.text}");
-                    Debug.Log($"Turns: {newLevel.turns}");
+                    // Debug.Log($"Level: {newLevel.level}");
+                    // Debug.Log($"Characters: {string.Join(", ", newLevel.characters)}");
+                    // Debug.Log($"Goal strings: {string.Join(", ", newLevel.goalStrings)}");
+                    // Debug.Log($"Text: {newLevel.text}");
+                    // Debug.Log($"Turns: {newLevel.turns}");
 
 
                     // Add the new level to the list

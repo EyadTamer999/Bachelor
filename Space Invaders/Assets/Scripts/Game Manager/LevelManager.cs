@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Threading.Tasks;
 public class LevelManager : MonoBehaviour
 {
     // List of levels
@@ -26,12 +26,40 @@ public class LevelManager : MonoBehaviour
     private int passedTurns = 0;
 
 
+    // Start is called before the first frame update
+    private async void Awake()
+    {
+        while (GameManager.Instance == null || GameManager.Instance.databaseManager == null)
+        {
+            await Task.Yield(); // Wait until GameManager is fully initialized
+        }
+
+        SetLevels(await GameManager.Instance.databaseManager.FetchLevelsById("1733145840102"));
+
+        if (levels == null || levels.Count == 0)
+        {
+            Debug.LogError("Levels not loaded correctly.");
+            return;
+        }
+
+        Debug.Log("Levels: " + levels);
+
+        SetHeaderText();
+        SetGoalString();
+    }
+
 
 
     // Set the levels
     public void SetLevels(List<Level> levels)
     {
         this.levels = levels;
+    }
+
+    // get the levels 
+    public List<Level> GetLevels()
+    {
+        return levels;
     }
 
     // Get the letters of the current level
@@ -70,6 +98,9 @@ public class LevelManager : MonoBehaviour
         else
         {
             currentTurn++;
+
+            // Set the Goal string for the current turn
+            SetGoalString();
         }
     }
 
@@ -109,5 +140,32 @@ public class LevelManager : MonoBehaviour
     public bool isLastTurn()
     {
         return currentTurn == levels[currentLevel - 1].turns;
+    }
+
+    // Set the header text for the current level
+    public void SetHeaderText()
+    {
+        headerText = levels[currentLevel - 1].text;
+    }
+
+    // Set the Goal string for the current turn
+    public void SetGoalString()
+    {
+        Debug.Log("Setting goal string");
+
+        Debug.Log("Current level: " + currentLevel);
+
+        Debug.Log("Current turn: " + currentTurn);
+
+        Debug.Log("Goal strings: " + levels);
+
+        // Get the goal string for the current turn
+        goalString = levels[currentLevel - 1].goalStrings[currentTurn - 1];
+
+        //Print
+        Debug.Log("from level mangeer Goal string: " + goalString);
+
+        // Set it in the ChallengeHandler
+        GameManager.Instance.challengeHandler.SetGoalString(goalString);
     }
 }

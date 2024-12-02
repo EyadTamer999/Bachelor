@@ -58,6 +58,8 @@ public class ChallengeHandler : MonoBehaviour
         goalString = goal;
         OnGoalStringChanged?.Invoke(goal); // Trigger event on change
 
+        Debug.Log("challenge handler Goal string: " + goalString);
+
         // Convert goalString from decimal to binary
         goalStringConverted = Convert.ToString(int.Parse(goalString), 2);
     }
