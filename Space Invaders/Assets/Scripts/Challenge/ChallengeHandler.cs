@@ -44,6 +44,7 @@ public class ChallengeHandler : MonoBehaviour
             GameManager.Instance.levelManager.NextTurn(false);
         }
 
+        // TODO change how yoy display the challenge complete text
         // Find the ChallengeCompleteText object in the scene
         GameObject challengeCompleteTextObject = GameObject.Find("ChallengeCompleteText");
 
