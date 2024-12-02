@@ -73,6 +73,9 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Challenge completed: " + challengeCompleted);
         Debug.Log("Current turn: " + currentTurn);
 
+        // Reset the user string
+        GameManager.Instance.challengeHandler.SetUserString("");
+
         // Check if the challenge was completed
         if (challengeCompleted)
         {
