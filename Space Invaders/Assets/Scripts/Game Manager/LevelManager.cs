@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Random = UnityEngine.Random;
 using System.Threading.Tasks;
 public class LevelManager : MonoBehaviour
 {
@@ -16,6 +18,10 @@ public class LevelManager : MonoBehaviour
     // Text for the header, e.g., "Convert the following to binary"
     private string headerText;
 
+    // Event to notify when header text changes
+    public event Action<string> OnHeaderTextChanged;
+
+
     // The goal string for this turn
     private string goalString;
 
@@ -24,6 +30,8 @@ public class LevelManager : MonoBehaviour
 
     // Number of successful turns completed
     private int passedTurns = 0;
+
+
 
 
     // Start is called before the first frame update
@@ -153,6 +161,12 @@ public class LevelManager : MonoBehaviour
     public void SetHeaderText()
     {
         headerText = levels[currentLevel - 1].text;
+        OnHeaderTextChanged?.Invoke(headerText);
+    }
+
+    public string GetHeaderText()
+    {
+        return headerText;
     }
 
     // Set the Goal string for the current turn
