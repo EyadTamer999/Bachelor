@@ -73,6 +73,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Challenge completed: " + challengeCompleted);
         Debug.Log("Current turn: " + currentTurn);
 
+        // Check if the challenge was completed
         if (challengeCompleted)
         {
             passedTurns++;
@@ -100,6 +101,11 @@ public class LevelManager : MonoBehaviour
             // Set the Goal string for the current turn
             SetGoalString();
         }
+    }
+
+    private IEnumerator WaitForSeconds(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 
     // Advance to the next level
