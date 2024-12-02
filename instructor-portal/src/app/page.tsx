@@ -188,7 +188,7 @@ export default function Home() {
 
         {success && (
           <div className="text-green-500 font-medium text-center bg-green-100 p-3 rounded-lg">
-            {success}
+            {success} <br />
             <span className="text-accent-green font-semibold">
               {" "}
               Game ID: {gameId}
