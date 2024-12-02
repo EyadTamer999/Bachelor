@@ -48,8 +48,6 @@ public class LevelManager : MonoBehaviour
         SetGoalString();
     }
 
-
-
     // Set the levels
     public void SetLevels(List<Level> levels)
     {
@@ -151,19 +149,9 @@ public class LevelManager : MonoBehaviour
     // Set the Goal string for the current turn
     public void SetGoalString()
     {
-        Debug.Log("Setting goal string");
 
-        Debug.Log("Current level: " + currentLevel);
-
-        Debug.Log("Current turn: " + currentTurn);
-
-        Debug.Log("Goal strings: " + levels);
-
-        // Get the goal string for the current turn
-        goalString = levels[currentLevel - 1].goalStrings[currentTurn - 1];
-
-        //Print
-        Debug.Log("from level mangeer Goal string: " + goalString);
+        // Get a random goal string for the current turn from the level data
+        goalString = levels[currentLevel - 1].goalStrings[Random.Range(0, levels[currentLevel - 1].goalStrings.Count)];
 
         // Set it in the ChallengeHandler
         GameManager.Instance.challengeHandler.SetGoalString(goalString);
