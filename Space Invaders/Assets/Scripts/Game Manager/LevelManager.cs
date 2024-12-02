@@ -9,6 +9,10 @@ public class LevelManager : MonoBehaviour
     // List of levels
     private List<Level> levels;
 
+    // Events to notify changes in current level and turn
+    public event Action<int, int> OnLevelChanged;
+    public event Action<int, int> OnTurnChanged;
+
     // Current level (starts at 1)
     private int currentLevel = 1;
 
@@ -103,11 +107,17 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("Level failed!");
                 currentTurn = 1;
                 passedTurns = 0;
+
+                // Notify turn reset
+                OnTurnChanged?.Invoke(currentTurn, levels[currentLevel - 1].turns);
             }
         }
         else
         {
             currentTurn++;
+
+            // Notify turn change
+            OnTurnChanged?.Invoke(currentTurn, levels[currentLevel - 1].turns);
 
             // Set the Goal string for the current turn
             SetGoalString();
@@ -131,6 +141,12 @@ public class LevelManager : MonoBehaviour
             currentLevel++;
             currentTurn = 1;
             passedTurns = 0;
+
+            // Notify level change
+            OnLevelChanged?.Invoke(currentLevel, levels.Count);
+
+            // Also notify turn reset
+            OnTurnChanged?.Invoke(currentTurn, levels[currentLevel - 1].turns);
 
             // Clear the enemies
             GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().DestroyEnemies();
@@ -179,4 +195,25 @@ public class LevelManager : MonoBehaviour
         // Set it in the ChallengeHandler
         GameManager.Instance.challengeHandler.SetGoalString(goalString);
     }
+
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
+    }
+
+    public int GetTotalLevels()
+    {
+        return levels?.Count ?? 0;
+    }
+
+    public int GetCurrentTurn()
+    {
+        return currentTurn;
+    }
+
+    public int GetTotalTurns()
+    {
+        return levels[currentLevel - 1].turns;
+    }
+
 }
