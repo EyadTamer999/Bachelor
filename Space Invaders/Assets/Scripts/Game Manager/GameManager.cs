@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
             // TODO wait for the database to complete fetching before starting the game
             // Fetch levels asynchronously and assign them to the levels list in LevelManager
-            levelManager.SetLevels(await databaseManager.FetchLevels());
+            levelManager.SetLevels(await databaseManager.FetchLevelsById("1732816808150"));
 
             // print the levels to the console
             // foreach (Level level in levelManager.levels)
