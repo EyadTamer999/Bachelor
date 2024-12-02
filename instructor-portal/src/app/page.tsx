@@ -6,8 +6,13 @@ import { generateGame } from "@/utils/fetchApi";
 export default function Home() {
   const [currentLevel, setCurrentLevel] = useState(1);
   const [levels, setLevels] = useState([
-    { level: 1, data: { text: "", characters: "", turns: "" } },
+    {
+      level: 1,
+      data: { text: "", characters: "", turns: "", challengeGoals: "" },
+    },
   ]);
+  const [gameId, setGameId] = useState("");
+
   const [warning, setWarning] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,7 +26,7 @@ export default function Home() {
             ...prevLevels,
             {
               level: newLevel,
-              data: { text: "", characters: "", turns: "" },
+              data: { text: "", characters: "", turns: "", challengeGoals: "" },
             },
           ];
         }
@@ -74,7 +79,11 @@ export default function Home() {
 
   const handleGenerateGame = async () => {
     const incompleteLevels = levels.filter(
-      (level) => !level.data.text || !level.data.characters || !level.data.turns
+      (level) =>
+        !level.data.text ||
+        !level.data.characters ||
+        !level.data.turns ||
+        !level.data.challengeGoals
     );
 
     if (incompleteLevels.length > 0) {
@@ -91,65 +100,71 @@ export default function Home() {
     // Process the updated levels with parsed characters
     const updatedLevels = levels.map((level) => {
       const { characters } = level.data;
+      const { challengeGoals } = level.data;
 
-      if (!characters) return level;
+      if (!characters || !challengeGoals) return level;
 
-      let parsedCharacters: string[] = [];
-
-      const segments = characters.split(",");
-
-      segments.forEach((segment) => {
-        segment = segment.trim();
-
-        if (segment.includes("-")) {
-          const [start, end] = segment.split("-");
-
-          if (!start || !end) return;
-
-          if (!isNaN(Number(start)) && !isNaN(Number(end))) {
-            const startNum = Number(start);
-            const endNum = Number(end);
-
-            for (let i = startNum; i <= endNum; i++) {
-              parsedCharacters.push(i.toString());
-            }
-          } else if (
-            start.length === 1 &&
-            end.length === 1 &&
-            /[A-Za-z]/.test(start) &&
-            /[A-Za-z]/.test(end)
-          ) {
-            const startCharCode = start.charCodeAt(0);
-            const endCharCode = end.charCodeAt(0);
-
-            if (startCharCode <= endCharCode) {
-              for (let i = startCharCode; i <= endCharCode; i++) {
-                parsedCharacters.push(String.fromCharCode(i));
-              }
-            }
-          }
-        } else {
-          parsedCharacters.push(segment);
-        }
-      });
+      let parsedCharacters: string[] = parseInput(characters);
+      let parsedChallengeGoals: string[] = parseInput(challengeGoals);
 
       return {
         ...level,
         data: {
           ...level.data,
-          parsedCharacters,
+          characters: parsedCharacters,
+          challengeGoals: parsedChallengeGoals,
         },
       };
     });
 
-    // Update the state with the fully processed levels
-    setLevels(updatedLevels);
-
     // Proceed with further logic after state update
     setWarning(""); // Clear any warnings
-    await generateGame(updatedLevels); // Pass the updated levels to generateGame
+    setGameId(await generateGame(updatedLevels)); // Pass the updated levels to generateGame)
     setSuccess("Game generated successfully!"); // Set success message
     setLoading(false); // Reset loading state
+  };
+
+  const parseInput = (plainText: string) => {
+    let parsedString: string[] = [];
+
+    const segments = plainText.split(",");
+
+    segments.forEach((segment) => {
+      segment = segment.trim();
+
+      if (segment.includes("-")) {
+        const [start, end] = segment.split("-");
+
+        if (!start || !end) return;
+
+        if (!isNaN(Number(start)) && !isNaN(Number(end))) {
+          const startNum = Number(start);
+          const endNum = Number(end);
+
+          for (let i = startNum; i <= endNum; i++) {
+            parsedString.push(i.toString());
+          }
+        } else if (
+          start.length === 1 &&
+          end.length === 1 &&
+          /[A-Za-z]/.test(start) &&
+          /[A-Za-z]/.test(end)
+        ) {
+          const startCharCode = start.charCodeAt(0);
+          const endCharCode = end.charCodeAt(0);
+
+          if (startCharCode <= endCharCode) {
+            for (let i = startCharCode; i <= endCharCode; i++) {
+              parsedString.push(String.fromCharCode(i));
+            }
+          }
+        }
+      } else {
+        parsedString.push(segment);
+      }
+    });
+
+    return parsedString;
   };
 
   return (
@@ -173,7 +188,21 @@ export default function Home() {
 
         {success && (
           <div className="text-green-500 font-medium text-center bg-green-100 p-3 rounded-lg">
-            {success}
+            {success} <br />
+            <span className="text-accent-green font-semibold">
+              {" "}
+              Game ID: {gameId}
+            </span>
+            <div className="mt-4">
+              <a
+                href={`https://bachelor-project.itch.io/space-invaders`}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md hover:bg-accent-green/90 focus:ring focus:ring-accent-green/50 transition-all"
+              >
+                View Game
+              </a>
+            </div>
           </div>
         )}
       </div>
@@ -222,6 +251,22 @@ export default function Home() {
                   .characters || ""
               }
               onChange={(e) => handleChange("characters", e.target.value)}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="text-sm font-medium text-text">
+              Challenge Goals
+            </label>
+            <input
+              type="text"
+              placeholder="Enter the possible goals: 1-10 or A,B,C or a-z"
+              className="w-full px-4 py-2 border border-secondary rounded-lg bg-neutral-white text-text focus:outline-none focus:ring focus:ring-secondary/50"
+              value={
+                levels.find((level) => level.level === currentLevel)?.data
+                  .challengeGoals || ""
+              }
+              onChange={(e) => handleChange("challengeGoals", e.target.value)}
             />
           </div>
 

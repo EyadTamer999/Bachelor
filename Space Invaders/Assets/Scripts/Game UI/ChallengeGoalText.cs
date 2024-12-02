@@ -8,6 +8,10 @@ public class ChallengeGoal : MonoBehaviour
 
     void Start()
     {
+
+        // print the goal string to the console 
+        Debug.Log("from goal text Goal String: " + GameManager.Instance.challengeHandler.GetGoalString());
+
         // Set the goal text to the initial goal string
         goalText.text = GameManager.Instance.challengeHandler.GetGoalString();
     }

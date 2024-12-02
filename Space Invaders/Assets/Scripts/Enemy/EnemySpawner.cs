@@ -47,8 +47,9 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // Spawn the enemies in a grid formation
-    void SpawnEnemies()
+    public void SpawnEnemies()
     {
+        ImportLetters();
         int totalEnemies = rows * columns;
         HashSet<int> goalPathIndices = new HashSet<int>(); // Tracks indices used for the goal path
         int goalIndex = 0;
@@ -117,8 +118,18 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public void DestroyEnemies()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                Destroy(enemy);
+            }
+        }
 
-    //TODO Respawn the enemies if the answer does not exist
+        enemies.Clear();
+    }
 
     // Move the enemies in a group
     void MoveEnemies()
@@ -215,6 +226,8 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+
+
 
     // Check if the answer exists in the list of enemies
     void CheckIfAnswerExists()

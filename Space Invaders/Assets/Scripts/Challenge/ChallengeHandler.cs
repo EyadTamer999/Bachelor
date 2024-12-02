@@ -32,12 +32,19 @@ public class ChallengeHandler : MonoBehaviour
         if (CheckStrings())
         {
             SetChallengeCompleted();
+
+            // go to the next turn
+            GameManager.Instance.levelManager.NextTurn(true);
         }
         else
         {
             SetChallengeFailed();
+
+            // go to the next turn
+            GameManager.Instance.levelManager.NextTurn(false);
         }
 
+        // TODO change how yoy display the challenge complete text
         // Find the ChallengeCompleteText object in the scene
         GameObject challengeCompleteTextObject = GameObject.Find("ChallengeCompleteText");
 
@@ -50,6 +57,8 @@ public class ChallengeHandler : MonoBehaviour
     {
         goalString = goal;
         OnGoalStringChanged?.Invoke(goal); // Trigger event on change
+
+        Debug.Log("challenge handler Goal string: " + goalString);
 
         // Convert goalString from decimal to binary
         goalStringConverted = Convert.ToString(int.Parse(goalString), 2);
@@ -115,7 +124,7 @@ public class ChallengeHandler : MonoBehaviour
 
     public bool IsPossibleToFormGoalString(System.Collections.Generic.List<GameObject> enemies, string goalString)
     {
-        //Check if the goal string can be formed with the current enemies
+        //TODO Check if the goal string can be formed with the current enemies
         return true;
 
     }
