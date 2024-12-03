@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private Vector2 targetVelocity; // Target velocity for smoother movement
     private Vector2 currentVelocity; // Current velocity for smooth damp
 
+    public MovementJoystick joystick; // Reference to the MovementJoystick script
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -32,19 +34,17 @@ public class Player : MonoBehaviour
     {
         Vector2 input = Vector2.zero;
 
-        // Handle touch input
-        if (Input.touchCount > 0)
+        // Get all current touches
+        Touch[] touches = Input.touches;
+
+        if (touches.Length > 0)
         {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+            // Always get joystick input from the first touch (for movement)
+            input = joystick.joystickVec; // Use joystick for movement input on touch devices
+
+            // Check for the second finger for shooting
+            if (touches.Length > 1 && touches[1].phase == TouchPhase.Began)
             {
-                // Map the touch delta to movement
-                input.x = (touch.position.x - Screen.width / 2) / (Screen.width / 2);
-                input.y = (touch.position.y - Screen.height / 2) / (Screen.height / 2);
-
-                // Clamp input to be within -1 to 1
-                input = Vector2.ClampMagnitude(input, 1f);
-
                 // Check if it's time to fire again based on the fire rate
                 if (Time.time >= nextFireTime)
                 {
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            // Keyboard input for testing on PC
+            // Keyboard input for movement (testing on PC)
             input.x = Input.GetAxis("Horizontal");
             input.y = Input.GetAxis("Vertical");
 
@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
         float clampedY = Mathf.Clamp(rb.position.y, -boundaryY, boundaryY);
         rb.position = new Vector2(clampedX, clampedY);
     }
+
 
     // Method to handle shooting
     void Shoot()
