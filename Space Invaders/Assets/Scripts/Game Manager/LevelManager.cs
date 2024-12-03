@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
     // List of levels
     private List<Level> levels;
 
+    // Flag to indicate if levels are loaded successfully
+    private bool levelsLoadedSuccessfully = false;
+
     // Events to notify changes in current level and turn
     public event Action<int, int> OnLevelChanged;
     public event Action<int, int> OnTurnChanged;
@@ -39,7 +42,7 @@ public class LevelManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    public async void LoadLevels()
+    public async Task<bool> LoadLevels()
     {
         while (GameManager.Instance == null || GameManager.Instance.databaseManager == null)
         {
@@ -54,13 +57,20 @@ public class LevelManager : MonoBehaviour
         if (levels == null || levels.Count == 0)
         {
             Debug.LogError("Levels not loaded correctly.");
-            return;
+            return false; // Indicate failure
         }
 
         Debug.Log("Levels: " + levels);
 
         SetHeaderText();
         SetGoalString();
+
+        return true; // Indicate success
+    }
+
+    public bool AreLevelsLoadedSuccessfully()
+    {
+        return levelsLoadedSuccessfully;
     }
 
     // Set the levels
@@ -217,6 +227,16 @@ public class LevelManager : MonoBehaviour
     public int GetTotalTurns()
     {
         return levels[currentLevel - 1].turns;
+    }
+
+    public bool IsLastLevel()
+    {
+        return currentLevel == levels.Count;
+    }
+
+    public bool IsLastTurn()
+    {
+        return currentTurn == levels[currentLevel - 1].turns;
     }
 
 }

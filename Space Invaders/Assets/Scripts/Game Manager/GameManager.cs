@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
     public void Submit()
     {
         GameManager.Instance.challengeHandler.SubmitChallenge();
+
+        // Unfoucs the button
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
     }
 
     public string GetGameId()

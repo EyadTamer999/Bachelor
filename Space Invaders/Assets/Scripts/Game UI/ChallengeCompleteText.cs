@@ -28,6 +28,28 @@ public class ChallengeCompleteText : MonoBehaviour
 
         // Pause the game and hide the text after 1 second
         StartCoroutine(PauseAndHideText());
+
+        // If the game is at the last level and/or turn, Show the game over screen
+        if (GameManager.Instance.levelManager.IsLastLevel() && GameManager.Instance.levelManager.IsLastTurn())
+        {
+            // if the level is pased then show the You Win screen
+            if (GameManager.Instance.levelManager.CheckLevelPassed())
+            {
+                // Show the You Win screen
+                GetComponent<TextMeshProUGUI>().text = "You Win!";
+
+                // Pause the game
+                Time.timeScale = 0;
+            }
+            else
+            {
+                // Show the Game Over screen
+                GetComponent<TextMeshProUGUI>().text = "Game Over :(";
+
+                // Pause the game
+                Time.timeScale = 0;
+            }
+        }
     }
 
     private IEnumerator PauseAndHideText()
