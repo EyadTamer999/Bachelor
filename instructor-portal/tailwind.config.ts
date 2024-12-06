@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -22,7 +22,23 @@ export default {
         error: "#F06543", // Soft Red for error states
         text: "#3A3A3A", // Dark Charcoal for text
       },
+      animation: {
+        fadeIn: "fadeIn 0.6s ease-in-out",
+        fadeOut: "fadeOut 0.6s ease-in-out",
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: "0" }, // Change from 0 to "0"
+          to: { opacity: "1" }, // Change from 1 to "1"
+        },
+        fadeOut: {
+          from: { opacity: "1" }, // Change from 1 to "1"
+          to: { opacity: "0" }, // Change from 0 to "0"
+        },
+      },
     },
   },
   plugins: [],
-} satisfies Config;
+};
+
+export default config;
