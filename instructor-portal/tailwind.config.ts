@@ -21,6 +21,7 @@ const config: Config = {
         },
         error: "#F06543", // Soft Red for error states
         text: "#3A3A3A", // Dark Charcoal for text
+        success: "#4CAF50", // Lush Green for success states
       },
       animation: {
         fadeIn: "fadeIn 0.6s ease-in-out",

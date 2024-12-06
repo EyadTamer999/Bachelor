@@ -22,9 +22,9 @@ export default function Home() {
       id: 2,
       title: "Diagnose The Patient",
       // description: "Diagnose the patient by choosing the areas that are affected.",
-      tags: ["Biology", "Health Science"],
+      tags: ["Biology", "Health Science", "Automotive"],
       img: "https://placehold.co/600x400/png",
-      url: "/diagnose-the-patient",
+      url: "/diagnose",
     },
   ];
 

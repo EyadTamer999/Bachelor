@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { generateGame } from "@/utils/fetchApi";
+import { generateSpaceInvaderGame } from "@/utils/fetchApi";
 
 export default function SpaceInvaders() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -119,7 +119,7 @@ export default function SpaceInvaders() {
 
     // Proceed with further logic after state update
     setWarning(""); // Clear any warnings
-    setGameId(await generateGame(updatedLevels)); // Pass the updated levels to generateGame)
+    setGameId(await generateSpaceInvaderGame(updatedLevels)); // Pass the updated levels to generateGame)
     setSuccess("Game generated successfully!"); // Set success message
     setLoading(false); // Reset loading state
   };
