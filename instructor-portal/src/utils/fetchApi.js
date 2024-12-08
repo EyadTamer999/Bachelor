@@ -1,5 +1,5 @@
 import { db } from '../lib/FirebaseConfig';
-import { ref, set } from 'firebase/database';
+import { ref, set, get } from 'firebase/database';
 import { storage, client } from '../lib/AppWriteConfig';
 
 // Function to push the game data to the Realtime Database
@@ -69,7 +69,30 @@ const uploadImage = async (file) => {
 
     // return the URL of the uploaded image to save it in the database
     return imageUrl;
-
 };
 
-export { generateSpaceInvaderGame, generateDiagnoseGame, uploadImage };
+const getDiagnoseGame = async (gameId) => {
+    try {
+        // Create a reference to the specific game's data in the database
+        const gameRef = ref(db, `Diagnose/${gameId}`);
+
+        // Use Firebase's 'get' method to fetch the data
+        const snapshot = await get(gameRef);
+
+        if (snapshot.exists()) {
+            // Retrieve the game data from the snapshot
+            const gameData = snapshot.val();
+            console.log('Game data retrieved successfully:', gameData);
+            return gameData;
+        } else {
+            console.warn('No game data found for the provided gameId');
+            return null;
+        }
+    } catch (error) {
+        console.error('Error retrieving game data:', error);
+        return "Error";
+    }
+};
+
+
+export { generateSpaceInvaderGame, generateDiagnoseGame, uploadImage, getDiagnoseGame };

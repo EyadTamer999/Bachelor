@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { generateDiagnoseGame, uploadImage } from "@/utils/fetchApi"; // Make sure this is properly implemented.
 import Marker from "react-image-marker";
 
-export default function DiagnoseGame() {
+export default function DiagnoseCreator() {
   const [currentLevel, setCurrentLevel] = useState(1);
   const [levels, setLevels] = useState([
     {
@@ -263,7 +263,7 @@ export default function DiagnoseGame() {
             </span>
             <div className="mt-4">
               <a
-                href="https://bachelor-project.itch.io/space-invaders"
+                href={`/diagnose-game/${gameId}`}
                 target="_blank"
                 rel="noreferrer"
                 className="bg-success text-neutral-white px-6 py-3 rounded-xl shadow-md hover:bg-success/90 focus:ring focus:ring-success/50 transition-all"
