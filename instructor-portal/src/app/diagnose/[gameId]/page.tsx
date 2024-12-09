@@ -107,9 +107,9 @@ export default function DiagnoseGame() {
         Level: {currentLevel + 1}
       </h1>
       <div className="flex flex-col lg:flex-row gap-4 p-4">
-        <CharacterDisplay character={character} />
+        <CharacterDisplay character={character} dialog={currentDialog} />
         <div className="flex flex-col w-full lg:w-1/2 gap-4">
-          <LevelInfo dialog={currentDialog} extraInfo={currentExtraInfo} />
+          <LevelInfo extraInfo={currentExtraInfo} />
           <ImageMarkerSection
             image={currentImage}
             markers={markers}
