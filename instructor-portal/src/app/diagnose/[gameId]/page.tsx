@@ -213,6 +213,15 @@ export default function DiagnoseGame() {
               </button>
             )}
 
+            {currentLevel + 1 === diagnoseGame.levels.length && !isLevelWon && (
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4"
+                onClick={() => setModalVisible(false)}
+              >
+                Try Again!
+              </button>
+            )}
+
             {/* don't show if game is won at last level*/}
             {currentLevel + 1 !== diagnoseGame.levels.length && (
               <div className="flex flex-row gap-4">
