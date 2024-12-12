@@ -148,15 +148,17 @@ export default function DiagnoseCreator() {
   };
 
   const handleSetImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+    const fileInput = e.target;
+    const file = fileInput.files?.[0];
     if (!file) return;
 
-    // Create a temporary blob URL for the original file
-    const originalBlobUrl = URL.createObjectURL(file);
+    // Generate a unique Blob URL
+    const uniqueBlobUrl = URL.createObjectURL(
+      new File([file], `${Date.now()}-${file.name}`, { type: file.type })
+    );
 
-    // Update levels array with the temporary blob URL
-    setLevels((prevLevels: any) =>
-      prevLevels.map((level: any) => {
+    setLevels((prevLevels) =>
+      prevLevels.map((level) => {
         if (level.level === currentLevel) {
           return {
             ...level,
@@ -164,7 +166,7 @@ export default function DiagnoseCreator() {
               ...level.data,
               img: {
                 ...level.data.img,
-                src: originalBlobUrl, // Temporarily show original image
+                src: uniqueBlobUrl,
               },
             },
           };
@@ -173,9 +175,9 @@ export default function DiagnoseCreator() {
       })
     );
 
-    // Load the image for resizing
+    // Resize and process the image as before
     const img = new Image();
-    img.src = originalBlobUrl;
+    img.src = uniqueBlobUrl;
 
     img.onload = () => {
       const canvas = document.createElement("canvas");
@@ -185,20 +187,21 @@ export default function DiagnoseCreator() {
       const ctx = canvas.getContext("2d");
       ctx?.drawImage(img, 0, 0, 500, 500);
 
-      // Convert the resized image to a blob
       ctx?.canvas.toBlob(
         (resizedBlob) => {
           if (!resizedBlob) return;
 
-          // Create a new File object for the resized image
-          const resizedFile = new File([resizedBlob], file.name, {
-            type: "image/jpeg",
-          });
+          const resizedFile = new File(
+            [resizedBlob],
+            `${Date.now()}-${file.name}`,
+            {
+              type: "image/jpeg",
+            }
+          );
           const resizedBlobUrl = URL.createObjectURL(resizedFile);
 
-          // Update levels array with the resized blob URL
-          setLevels((prevLevels: any) =>
-            prevLevels.map((level: any) => {
+          setLevels((prevLevels) =>
+            prevLevels.map((level) => {
               if (level.level === currentLevel) {
                 return {
                   ...level,
@@ -206,7 +209,7 @@ export default function DiagnoseCreator() {
                     ...level.data,
                     img: {
                       ...level.data.img,
-                      src: resizedBlobUrl, // Update with resized image URL
+                      src: resizedBlobUrl,
                     },
                   },
                 };
@@ -215,19 +218,20 @@ export default function DiagnoseCreator() {
             })
           );
 
-          // Track the resized file for upload
           setImgFiles((prevFiles) => [
             ...prevFiles,
             { level: currentLevel, file: resizedFile },
           ]);
 
-          // Clean up the temporary original blob URL
-          URL.revokeObjectURL(originalBlobUrl);
+          URL.revokeObjectURL(uniqueBlobUrl);
         },
         "image/jpeg",
         1
       );
     };
+
+    // Reset the file input to allow selecting the same file again
+    fileInput.value = "";
   };
 
   const handleGenerateGame = async () => {
