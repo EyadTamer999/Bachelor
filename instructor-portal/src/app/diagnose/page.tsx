@@ -100,7 +100,7 @@ export default function DiagnoseCreator() {
                 ...level.data.img,
                 markers: [
                   ...level.data.img.markers,
-                  { ...marker, margin: marginSize },
+                  { ...marker, marginSize: marginSize },
                 ],
               },
             },
@@ -451,15 +451,15 @@ export default function DiagnoseCreator() {
                       levels.find((level) => level.level === currentLevel)?.data
                         ?.img?.src || ""
                     }
-                    markerComponent={({}) => (
+                    markerComponent={(marker: any) => (
                       <div
                         style={{
                           position: "absolute",
                           top: hoverPosition.top,
                           left: hoverPosition.left,
                           borderRadius: "50%",
-                          width: `${marginSize * 2}px`,
-                          height: `${marginSize * 2}px`,
+                          width: `${marker.marginSize * 2}px`,
+                          height: `${marker.marginSize * 2}px`,
                           border: "2px dashed red", // Visualize the marker area
                           pointerEvents: "none", // Ensure it doesn't block other elements
                         }}
@@ -489,8 +489,8 @@ export default function DiagnoseCreator() {
                   </label>
                   <input
                     type="range"
-                    min={0}
-                    max={50}
+                    min={10}
+                    max={40}
                     value={marginSize}
                     onChange={(e) => setMarginSize(+e.target.value)}
                     className="w-40"
