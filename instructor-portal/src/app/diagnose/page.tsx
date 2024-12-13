@@ -302,8 +302,8 @@ export default function DiagnoseCreator() {
       let gameId = await generateDiagnoseGame(updatedLevels); // Assume this function handles the database logic
       setSuccess("Game generated successfully!");
       setGameId(gameId);
-    } catch {
-      setWarning("Error generating the game.");
+    } catch (error: any) {
+      setWarning("An error occurred. Please try again.\n " + error.message);
     } finally {
       setLoading(false);
     }
