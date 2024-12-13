@@ -22,6 +22,7 @@ export default function DiagnoseCreator() {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const [imgFiles, setImgFiles] = useState<any[]>([]);
+  const [marginSize, setMarginSize] = useState(10);
 
   const handleIncrementLevel = () => {
     setCurrentLevel((prev) => {
@@ -97,7 +98,10 @@ export default function DiagnoseCreator() {
               ...level.data,
               img: {
                 ...level.data.img,
-                markers: [...level.data.img.markers, marker],
+                markers: [
+                  ...level.data.img.markers,
+                  { ...marker, margin: marginSize },
+                ],
               },
             },
           };
@@ -118,6 +122,26 @@ export default function DiagnoseCreator() {
               img: {
                 ...level.data.img,
                 markers: [],
+              },
+            },
+          };
+        }
+        return level;
+      });
+    });
+  };
+
+  const handleUndoMarker = () => {
+    setLevels((prevLevels: any) => {
+      return prevLevels.map((level: any) => {
+        if (level.level === currentLevel) {
+          return {
+            ...level,
+            data: {
+              ...level.data,
+              img: {
+                ...level.data.img,
+                markers: level.data.img.markers.slice(0, -1),
               },
             },
           };
@@ -300,6 +324,17 @@ export default function DiagnoseCreator() {
     }
   };
 
+  const [hoverPosition, setHoverPosition] = useState({ top: "0%", left: "0%" });
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setHoverPosition({
+      top: `${((e.clientY - rect.top) / rect.height) * 100}%`,
+
+      left: `${((e.clientX - rect.left) / rect.width) * 100}%`,
+    });
+  };
+
   return (
     <div className="flex flex-col items-center bg-neutral-white min-h-screen px-4 py-8 lg:px-16">
       <div className="mb-6 w-full max-w-md text-center space-y-2">
@@ -398,18 +433,73 @@ export default function DiagnoseCreator() {
                 Image Preview
               </label>
               <div className="relative w-full h-full">
-                <Marker
-                  markers={
-                    levels.find((level) => level.level === currentLevel)?.data
-                      ?.img?.markers || []
-                  }
-                  onAddMarker={handleAddMarker}
-                  src={
-                    levels.find((level) => level.level === currentLevel)?.data
-                      ?.img?.src || ""
-                  }
-                />
+                <div
+                  onMouseMove={handleMouseEnter}
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                >
+                  <Marker
+                    markers={
+                      levels.find((level) => level.level === currentLevel)?.data
+                        ?.img?.markers || []
+                    }
+                    onAddMarker={handleAddMarker}
+                    src={
+                      levels.find((level) => level.level === currentLevel)?.data
+                        ?.img?.src || ""
+                    }
+                    markerComponent={({}) => (
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: hoverPosition.top,
+                          left: hoverPosition.left,
+                          borderRadius: "50%",
+                          width: `${marginSize * 2}px`,
+                          height: `${marginSize * 2}px`,
+                          border: "2px dashed red", // Visualize the marker area
+                          pointerEvents: "none", // Ensure it doesn't block other elements
+                        }}
+                      />
+                    )}
+                  />
+                  {/* Show placeholder on hover */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: hoverPosition.top,
+                      left: hoverPosition.left,
+                      borderRadius: "50%",
+                      width: `${marginSize * 2}px`,
+                      height: `${marginSize * 2}px`,
+                      border: "2px dashed blue", // Placeholder marker style
+                      pointerEvents: "none", // Ensure it doesn't block other elements
+                      transform: "translate(-10px, -10px)", // Center the marker on the position
+                    }}
+                  />
+                </div>
+
+                {/* Margin Slider */}
+                <div className="flex items-center justify-center space-x-4 mt-4">
+                  <label className="text-sm font-medium text-neutral-dark">
+                    Marker Margin
+                  </label>
+                  <input
+                    type="range"
+                    min={0}
+                    max={50}
+                    value={marginSize}
+                    onChange={(e) => setMarginSize(+e.target.value)}
+                    className="w-40"
+                  />
+                  <span>{marginSize}</span>
+                </div>
               </div>
+
+              {/* Buttons */}
               <div className="flex justify-center space-x-4">
                 <button
                   onClick={deleteImage}
@@ -423,6 +513,13 @@ export default function DiagnoseCreator() {
                   className="bg-primary hover:bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-primary-light"
                 >
                   Reset Markers
+                </button>
+
+                <button
+                  onClick={() => handleUndoMarker()}
+                  className="bg-primary hover:bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-primary-light"
+                >
+                  Undo Marker
                 </button>
               </div>
             </div>
