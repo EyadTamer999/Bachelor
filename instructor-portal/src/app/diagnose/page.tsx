@@ -205,11 +205,11 @@ export default function DiagnoseCreator() {
 
     img.onload = () => {
       const canvas = document.createElement("canvas");
-      canvas.width = 500;
-      canvas.height = 500;
+      canvas.width = 400;
+      canvas.height = 400;
 
       const ctx = canvas.getContext("2d");
-      ctx?.drawImage(img, 0, 0, 500, 500);
+      ctx?.drawImage(img, 0, 0, 400, 400);
 
       ctx?.canvas.toBlob(
         (resizedBlob) => {
@@ -457,7 +457,7 @@ export default function DiagnoseCreator() {
                           position: "absolute",
                           top: hoverPosition.top,
                           left: hoverPosition.left,
-                          borderRadius: "50%",
+                          // borderRadius: "50%",
                           width: `${marker.marginSize * 2}px`,
                           height: `${marker.marginSize * 2}px`,
                           border: "2px dashed red", // Visualize the marker area
@@ -472,7 +472,7 @@ export default function DiagnoseCreator() {
                       position: "absolute",
                       top: hoverPosition.top,
                       left: hoverPosition.left,
-                      borderRadius: "50%",
+                      // borderRadius: "50%",
                       width: `${marginSize * 2}px`,
                       height: `${marginSize * 2}px`,
                       border: "2px dashed blue", // Placeholder marker style

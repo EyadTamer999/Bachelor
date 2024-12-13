@@ -25,6 +25,7 @@ type MarkerType = {
   y: number;
   left: number; // Add this
   top: number; // Add this
+  marginSize: number;
   [key: string]: any;
 };
 
@@ -126,19 +127,32 @@ export default function DiagnoseGame() {
       return;
     }
 
-    const marginOfError = 10;
     const usedUserMarkers = new Set<number>();
 
     // Helper function to calculate if two markers are within range
     const isWithinRange = (
-      correctMarker: { left: number; top: number },
+      correctMarker: { marginSize: number; left: number; top: number },
       userMarker: MarkerType
     ) => {
-      const distance = Math.sqrt(
-        Math.pow(correctMarker.left - (userMarker.left ?? userMarker.x), 2) +
-          Math.pow(correctMarker.top - (userMarker.top ?? userMarker.y), 2)
+      // Define the square's boundaries for the correct marker
+      // the margin size * 2 is the side of the square
+      // and the correct marker's left and top are top left corner of the square
+      const correctMarkerSquare = {
+        left: correctMarker.left,
+        right: correctMarker.left + correctMarker.marginSize * 2,
+        top: correctMarker.top,
+        bottom: correctMarker.top + correctMarker.marginSize * 2,
+      };
+
+      console.log("correctMarkerSquare", correctMarkerSquare);
+
+      // check if the user marker is within the square
+      return (
+        userMarker.left >= correctMarkerSquare.left &&
+        userMarker.left <= correctMarkerSquare.right &&
+        userMarker.top >= correctMarkerSquare.top &&
+        userMarker.top <= correctMarkerSquare.bottom
       );
-      return distance <= marginOfError;
     };
 
     // Iterate through all correct markers and find a unique matching user marker for each
@@ -187,6 +201,7 @@ export default function DiagnoseGame() {
             markersAllowed={currentImage.markers.length - markersCount}
             image={currentImage}
             markers={markers}
+            correctMarkers={currentImage.markers}
             onAddMarker={handleAddMarker}
           />
           <ControlButtons
