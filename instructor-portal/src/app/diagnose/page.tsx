@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { generateDiagnoseGame, uploadImage } from "@/utils/fetchApi"; // Make sure this is properly implemented.
 import Marker from "react-image-marker";
 import Tooltip from "@/app/shared/ToolTip";
+import heic2any from "heic2any";
 
 export default function DiagnoseCreator() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -172,91 +173,94 @@ export default function DiagnoseCreator() {
     });
   };
 
-  const handleSetImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSetImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const fileInput = e.target;
     const file = fileInput.files?.[0];
     if (!file) return;
 
-    // Generate a unique Blob URL
-    const uniqueBlobUrl = URL.createObjectURL(
-      new File([file], `${Date.now()}-${file.name}`, { type: file.type })
-    );
+    try {
+      let processedFile = file;
 
-    setLevels((prevLevels) =>
-      prevLevels.map((level) => {
-        if (level.level === currentLevel) {
-          return {
-            ...level,
-            data: {
-              ...level.data,
-              img: {
-                ...level.data.img,
-                src: uniqueBlobUrl,
-              },
-            },
-          };
-        }
-        return level;
-      })
-    );
+      // Convert HEIC to JPEG if necessary
+      if (file.type === "image/heic" || file.type === "image/heif") {
+        const blob = await heic2any({ blob: file, toType: "image/jpeg" });
 
-    // Resize and process the image as before
-    const img = new Image();
-    img.src = uniqueBlobUrl;
+        // Ensure the output is a single Blob
+        const finalBlob =
+          blob instanceof Blob ? blob : new Blob(blob, { type: "image/jpeg" });
 
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      canvas.width = 400;
-      canvas.height = 400;
+        processedFile = new File(
+          [finalBlob],
+          `${Date.now()}-${file.name}.jpg`,
+          {
+            type: "image/jpeg",
+          }
+        );
+      }
 
-      const ctx = canvas.getContext("2d");
-      ctx?.drawImage(img, 0, 0, 400, 400);
+      // Generate a unique Blob URL
+      const uniqueBlobUrl = URL.createObjectURL(processedFile);
 
-      ctx?.canvas.toBlob(
-        (resizedBlob) => {
-          if (!resizedBlob) return;
+      // Proceed with resizing, updating state, etc.
+      const img = new Image();
+      img.src = uniqueBlobUrl;
 
-          const resizedFile = new File(
-            [resizedBlob],
-            `${Date.now()}-${file.name}`,
-            {
-              type: "image/jpeg",
-            }
-          );
-          const resizedBlobUrl = URL.createObjectURL(resizedFile);
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = 400;
+        canvas.height = 400;
 
-          setLevels((prevLevels) =>
-            prevLevels.map((level) => {
-              if (level.level === currentLevel) {
-                return {
-                  ...level,
-                  data: {
-                    ...level.data,
-                    img: {
-                      ...level.data.img,
-                      src: resizedBlobUrl,
-                    },
-                  },
-                };
+        const ctx = canvas.getContext("2d");
+        ctx?.drawImage(img, 0, 0, 400, 400);
+
+        ctx?.canvas.toBlob(
+          (resizedBlob) => {
+            if (!resizedBlob) return;
+
+            const resizedFile = new File(
+              [resizedBlob],
+              `${Date.now()}-${file.name}`,
+              {
+                type: "image/jpeg",
               }
-              return level;
-            })
-          );
+            );
+            const resizedBlobUrl = URL.createObjectURL(resizedFile);
 
-          setImgFiles((prevFiles) => [
-            ...prevFiles,
-            { level: currentLevel, file: resizedFile },
-          ]);
+            setLevels((prevLevels) =>
+              prevLevels.map((level) => {
+                if (level.level === currentLevel) {
+                  return {
+                    ...level,
+                    data: {
+                      ...level.data,
+                      img: {
+                        ...level.data.img,
+                        src: resizedBlobUrl,
+                      },
+                    },
+                  };
+                }
+                return level;
+              })
+            );
 
-          URL.revokeObjectURL(uniqueBlobUrl);
-        },
-        "image/jpeg",
-        1
-      );
-    };
+            setImgFiles((prevFiles) => [
+              ...prevFiles,
+              { level: currentLevel, file: resizedFile },
+            ]);
 
-    // Reset the file input to allow selecting the same file again
-    fileInput.value = "";
+            URL.revokeObjectURL(uniqueBlobUrl);
+          },
+          "image/jpeg",
+          1
+        );
+      };
+
+      // Reset the file input to allow selecting the same file again
+      fileInput.value = "";
+    } catch (error) {
+      console.error("Error processing HEIC file:", error);
+    }
   };
 
   const handleGenerateGame = async () => {
@@ -456,6 +460,7 @@ export default function DiagnoseCreator() {
             </Tooltip>
             <input
               type="file"
+              accept="image/*,image/heic,image/heif"
               onChange={handleSetImage}
               className="block w-full text-sm text-primary border border-primary rounded-lg bg-neutral-white focus:outline-none focus:ring focus:ring-primary-light"
             />
