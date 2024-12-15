@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { generateSpaceInvaderGame } from "@/utils/fetchApi";
+import Tooltip from "@/app/shared/ToolTip";
 
 export default function SpaceInvaders() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -170,10 +171,15 @@ export default function SpaceInvaders() {
   return (
     <div className="flex flex-col items-center bg-neutral-white min-h-screen px-4 py-8 lg:px-16">
       <div className="mb-6 w-full max-w-md text-center space-y-2">
-        <h2 className="bg-primary text-neutral-white px-5 py-3 rounded-lg shadow-md text-lg font-semibold md:text-xl lg:px-8 lg:py-4">
-          My Level(s): {levels.length > 0 ? levels.length : 1}
-        </h2>
-
+        <Tooltip
+          content="The Level(s) you have created for the game."
+          position="bottom"
+        >
+          <h2 className="bg-primary text-neutral-white px-5 py-3 rounded-lg shadow-md text-lg font-semibold md:text-xl lg:px-8 lg:py-4">
+            My Level(s): {levels.length > 0 ? levels.length : 1}
+            {"  ℹ️"}
+          </h2>
+        </Tooltip>
         {warning && (
           <div className="text-error font-medium text-center bg-error-light p-3 rounded-lg">
             {warning}
@@ -201,25 +207,40 @@ export default function SpaceInvaders() {
       </div>
 
       <div className="flex items-center w-full justify-center space-x-4">
-        <button
-          onClick={handleDecrementLevel}
-          className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
-          aria-label="Decrement Level"
-        >
-          ⬅️
-        </button>
+        <Tooltip content="Go to previous level" position="bottom">
+          <button
+            onClick={handleDecrementLevel}
+            className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
+            aria-label="Decrement Level"
+          >
+            ⬅️
+          </button>
+        </Tooltip>
 
         <div className="bg-neutral-light rounded-2xl p-6 w-full max-w-md shadow-md">
           <div className="mb-4">
-            <h3 className="text-center text-primary font-semibold text-xl md:text-2xl">
-              Level {currentLevel}
-            </h3>
+            <Tooltip
+              content="The current level you are working on"
+              position="top"
+            >
+              <h3 className="text-center text-primary font-semibold text-xl md:text-2xl">
+                Level {currentLevel}
+                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
+              </h3>
+            </Tooltip>
           </div>
 
           <div className="mb-4">
-            <label className="text-sm font-medium text-neutral-dark">
-              Challenge Text
-            </label>
+            <Tooltip
+              content="The objective text that will be displayed in the game"
+              position="top"
+            >
+              <label className="text-sm font-medium text-neutral-dark">
+                Challenge Text
+                <span className="text-xs text-error">*</span>
+                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
+              </label>
+            </Tooltip>
             <input
               type="text"
               placeholder="e.g., Convert To Binary"
@@ -233,9 +254,16 @@ export default function SpaceInvaders() {
           </div>
 
           <div className="mb-4">
-            <label className="text-sm font-medium text-neutral-dark">
-              Characters
-            </label>
+            <Tooltip
+              content="The letters/numbers that will be displayed in the game. Use a comma to separate multiple characters. You can also use a range (e.g., 1-10 or A-Z)"
+              position="top"
+            >
+              <label className="text-sm font-medium text-neutral-dark">
+                Characters
+                <span className="text-xs text-error">*</span>
+                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
+              </label>
+            </Tooltip>
             <input
               type="text"
               placeholder="1-10 or A,B,C or a-z"
@@ -249,9 +277,16 @@ export default function SpaceInvaders() {
           </div>
 
           <div className="mb-4">
-            <label className="text-sm font-medium text-neutral-dark">
-              Challenge Goals
-            </label>
+            <Tooltip
+              content="The possible answers for the challenge. Use a comma to separate multiple goals. You can also use a range (e.g., 1-10 or A-Z)"
+              position="top"
+            >
+              <label className="text-sm font-medium text-neutral-dark">
+                Challenge Goals
+                <span className="text-xs text-error">*</span>
+                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
+              </label>
+            </Tooltip>
             <input
               type="text"
               placeholder="Enter the possible goals: 1-10 or A,B,C or a-z"
@@ -265,9 +300,16 @@ export default function SpaceInvaders() {
           </div>
 
           <div className="mb-6">
-            <label className="text-sm font-medium text-neutral-dark">
-              Number Of Turns
-            </label>
+            <Tooltip
+              content="The number of challenges the player has to complete within level, must be an odd number: 1, 3, 5, 7, etc."
+              position="top"
+            >
+              <label className="text-sm font-medium text-neutral-dark">
+                Number Of Turns
+                <span className="text-xs text-error">*</span>
+                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
+              </label>
+            </Tooltip>
             <input
               type="text"
               placeholder="Enter an odd number of turns"
@@ -282,25 +324,29 @@ export default function SpaceInvaders() {
 
           {currentLevel !== 1 && (
             <div className="flex justify-center">
-              <button
-                onClick={deleteLevel}
-                className="bg-error hover:bg-error-dark text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-error-light transition-transform"
-              >
-                Delete Level
-              </button>
+              <Tooltip content="Delete the current level" position="top">
+                <button
+                  onClick={deleteLevel}
+                  className="bg-error hover:bg-error-dark text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-error-light transition-transform"
+                >
+                  Delete Level
+                </button>
+              </Tooltip>
             </div>
           )}
         </div>
 
-        <button
-          onClick={handleIncrementLevel}
-          className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
-          aria-label={
-            currentLevel === levels.length ? "Add Level" : "Increment Level"
-          }
-        >
-          {currentLevel === levels.length ? "➕" : "➡️"}
-        </button>
+        <Tooltip content="Go to next level" position="bottom">
+          <button
+            onClick={handleIncrementLevel}
+            className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
+            aria-label={
+              currentLevel === levels.length ? "Add Level" : "Increment Level"
+            }
+          >
+            {currentLevel === levels.length ? "➕" : "➡️"}
+          </button>
+        </Tooltip>
       </div>
 
       <div className="mt-6">

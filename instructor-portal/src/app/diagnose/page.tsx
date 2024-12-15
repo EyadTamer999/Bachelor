@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { generateDiagnoseGame, uploadImage } from "@/utils/fetchApi"; // Make sure this is properly implemented.
 import Marker from "react-image-marker";
+import Tooltip from "@/app/shared/ToolTip";
 
 export default function DiagnoseCreator() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -338,9 +339,15 @@ export default function DiagnoseCreator() {
   return (
     <div className="flex flex-col items-center bg-neutral-white min-h-screen px-4 py-8 lg:px-16">
       <div className="mb-6 w-full max-w-md text-center space-y-2">
-        <h2 className="bg-primary text-neutral-white px-5 py-3 rounded-lg shadow-md text-lg font-semibold md:text-xl lg:px-8 lg:py-4">
-          My Level(s): {levels.length > 0 ? levels.length : 1}
-        </h2>
+        <Tooltip
+          content="The Level(s) you have created for the game."
+          position="bottom"
+        >
+          <h2 className="bg-primary text-neutral-white px-5 py-3 rounded-lg shadow-md text-lg font-semibold md:text-xl lg:px-8 lg:py-4 ">
+            My Level(s): {levels.length > 0 ? levels.length : 1}
+            {"  ℹ️"}
+          </h2>
+        </Tooltip>
 
         {warning && (
           <div className="text-error font-medium text-center bg-error-light p-3 rounded-lg">
@@ -369,25 +376,40 @@ export default function DiagnoseCreator() {
       </div>
 
       <div className="flex items-center w-full justify-center space-x-4">
-        <button
-          onClick={handleDecrementLevel}
-          className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
-          aria-label="Decrement Level"
-        >
-          ⬅️
-        </button>
+        <Tooltip content="Go to previous level" position="bottom">
+          <button
+            onClick={handleDecrementLevel}
+            className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
+            aria-label="Decrement Level"
+          >
+            ⬅️
+          </button>
+        </Tooltip>
 
         <div className="bg-neutral-light rounded-2xl p-6 w-full max-w-md shadow-md">
           <div className="mb-4">
-            <h3 className="text-center text-primary font-semibold text-xl md:text-2xl">
-              Level {currentLevel}
-            </h3>
+            <Tooltip
+              content="The current level you are working on"
+              position="top"
+            >
+              <h3 className="text-center text-primary font-semibold text-xl md:text-2xl">
+                Level {currentLevel}
+                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
+              </h3>
+            </Tooltip>
           </div>
 
           <div className="mb-4">
-            <label className="text-sm font-medium text-neutral-dark">
-              Dialog Text
-            </label>
+            <Tooltip
+              content="The dialog text for the character in the level"
+              position="top"
+            >
+              <label className="text-sm font-medium text-neutral-dark">
+                Dialog Text
+                <span className="text-xs text-error">*</span>
+                <span className="text-xs text-neutral-dark">{"  ℹ️"}</span>
+              </label>
+            </Tooltip>
             <textarea
               placeholder="Enter dialog text for the character"
               className="resize-y w-full px-4 py-2 border border-primary rounded-lg bg-neutral-white text-primary focus:outline-none focus:ring focus:ring-primary-light"
@@ -400,9 +422,16 @@ export default function DiagnoseCreator() {
           </div>
 
           <div className="mb-4">
-            <label className="text-sm font-medium text-neutral-dark">
-              Extra Info
-            </label>
+            <Tooltip
+              content="Extra information for the character or the level"
+              position="top"
+            >
+              <label className="text-sm font-medium text-neutral-dark">
+                Extra Info
+                <span className="text-xs text-error">*</span>
+                <span className="text-xs text-neutral-dark">{"  ℹ️"}</span>
+              </label>
+            </Tooltip>
             <textarea
               placeholder="Enter extra information for the character/character's issue"
               className="resize-y w-full px-4 py-2 border border-primary rounded-lg bg-neutral-white text-primary focus:outline-none focus:ring focus:ring-primary-light"
@@ -415,9 +444,16 @@ export default function DiagnoseCreator() {
           </div>
 
           <div className="mb-4">
-            <label className="text-sm font-medium text-neutral-dark">
-              Upload Image
-            </label>
+            <Tooltip
+              content="Upload an image that you will base on the answers"
+              position="top"
+            >
+              <label className="text-sm font-medium text-neutral-dark">
+                Upload Image
+                <span className="text-xs text-error">*</span>
+                <span className="text-xs text-neutral-dark">{"  ℹ️"}</span>
+              </label>
+            </Tooltip>
             <input
               type="file"
               accept="image/*"
@@ -484,9 +520,17 @@ export default function DiagnoseCreator() {
 
                 {/* Margin Slider */}
                 <div className="flex items-center justify-center space-x-4 mt-4">
-                  <label className="text-sm font-medium text-neutral-dark">
-                    Marker Margin
-                  </label>
+                  <Tooltip
+                    content="Adjust the marker size as the border limits of the correct answer"
+                    position="top"
+                  >
+                    <label className="text-sm font-medium text-neutral-dark">
+                      Marker Margin
+                      <span className="text-xs text-neutral-dark">
+                        {"  ℹ️"}
+                      </span>
+                    </label>
+                  </Tooltip>
                   <input
                     type="range"
                     min={10}
@@ -537,15 +581,17 @@ export default function DiagnoseCreator() {
           )}
         </div>
 
-        <button
-          onClick={handleIncrementLevel}
-          className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
-          aria-label={
-            currentLevel === levels.length ? "Add Level" : "Increment Level"
-          }
-        >
-          {currentLevel === levels.length ? "➕" : "➡️"}
-        </button>
+        <Tooltip content="Go to next level" position="bottom">
+          <button
+            onClick={handleIncrementLevel}
+            className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
+            aria-label={
+              currentLevel === levels.length ? "Add Level" : "Increment Level"
+            }
+          >
+            {currentLevel === levels.length ? "➕" : "➡️"}
+          </button>
+        </Tooltip>
       </div>
 
       <button
