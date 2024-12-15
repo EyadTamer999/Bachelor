@@ -456,7 +456,6 @@ export default function DiagnoseCreator() {
             </Tooltip>
             <input
               type="file"
-              accept="image/*"
               onChange={handleSetImage}
               className="block w-full text-sm text-primary border border-primary rounded-lg bg-neutral-white focus:outline-none focus:ring focus:ring-primary-light"
             />
