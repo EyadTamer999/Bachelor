@@ -56,18 +56,26 @@ const generateDiagnoseGame = async (levels) => {
 };
 
 const uploadImage = async (file) => {
-    // shorten the file name and make it unique
-    let fileName = Date.now()
+    // Generate a shortened and unique file name, preserving the original extension
+    const fileExtension = file.name.split(".").pop(); // Extract the file extension
+    const fileName = `${Date.now()}.${fileExtension}`;
 
-    console.log('Uploading image...', fileName);
+    console.log("Uploading image...", fileName);
 
     // Upload the image to the Appwrite storage
-    let res = await storage.createFile(process.env.NEXT_PUBLIC_APPWRITE_STORAGE_ID, fileName, file);
-    console.log('Image uploaded successfully', res);
+    const res = await storage.createFile(
+        process.env.NEXT_PUBLIC_APPWRITE_STORAGE_ID,
+        fileName,
+        file
+    );
+    console.log("Image uploaded successfully", res);
 
-    let imageUrl = "https://cloud.appwrite.io/v1/storage/buckets/" + res["bucketId"] + "/files/" + res["$id"] + "/view" + "?project=" + process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID;
+    // Construct the image URL based on the Appwrite storage endpoint
+    const imageUrl =
+        `https://cloud.appwrite.io/v1/storage/buckets/${res["bucketId"]}/files/${res["$id"]}/view` +
+        `?project=${process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID}`;
 
-    // return the URL of the uploaded image to save it in the database
+    // Return the URL of the uploaded image to save it in the database
     return imageUrl;
 };
 

@@ -23,7 +23,7 @@ export default function DiagnoseCreator() {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const [imgFiles, setImgFiles] = useState<any[]>([]);
-  const [marginSize, setMarginSize] = useState(10);
+  const [marginSize, setMarginSize] = useState(20);
 
   const handleIncrementLevel = () => {
     setCurrentLevel((prev) => {
@@ -535,8 +535,8 @@ export default function DiagnoseCreator() {
                   </Tooltip>
                   <input
                     type="range"
-                    min={10}
-                    max={40}
+                    min={20}
+                    max={50}
                     value={marginSize}
                     onChange={(e) => setMarginSize(+e.target.value)}
                     className="w-40"
