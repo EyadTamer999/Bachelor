@@ -200,7 +200,7 @@ export default function DiagnoseCreator() {
       })
     );
 
-    // Resize and process the image as before
+    // Resize and process the image
     const img = new Image();
     img.src = uniqueBlobUrl;
 
@@ -216,11 +216,12 @@ export default function DiagnoseCreator() {
         (resizedBlob) => {
           if (!resizedBlob) return;
 
+          // Use the original MIME type of the file
           const resizedFile = new File(
             [resizedBlob],
             `${Date.now()}-${file.name}`,
             {
-              type: "image/jpeg",
+              type: file.type,
             }
           );
           const resizedBlobUrl = URL.createObjectURL(resizedFile);
@@ -248,9 +249,10 @@ export default function DiagnoseCreator() {
             { level: currentLevel, file: resizedFile },
           ]);
 
+          // Revoke the original Blob URL to free memory
           URL.revokeObjectURL(uniqueBlobUrl);
         },
-        "image/jpeg",
+        file.type, // Preserve the original MIME type
         1
       );
     };
