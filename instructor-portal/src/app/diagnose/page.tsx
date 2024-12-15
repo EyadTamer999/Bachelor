@@ -447,7 +447,7 @@ export default function DiagnoseCreator() {
 
           <div className="mb-4">
             <Tooltip
-              content="Upload an image that you will base on the answers"
+              content="Upload an image that you will base on the answers, if using an iPhone please upload image from files or using camera"
               position="top"
             >
               <label className="text-sm font-medium text-neutral-dark">
