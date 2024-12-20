@@ -68,7 +68,7 @@ export default function Home() {
         {showGrid && (
           <div className="flex items-center justify-center flex-col">
             <h1 className="text-3xl font-bold text-primary mt-2 mb-6 text-center">
-              Choose a to create
+              Choose a game to create
             </h1>
 
             <div
