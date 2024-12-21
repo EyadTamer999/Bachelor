@@ -3,6 +3,9 @@
 \contentsline {chapter}{\numberline {3}Methodology}{3}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Proposed Solution}{3}{section.3.1}%
 \contentsline {section}{\numberline {3.2}System Architecture}{3}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Experiments \& Results}{4}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{5}{chapter.5}%
-\contentsline {chapter}{References}{6}{chapter*.2}%
+\contentsline {section}{\numberline {3.3}Game Templates}{4}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Space Invaders-like Game}{4}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Click-based Puzzle Game}{4}{subsection.3.3.2}%
+\contentsline {chapter}{\numberline {4}Experiments \& Results}{5}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusion}{6}{chapter.5}%
+\contentsline {chapter}{References}{7}{chapter*.3}%

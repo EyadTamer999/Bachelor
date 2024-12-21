@@ -11,5 +11,21 @@ By addressing these limitations, our tool not only enhances inclusivity and usab
 \section{System Architecture}
 Since we are trying to a achive a tool that could be accessed from various devices and platforms, 
 we are going to use a web-based architecture. The instructor will be using a portal to create the game, 
-and share it via a link or a game code with the students. The students will be able to access the game from their devices, 
-and the game will be able to run on any device that has a web browser.
+and share it via a link, a qr code, or a game code with the students. The students will be able to access the game from their devices, 
+and the game will be able to run on any device that has a web browser. 
+We also use a Baas (Backend as a Service) in the cloud to store the data of the games created, as it is shown in the figure \ref{fig:architecture}, in our case we are using Firebase.
+This allows the data to be stored in the cloud, and the game to be accessed from anywhere.
+The portal is creatd using Next.js, a React framework, which allows us to create a server-side rendered application.
+we have developed two game templates, a space invaders-like game which was developed using unity and hosted on itch.io,
+and a click-based puzzle game developed using next.js, more on those games in the next section.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Deployment_UML.jpg}
+    \caption{System Architecture}
+    \label{fig:architecture}
+\end{figure}
+
+\section{Game Templates}
+\subsection{Space Invaders-like Game}
+
+\subsection{Click-based Puzzle Game}

@@ -373,6 +373,12 @@ INPUT ./sections/proposedmethod.tex
 INPUT sections/proposedmethod.tex
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT ./figures/Deployment_UML.jpg
+INPUT ./figures/Deployment_UML.jpg
+INPUT ./figures/Deployment_UML.jpg
+INPUT ./figures/Deployment_UML.jpg
+INPUT ./figures/Deployment_UML.jpg
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT ./sections/results.tex
 INPUT ./sections/results.tex
 OUTPUT sections/results.aux
@@ -430,4 +436,5 @@ INPUT ./bachelor.out
 INPUT ./bachelor.out
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
