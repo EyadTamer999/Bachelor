@@ -1,3 +1,8 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{sgame2020}
+Aldo Gordillo, Enrique Barra, and Juan Quemada.
+\newblock Sgame: An authoring tool to easily create educational video games by integrating scorm-compliant learning objects.
+\newblock {\em IEEE Access}, 9:126414--126430, 2021.
 
 \end{thebibliography}

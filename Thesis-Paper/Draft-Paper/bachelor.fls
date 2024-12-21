@@ -371,6 +371,8 @@ OUTPUT sections/proposedmethod.aux
 INPUT ./sections/proposedmethod.tex
 INPUT ./sections/proposedmethod.tex
 INPUT sections/proposedmethod.tex
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./sections/results.tex
 INPUT ./sections/results.tex
 OUTPUT sections/results.aux
@@ -392,6 +394,7 @@ INPUT appendix.tex
 INPUT ./bachelor.bbl
 INPUT ./bachelor.bbl
 INPUT bachelor.bbl
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT bachelor.aux
 INPUT ./title_page.aux
 INPUT ./title_page.aux
@@ -427,3 +430,4 @@ INPUT ./bachelor.out
 INPUT ./bachelor.out
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
