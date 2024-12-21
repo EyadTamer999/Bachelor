@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  21 DEC 2024 23:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  22 DEC 2024 00:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -659,7 +659,7 @@ Package hyperref Info: Link coloring ON on input line 82.
 \openout2 = `title_page.aux'.
 
  (./title_page.tex
-<figures/image.png, id=35, 460.72125pt x 110.4125pt>
+<figures/image.png, id=39, 460.72125pt x 110.4125pt>
 File: figures/image.png Graphic file (type png)
 <use figures/image.png>
 Package pdftex.def Info: figures/image.png  used on input line 35.
@@ -780,21 +780,21 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `bachelor.out' has not changed.
-(rerunfilecheck)             Checksum: C06CD586FB971D1FF14FB5E8F261DAAF;780.
+(rerunfilecheck)             Checksum: 55337CEFF742268EA17C0BE532F52861;932.
  ) 
 Here is how much of TeX's memory you used:
- 23685 strings out of 473579
- 440797 string characters out of 5732263
- 816584 words of memory out of 5000000
- 46086 multiletter control sequences out of 15000+600000
+ 23687 strings out of 473579
+ 440821 string characters out of 5732263
+ 818581 words of memory out of 5000000
+ 46087 multiletter control sequences out of 15000+600000
  564263 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,5n,101p,774b,502s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,5n,101p,774b,504s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on bachelor.pdf (9 pages, 64674 bytes).
+Output written on bachelor.pdf (9 pages, 65164 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
- 74 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 114 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 20 named destinations out of 1000 (max. 500000)
+ 82 words of extra memory for PDF output out of 10000 (max. 10000000)
 
