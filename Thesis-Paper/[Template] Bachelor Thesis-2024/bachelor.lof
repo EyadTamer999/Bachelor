@@ -1,0 +1,20 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces An image alongside its image mask showing the tampered region in white \cite {pandey2022detecting}.}}{2}{figure.caption.4}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The first forged image (left) and the original image (right) \cite {parveen2019}. }}{3}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Self Portrait as a Drowned Man, the first staged image. \cite {bayard}}}{4}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces O.J. Simpson on the covers of Newsweek and Time Magazine. The picture on the right was altered to make Simpson appear darker. \cite {OJ2011}}}{4}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces General Framework for forgery detection.}}{7}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Classification of image authentication techniques. \cite {alahmadi2017passive}}}{7}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Steps to creating a spliced image. \cite {MeenaTyagi2019}}}{8}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Architecture of Vision Transformers \cite {dosovitskiy2021image}.}}{11}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Semantic and Instance Segmentation. \cite {Varatharasan}}}{13}{figure.caption.12}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The left shows a tampered image and the right is its corresponding ELA image}}{23}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Overview of the general structure of IML-ViT \cite {ma2023imlvit}.}}{25}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Samples from the curated ExpandedInTheWild dataset}}{26}{figure.caption.16}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparison of before and after fine-tuning (FT) with Adam}}{31}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Comparison of before and after fine-tuning with SGD}}{32}{figure.caption.21}%
+\addvspace {10\p@ }

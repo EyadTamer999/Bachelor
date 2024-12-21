@@ -1,0 +1,566 @@
+\begin{thebibliography}{100}
+
+\bibitem{ahmed2020image}
+Belal Ahmed, T~Aaron Gulliver, and Saif alZahir.
+\newblock Image splicing detection using mask-rcnn.
+\newblock {\em Signal, Image and Video Processing}, 14:1035--1042, 2020.
+
+\bibitem{Ahmed_Alam2023}
+Shams~Forruque Ahmed, Md.~Sakib Alam, Maruf Hassan, Mahtabin~Rodela Rozbu, Taoseef Ishtiak, Nazifa Rafa, M.~Mofijur, A.~B. Shawkat~Ali, and Amir~H. Gandomi.
+\newblock Deep learning modelling techniques: Current progress, applications, advantages, and challenges.
+\newblock {\em Artificial Intelligence Review}, 56(11):13521–13617, 2023.
+
+\bibitem{alahmadi2017passive}
+Amani Alahmadi, Muhammad Hussain, Hatim Aboalsamh, Ghulam Muhammad, George Bebis, and Hassan Mathkour.
+\newblock Passive detection of image forgery using dct and local binary pattern.
+\newblock {\em Signal, Image and Video Processing}, 11:81--88, 2017.
+
+\bibitem{alom2018history}
+Md~Zahangir Alom, Tarek~M Taha, Christopher Yakopcic, Stefan Westberg, Paheding Sidike, Mst~Shamima Nasrin, Brian~C Van~Esesn, Abdul A~S Awwal, and Vijayan~K Asari.
+\newblock The history began from alexnet: A comprehensive survey on deep learning approaches.
+\newblock {\em arXiv preprint arXiv:1803.01164}, 2018.
+
+\bibitem{asghar2019edge}
+Khurshid Asghar, Xianfang Sun, Paul~L Rosin, Mubbashar Saddique, Muhammad Hussain, and Zulfiqar Habib.
+\newblock Edge--texture feature-based image forgery detection with cross-dataset evaluation.
+\newblock {\em Machine Vision and Applications}, 30(7-8):1243--1262, 2019.
+
+\bibitem{Basavaraj2022}
+Chaitra Basavaraj and P.~Reddy.
+\newblock Digital image forgery: taxonomy, techniques, and tools–a comprehensive study.
+\newblock {\em International Journal of System Assurance Engineering and Management}, 14, 12 2022.
+
+\bibitem{bayard}
+Hippolyte Bayard.
+\newblock Portrait as a drowned man, 10 1840.
+
+\bibitem{bhatt2021cnn}
+Dulari Bhatt, Chirag Patel, Hardik Talsania, Jigar Patel, Rasmika Vaghela, Sharnil Pandya, Kirit Modi, and Hemant Ghayvat.
+\newblock Cnn variants for computer vision: History, architecture, application, challenges and future scope.
+\newblock {\em Electronics}, 10(20):2470, 2021.
+
+\bibitem{bianchi2011improved}
+Tiziano Bianchi, Alessia De~Rosa, and Alessandro Piva.
+\newblock Improved dct coefficient analysis for forgery localization in jpeg images.
+\newblock In {\em 2011 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, pages 2444--2447. IEEE, 2011.
+
+\bibitem{bunk2017detection}
+Jason Bunk, Jawadul~H Bappy, Tajuddin~Manhar Mohammed, Lakshmanan Nataraj, Arjuna Flenner, BS~Manjunath, Shivkumar Chandrasekaran, Amit~K Roy-Chowdhury, and Lawrence Peterson.
+\newblock Detection and localization of image forgeries using resampling features and deep learning.
+\newblock In {\em 2017 IEEE conference on computer vision and pattern recognition workshops (CVPRW)}, pages 1881--1889. IEEE, 2017.
+
+\bibitem{campesato2020artificial}
+Oswald Campesato.
+\newblock {\em Artificial intelligence, machine learning, and deep learning}.
+\newblock Mercury Learning and Information, 2020.
+
+\bibitem{Carmody_1994}
+Deirdre Carmody.
+\newblock Time responds to criticism over simpson cover.
+\newblock {\em New York Times}, page 8–8, Jun 1994.
+
+\bibitem{chen2018improved}
+Beijing Chen, Xiaoming Qi, Yiting Wang, Yuhui Zheng, Hiuk~Jae Shim, and Yun-Qing Shi.
+\newblock An improved splicing localization method by fully convolutional networks.
+\newblock {\em IEEE Access}, 6:69472--69480, 2018.
+
+\bibitem{ciresan2011flexible}
+Dan~Claudiu Ciresan, Ueli Meier, Jonathan Masci, Luca~Maria Gambardella, and J{\"u}rgen Schmidhuber.
+\newblock Flexible, high performance convolutional neural networks for image classification.
+\newblock In {\em Twenty-second international joint conference on artificial intelligence}. Citeseer, 2011.
+
+\bibitem{Cola_2018}
+Samantha Cola.
+\newblock We are truly fucked: Everyone is making ai-generated fake porn now.
+\newblock {\em Vice}, Jan 2018.
+
+\bibitem{corcoran2014}
+Peter Corcoran, Cosmin Stan, Corneliu Florea, Mihai Ciuc, and Petronel Bigioi.
+\newblock Digital beauty: The good, the bad, and the (not-so) ugly.
+\newblock {\em Consumer Electronics Magazine, IEEE}, 3:55--62, 10 2014.
+
+\bibitem{coulson2001semantic}
+Seana Coulson.
+\newblock {\em Semantic leaps: Frame-shifting and conceptual blending in meaning construction}.
+\newblock Cambridge University Press, 2001.
+
+\bibitem{Cozzolino2016}
+Davide Cozzolino and Luisa Verdoliva.
+\newblock Single-image splicing localization through autoencoder-based anomaly detection.
+\newblock pages 1--6, 12 2016.
+
+\bibitem{dosovitskiy2021image}
+Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby.
+\newblock An image is worth 16x16 words: Transformers for image recognition at scale, 2021.
+
+\bibitem{Abdulqader2023}
+Mohammed {Fakhrulddin Abdulqader}, Adnan~Yousif Dawod, and Ann {Zeki Ablahd}.
+\newblock Detection of tamper forgery image in security digital mage.
+\newblock {\em Measurement: Sensors}, 27:100746, 2023.
+
+\bibitem{Fallis_2020}
+Don Fallis.
+\newblock The epistemic threat of deepfakes.
+\newblock {\em Philosophy &amp;amp; Technology}, 34(4):623–643, 2020.
+
+\bibitem{FERREIRA2020106685}
+William~D. Ferreira, Cristiane~B.R. Ferreira, Gelson {da Cruz Júnior}, and Fabrizzio Soares.
+\newblock A review of digital image forensics.
+\newblock {\em Computers & Electrical Engineering}, 85:106685, 2020.
+
+\bibitem{fridrich2012rich}
+Jessica Fridrich and Jan Kodovsky.
+\newblock Rich models for steganalysis of digital images.
+\newblock {\em IEEE Transactions on information Forensics and Security}, 7(3):868--882, 2012.
+
+\bibitem{Gernsheim_1986}
+Helmut Gernsheim.
+\newblock A concise history of photography.
+\newblock Dover, 1986.
+
+\bibitem{ghiasi2022vision}
+Amin Ghiasi, Hamid Kazemi, Eitan Borgnia, Steven Reich, Manli Shu, Micah Goldblum, Andrew~Gordon Wilson, and Tom Goldstein.
+\newblock What do vision transformers learn? a visual exploration, 2022.
+
+\bibitem{gunawan2017development}
+Teddy~Surya Gunawan, Siti Amalina~Mohammad Hanafiah, Mira Kartiwi, Nanang Ismail, Nor~Farahidah Za’bah, and Anis~Nurashikin Nordin.
+\newblock Development of photo forensics algorithm by detecting photoshop manipulation using error level analysis.
+\newblock {\em Indonesian Journal of Electrical Engineering and Computer Science}, 7(1):131--137, 2017.
+
+\bibitem{guo2023hierarchical}
+Xiao Guo, Xiaohong Liu, Zhiyuan Ren, Steven Grosz, Iacopo Masi, and Xiaoming Liu.
+\newblock Hierarchical fine-grained image forgery detection and localization.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}, pages 3155--3165, 2023.
+
+\bibitem{UNReport}
+A.~Guterres.
+\newblock Countering disinformation for the promotion and protection of human rights and fundamental freedoms, Aug 2022.
+
+\bibitem{hao2021transforensics}
+Jing Hao, Zhixin Zhang, Shicai Yang, Di~Xie, and Shiliang Pu.
+\newblock Transforensics: Image forgery localization with dense self-attention, 2021.
+
+\bibitem{haralick1973textural}
+Robert~M Haralick, Karthikeyan Shanmugam, and Its'~Hak Dinstein.
+\newblock Textural features for image classification.
+\newblock {\em IEEE Transactions on systems, man, and cybernetics}, (6):610--621, 1973.
+
+\bibitem{Henley_2023}
+J.~Henley.
+\newblock 85\% of people worry about online disinformation, global survey finds, Nov 2023.
+
+\bibitem{horváth2021manipulation}
+János Horváth, Sriram Baireddy, Hanxiang Hao, Daniel~Mas Montserrat, and Edward~J. Delp.
+\newblock Manipulation detection in satellite images using vision transformer, 2021.
+
+\bibitem{DenseNet}
+Gao Huang, Zhuang Liu, Laurens Van Der~Maaten, and Kilian~Q. Weinberger.
+\newblock Densely connected convolutional networks.
+\newblock In {\em 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, pages 2261--2269, 2017.
+
+\bibitem{huang2021vsnet}
+Zhaoyang Huang, Han Zhou, Yijin Li, Bangbang Yang, Yan Xu, Xiaowei Zhou, Hujun Bao, Guofeng Zhang, and Hongsheng Li.
+\newblock Vs-net: Voting with segmentation for visual localization, 2021.
+
+\bibitem{huang2018weakly}
+Zilong Huang, Xinggang Wang, Jiasi Wang, Wenyu Liu, and Jingdong Wang.
+\newblock Weakly-supervised semantic segmentation network with deep seeded region growing.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and pattern recognition}, pages 7014--7023, 2018.
+
+\bibitem{huh2018fighting}
+Minyoung Huh, Andrew Liu, Andrew Owens, and Alexei~A Efros.
+\newblock Fighting fake news: Image splice detection via learned self-consistency.
+\newblock In {\em Proceedings of the European conference on computer vision (ECCV)}, pages 101--117, 2018.
+
+\bibitem{islam2023recent}
+Khawar Islam.
+\newblock Recent advances in vision transformer: A survey and outlook of recent work, 2023.
+
+\bibitem{itier2021color}
+Vincent Itier, Olivier Strauss, Laurent Morel, and William Puech.
+\newblock Color noise correlation-based splicing detection for image forensics.
+\newblock {\em Multimedia Tools and Applications}, 80:13215--13233, 2021.
+
+\bibitem{Jeronymo2017}
+Daniel Jeronymo, Yuri Campbell, and Leandro Coelho.
+\newblock Image forgery detection by semi-automatic wavelet soft-thresholding with error level analysis.
+\newblock {\em Expert Systems with Applications}, 85, 05 2017.
+
+\bibitem{ji2012}
+Shuiwang Ji, Wei Xu, Ming Yang, and Kai Yu.
+\newblock 3d convolutional neural networks for human action recognition.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence}, 35(1):221--231, 2012.
+
+\bibitem{citizenJournalism}
+N.~Jurrat.
+\newblock Mapping digital media: Citizen journalism and the internet, july 2011.
+
+\bibitem{kanwal2020digital}
+Navdeep Kanwal, Akshay Girdhar, Lakhwinder Kaur, and Jaskaran~S Bhullar.
+\newblock Digital image splicing detection technique using optimal threshold based local ternary pattern.
+\newblock {\em Multimedia Tools and Applications}, 79(19-20):12829--12846, 2020.
+
+\bibitem{khan2022transformers}
+Salman Khan, Muzammal Naseer, Munawar Hayat, Syed~Waqas Zamir, Fahad~Shahbaz Khan, and Mubarak Shah.
+\newblock Transformers in vision: A survey.
+\newblock {\em ACM computing surveys (CSUR)}, 54(10s):1--41, 2022.
+
+\bibitem{Khazaal2022}
+Mohammed~S. Khazaal, Monji Kherallah, and Faiza Charfi.
+\newblock An overview on detecting digital image splicing.
+\newblock In {\em 2022 International Arab Conference on Information Technology (ACIT)}, pages 1--4, 2022.
+
+\bibitem{kietzmann2020deepfakes}
+Jan Kietzmann, Linda~W Lee, Ian~P McCarthy, and Tim~C Kietzmann.
+\newblock Deepfakes: Trick or treat?
+\newblock {\em Business Horizons}, 63(2):135--146, 2020.
+
+\bibitem{Kniaz2019ThePW}
+Vladimir~Vladimirovich Kniaz, Vladimir~Alexandrovich Knyaz, and Fabio Remondino.
+\newblock The point where reality meets fantasy: Mixed adversarial generators for image splice detection.
+\newblock In {\em Neural Information Processing Systems}, 2019.
+
+\bibitem{krawetz2007picture}
+Neal Krawetz.
+\newblock A picture’s worth… hacker factor solutions, 2007.
+
+\bibitem{krizhevsky2012imagenet}
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock {\em Advances in neural information processing systems}, 25, 2012.
+
+\bibitem{lai2023detect}
+Yingxin Lai, Zhiming Luo, and Zitong Yu.
+\newblock Detect any deepfakes: Segment anything meets face forgery detection and localization, 2023.
+
+\bibitem{larochelle2009exploring}
+Hugo Larochelle, Yoshua Bengio, J{\'e}r{\^o}me Louradour, and Pascal Lamblin.
+\newblock Exploring strategies for training deep neural networks.
+\newblock {\em Journal of machine learning research}, 10(1), 2009.
+
+\bibitem{lecun1998gradient}
+Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner.
+\newblock Gradient-based learning applied to document recognition.
+\newblock {\em Proceedings of the IEEE}, 86(11):2278--2324, 1998.
+
+\bibitem{Lian2010}
+Shiguo Lian and Yan Zhang.
+\newblock {\em Multimedia Forensics for Detecting Forgeries}, pages 809--828.
+\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 2010.
+
+\bibitem{lin2009fast}
+Zhouchen Lin, Junfeng He, Xiaoou Tang, and Chi-Keung Tang.
+\newblock Fast, automatic and fine-grained tampered jpeg image detection via dct coefficient analysis.
+\newblock {\em Pattern Recognition}, 42(11):2492--2501, 2009.
+
+\bibitem{lindsay2021convolutional}
+Grace~W Lindsay.
+\newblock Convolutional neural networks as a model of the visual system: Past, present, and future.
+\newblock {\em Journal of cognitive neuroscience}, 33(10):2017--2031, 2021.
+
+\bibitem{liu2018locating}
+Bo~Liu and Chi-Man Pun.
+\newblock Locating splicing forgery by fully convolutional networks and conditional random field.
+\newblock {\em Signal Processing: Image Communication}, 66:103--112, 2018.
+
+\bibitem{liu2021efficient}
+Yahui Liu, Enver Sangineto, Wei Bi, Nicu Sebe, Bruno Lepri, and Marco Nadai.
+\newblock Efficient training of visual transformers with small datasets.
+\newblock {\em Advances in Neural Information Processing Systems}, 34:23818--23830, 2021.
+
+\bibitem{long2015fully}
+Jonathan Long, Evan Shelhamer, and Trevor Darrell.
+\newblock Fully convolutional networks for semantic segmentation.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and pattern recognition}, pages 3431--3440, 2015.
+
+\bibitem{luo2010jpeg}
+Weiqi Luo, Jiwu Huang, and Guoping Qiu.
+\newblock Jpeg error analysis and its applications to digital image forensics.
+\newblock {\em IEEE Transactions on Information Forensics and Security}, 5(3):480--491, 2010.
+
+\bibitem{Ma_Jiang_Fan_Jiang_Yan_2020}
+Jiayi Ma, Xingyu Jiang, Aoxiang Fan, Junjun Jiang, and Junchi Yan.
+\newblock Image matching from handcrafted to deep features: A survey.
+\newblock {\em International Journal of Computer Vision}, 129(1):23–79, 2020.
+
+\bibitem{ma2023imlvit}
+Xiaochen Ma, Bo~Du, Zhuohang Jiang, Ahmed Y.~Al Hammadi, and Jizhe Zhou.
+\newblock Iml-vit: Benchmarking image manipulation localization by vision transformer, 2023.
+
+\bibitem{mahawatta2018image}
+DMA Mahawatta and L~Ranathunga.
+\newblock Image splice detection through noise pattern analysis.
+\newblock In {\em 2018 4th International Conference for Convergence in Technology (I2CT)}, pages 1--6. IEEE, 2018.
+
+\bibitem{majib2021vgg}
+Mohammad~Shahjahan Majib, Md~Mahbubur Rahman, TM~Shahriar Sazzad, Nafiz~Imtiaz Khan, and Samrat~Kumar Dey.
+\newblock Vgg-scnet: A vgg net-based deep learning framework for brain tumor detection on mri images.
+\newblock {\em IEEE Access}, 9:116942--116952, 2021.
+
+\bibitem{Mathews2020}
+Zane Mathews.
+\newblock Fun or fear: Deepfake app puts celebrity faces in your selfies.
+\newblock {\em Vice}, Mar 2020.
+
+\bibitem{MeenaTyagi2019}
+Kunj~Bihari Meena and Vipin Tyagi.
+\newblock {\em Image Forgery Detection: Survey and Future Directions}, pages 163--194.
+\newblock 04 2019.
+
+\bibitem{MeenaTyagi2021}
+Kunj~Bihari Meena and Vipin Tyagi.
+\newblock Image splicing forgery detection techniques: A review.
+\newblock In Mayank Singh, Vipin Tyagi, P.~K. Gupta, Jan Flusser, Tuncer {\"O}ren, and V.~R. Sonawane, editors, {\em Advances in Computing and Data Sciences}, pages 364--388, Cham, 2021. Springer International Publishing.
+
+\bibitem{meena2023image}
+Kunj~Bihari Meena and Vipin Tyagi.
+\newblock Image splicing forgery detection using noise level estimation.
+\newblock {\em Multimedia Tools and Applications}, pages 1--18, 2023.
+
+\bibitem{melaskyriazi2022deep}
+Luke Melas-Kyriazi, Christian Rupprecht, Iro Laina, and Andrea Vedaldi.
+\newblock Deep spectral methods: A surprisingly strong baseline for unsupervised semantic segmentation and localization, 2022.
+
+\bibitem{mishra2013digital}
+Minati Mishra and Flt Adhikary.
+\newblock Digital image tamper detection techniques-a comprehensive study.
+\newblock {\em arXiv preprint arXiv:1306.6737}, 2013.
+
+\bibitem{MuhammedT_Mathew_2022}
+Sadiq Muhammed~T and Saji~K. Mathew.
+\newblock The disaster of misinformation: A review of research in social media.
+\newblock {\em International Journal of Data Science and Analytics}, 13(4):271–285, 2022.
+
+\bibitem{muller2022human}
+Nicolas~M M{\"u}ller, Karla Pizzi, and Jennifer Williams.
+\newblock Human perception of audio deepfakes.
+\newblock In {\em Proceedings of the 1st International Workshop on Deepfake Detection for Audio Multimedia}, pages 85--91, 2022.
+
+\bibitem{Murugesan_2007}
+S.~Murugesan.
+\newblock Understanding web 2.0.
+\newblock {\em IT Professional}, 9(4):34–41, Aug 2007.
+
+\bibitem{nampoothiri2016digital}
+V~Parameswaran Nampoothiri and N~Sugitha.
+\newblock Digital image forgery—a threaten to digital forensics.
+\newblock In {\em 2016 International Conference on Circuit, Power and Computing Technologies (ICCPCT)}, pages 1--6. IEEE, 2016.
+
+\bibitem{naseer2021intriguing}
+Muzammal Naseer, Kanchana Ranasinghe, Salman Khan, Munawar Hayat, Fahad~Shahbaz Khan, and Ming-Hsuan Yang.
+\newblock Intriguing properties of vision transformers, 2021.
+
+\bibitem{nielsen2015neural}
+Michael~A Nielsen.
+\newblock {\em Neural networks and deep learning}, volume~25.
+\newblock Determination press San Francisco, CA, USA, 2015.
+
+\bibitem{noh2015learning}
+Hyeonwoo Noh, Seunghoon Hong, and Bohyung Han.
+\newblock Learning deconvolution network for semantic segmentation.
+\newblock In {\em Proceedings of the IEEE international conference on computer vision}, pages 1520--1528, 2015.
+
+\bibitem{palmer2013rhetoric}
+Daniel Palmer.
+\newblock The rhetoric of the jpeg.
+\newblock In {\em The Photographic Image in Digital Culture}, pages 149--164. Routledge, 2013.
+
+\bibitem{pandey2022detecting}
+Aditya Pandey and Anshuman Mitra.
+\newblock Detecting and localizing copy-move and image-splicing forgery.
+\newblock {\em arXiv preprint arXiv:2202.04069}, 2022.
+
+\bibitem{parveen2019}
+Azra Parveen, Zishan Khan, and Syednaseem Ahmad.
+\newblock Block-based copy–move image forgery detection using dct.
+\newblock {\em Iran Journal of Computer Science}, 2, 06 2019.
+
+\bibitem{Peres_2007}
+Micheal Peres.
+\newblock page 24–25.
+\newblock Focal Press, 4 edition, 2007.
+
+\bibitem{perez2021fake}
+Ana P{\'e}rez-Escoda, Luis~Miguel Pedrero-Esteban, Juana Rubio-Romero, and Carlos Jim{\'e}nez-Narros.
+\newblock Fake news reaching young people on social networks: Distrust challenging media literacy.
+\newblock {\em Publications}, 9(2):24, 2021.
+
+\bibitem{pham2019efficient}
+Nam~Thanh Pham, Jong-Weon Lee, Goo-Rak Kwon, and Chun-Su Park.
+\newblock Efficient image splicing detection algorithm based on markov features.
+\newblock {\em Multimedia Tools and Applications}, 78:12405--12419, 2019.
+
+\bibitem{pomari2018image}
+Thales Pomari, Guillherme Ruppert, Edmar Rezende, Anderson Rocha, and Tiago Carvalho.
+\newblock Image splicing detection through illumination inconsistencies and deep learning.
+\newblock In {\em 2018 25th IEEE International conference on image processing (ICIP)}, pages 3788--3792. IEEE, 2018.
+
+\bibitem{qiang2023interpretabilityaware}
+Yao Qiang, Chengyin Li, Prashant Khanduri, and Dongxiao Zhu.
+\newblock Interpretability-aware vision transformer, 2023.
+
+\bibitem{ramadhani2019}
+E~Ramadhani.
+\newblock Photo splicing detection using error level analysis and laplacian-edge detection plugin on gimp.
+\newblock {\em Journal of Physics: Conference Series}, 1193:012013, 04 2019.
+
+\bibitem{rao2016}
+Yuan Rao and Jiangqun Ni.
+\newblock A deep learning approach to detection of splicing and copy-move forgeries in images.
+\newblock pages 1--6, 12 2016.
+
+\bibitem{Rao2020DeepLL}
+Yuan Rao, Jiangqun Ni, and Huimin Zhao.
+\newblock Deep learning local descriptor for image splicing detection and localization.
+\newblock {\em IEEE Access}, 8:25611--25625, 2020.
+
+\bibitem{OJ2011}
+Judith Redi, Wiem Taktak, and Jean-Luc Dugelay.
+\newblock Digital image forensics: A booklet for beginners.
+\newblock {\em Multimedia Tools Appl.}, 51:133--162, 10 2011.
+
+\bibitem{ronneberger2015unet}
+Olaf Ronneberger, Philipp Fischer, and Thomas Brox.
+\newblock U-net: Convolutional networks for biomedical image segmentation, 2015.
+
+\bibitem{rota2016bad}
+Paolo Rota, Enver Sangineto, Valentina Conotter, and Christopher Pramerdorfer.
+\newblock Bad teacher or unruly student: Can deep learning say something in image forensics analysis?
+\newblock In {\em 2016 23rd International Conference on Pattern Recognition (ICPR)}, pages 2503--2508. IEEE, 2016.
+
+\bibitem{ruan2022vision}
+Bo-Kai Ruan, Hong-Han Shuai, and Wen-Huang Cheng.
+\newblock Vision transformers: State of the art and research challenges, 2022.
+
+\bibitem{ruiz2020semantic}
+Jesus Ruiz-Santaquiteria, Gloria Bueno, Oscar Deniz, Noelia Vallez, and Gabriel Cristobal.
+\newblock Semantic versus instance segmentation in microscopic algae detection.
+\newblock {\em Engineering Applications of Artificial Intelligence}, 87:103271, 2020.
+
+\bibitem{salakhutdinov2009}
+Ruslan Salakhutdinov and Geoffrey Hinton.
+\newblock Deep boltzmann machines.
+\newblock In David van Dyk and Max Welling, editors, {\em Proceedings of the Twelth International Conference on Artificial Intelligence and Statistics}, volume~5 of {\em Proceedings of Machine Learning Research}, pages 448--455, Hilton Clearwater Beach Resort, Clearwater Beach, Florida USA, 16--18 Apr 2009. PMLR.
+
+\bibitem{Sharma2018AnalysisOK}
+Jitendra Sharma and Rohita Sharma.
+\newblock Analysis of key photo manipulation cases and their impact on photography.
+\newblock 2018.
+
+\bibitem{Sharma2019}
+Surbhi Sharma and Umesh Ghanekar.
+\newblock Spliced image classification and tampered region localization using local directional pattern.
+\newblock {\em International Journal of Image, Graphics and Signal Processing}, 11:35--42, 03 2019.
+
+\bibitem{Srivastava2020}
+Vikas Srivastava and Sanjay Yadav.
+\newblock Texture operator based digital image splicing detection using eltp technique.
+\newblock pages 345--348, 12 2020.
+
+\bibitem{strudel2021segmenter}
+Robin Strudel, Ricardo Garcia, Ivan Laptev, and Cordelia Schmid.
+\newblock Segmenter: Transformer for semantic segmentation.
+\newblock In {\em Proceedings of the IEEE/CVF international conference on computer vision}, pages 7262--7272, 2021.
+
+\bibitem{su2021vitas}
+Xiu Su, Shan You, Jiyang Xie, Mingkai Zheng, Fei Wang, Chen Qian, Changshui Zhang, Xiaogang Wang, and Chang Xu.
+\newblock Vitas: Vision transformer architecture search, 2021.
+
+\bibitem{targ2016resnet}
+Sasha Targ, Diogo Almeida, and Kevin Lyman.
+\newblock Resnet in resnet: Generalizing residual architectures.
+\newblock {\em arXiv preprint arXiv:1603.08029}, 2016.
+
+\bibitem{thisanke2023semantic}
+Hans Thisanke, Chamli Deshan, Kavindu Chamith, Sachith Seneviratne, Rajith Vidanaarachchi, and Damayanthi Herath.
+\newblock Semantic segmentation using vision transformers: A survey.
+\newblock {\em Engineering Applications of Artificial Intelligence}, 126:106669, 2023.
+
+\bibitem{tyagi2023mininet}
+Shobhit Tyagi and Divakar Yadav.
+\newblock Mininet: a concise cnn for image forgery detection.
+\newblock {\em Evolving Systems}, 14(3):545--556, 2023.
+
+\bibitem{ur2021comparative}
+Hafiz ur~Rhhman, Muhammad Arif, Anwar Ullah, Sadam Al-Azani, Valentina~Emilia Balas, Oana Geman, Muhammad~Jalal Khan, and Umar Islam.
+\newblock Comparative analysis of various image splicing algorithms.
+\newblock In {\em Soft Computing Applications: Proceedings of the 8th International Workshop Soft Computing Applications (SOFA 2018), Vol. II 8}, pages 211--228. Springer, 2021.
+
+\bibitem{Varatharasan}
+Vinorth Varatharasan, Hyo-Sang Shin, Antonios Tsourdos, and Nick Colosimo.
+\newblock Improving learning effectiveness for object detection and classification in cluttered backgrounds.
+\newblock pages 78--85, 11 2019.
+
+\bibitem{verma2013comparative}
+Rohit Verma and Jahid Ali.
+\newblock A comparative study of various types of image noise and efficient noise removal techniques.
+\newblock {\em International Journal of advanced research in computer science and software engineering}, 3(10), 2013.
+
+\bibitem{Vincent_2017}
+James Vincent.
+\newblock This app uses neural networks to put a smile on anybody’s face.
+\newblock {\em The Verge}, Jan 2017.
+
+\bibitem{wallace1992jpeg}
+Gregory~K Wallace.
+\newblock The jpeg still picture compression standard.
+\newblock {\em IEEE transactions on consumer electronics}, 38(1):xviii--xxxiv, 1992.
+
+\bibitem{WANG2023100047}
+Jiaqi Wang, Zhengliang Liu, Lin Zhao, Zihao Wu, Chong Ma, Sigang Yu, Haixing Dai, Qiushi Yang, Yiheng Liu, Songyao Zhang, Enze Shi, Yi~Pan, Tuo Zhang, Dajiang Zhu, Xiang Li, Xi~Jiang, Bao Ge, Yixuan Yuan, Dinggang Shen, Tianming Liu, and Shu Zhang.
+\newblock Review of large vision models and visual prompt engineering.
+\newblock {\em Meta-Radiology}, page 100047, 2023.
+
+\bibitem{wang2022objectformer}
+Junke Wang, Zuxuan Wu, Jingjing Chen, Xintong Han, Abhinav Shrivastava, Ser-Nam Lim, and Yu-Gang Jiang.
+\newblock Objectformer for image manipulation detection and localization, 2022.
+
+\bibitem{wang2020linformer}
+Sinong Wang, Belinda~Z. Li, Madian Khabsa, Han Fang, and Hao Ma.
+\newblock Linformer: Self-attention with linear complexity, 2020.
+
+\bibitem{wang2019detection}
+Xinyi Wang, He~Wang, Shaozhang Niu, Jiwei Zhang, et~al.
+\newblock Detection and localization of image forgeries using improved mask regional convolutional neural network.
+\newblock {\em Mathematical Biosciences and Engineering}, 16(5):4581--4593, 2019.
+
+\bibitem{Wicht2018}
+Baptiste Wicht.
+\newblock {\em Deep Learning feature Extraction for Image Processing}.
+\newblock PhD thesis, 01 2018.
+
+\bibitem{yildirim2018image}
+Esra~Odaba{\c{s}} Yildirim and G{\"u}zin Uluta{\c{s}}.
+\newblock Image splicing detection with dwt domain extended markov features.
+\newblock In {\em 2018 26th Signal Processing and Communications Applications Conference (SIU)}, pages 1--4. IEEE, 2018.
+
+\bibitem{yildirim2018markov}
+Esra~ODABA{\c{S}} YILDIRIM and G{\"u}zin ULUTA{\c{S}}.
+\newblock Markov-based image splicing detection in the dct high frequency region.
+\newblock In {\em 2018 International Conference on Artificial Intelligence and Data Processing (IDAP)}, pages 1--4. IEEE, 2018.
+
+\bibitem{zakariah2018}
+Mohammed Zakariah, Muhammad~Khurram Khan, and Hafiz Malik.
+\newblock Digital multimedia audio forensics: past, present and future.
+\newblock {\em Multimedia tools and applications}, 77:1009--1040, 2018.
+
+\bibitem{zanardelli2023image}
+Marcello Zanardelli, Fabrizio Guerrini, Riccardo Leonardi, and Nicola Adami.
+\newblock Image forgery detection: a survey of recent deep-learning approaches.
+\newblock {\em Multimedia Tools and Applications}, 82(12):17521--17566, 2023.
+
+\bibitem{zhai2023background}
+Wei Zhai, Pingyu Wu, Kai Zhu, Yang Cao, Feng Wu, and Zheng-Jun Zha.
+\newblock Background activation suppression for weakly supervised object localization and semantic segmentation, 2023.
+
+\bibitem{zhan2015passive}
+Lifei Zhan and Yuesheng Zhu.
+\newblock Passive forensics for image splicing based on pca noise estimation.
+\newblock In {\em 2015 10th International Conference for Internet Technology and Secured Transactions (ICITST)}, pages 78--83. IEEE, 2015.
+
+\bibitem{zhang2021image}
+Y~Zhang, T~Shi, and Zhe-Ming Lu.
+\newblock Image splicing detection scheme based on error level analysis and local binary pattern.
+\newblock {\em Netw. Intell}, 6:303--312, 2021.
+
+\end{thebibliography}
