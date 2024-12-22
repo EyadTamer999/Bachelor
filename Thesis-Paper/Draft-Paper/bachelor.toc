@@ -7,6 +7,6 @@
 \contentsline {section}{\numberline {3.4}Game Templates}{5}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Space Invaders-like Game}{5}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Click-based Puzzle Game}{5}{subsection.3.4.2}%
-\contentsline {chapter}{\numberline {4}Experiments \& Results}{6}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{7}{chapter.5}%
-\contentsline {chapter}{References}{8}{chapter*.3}%
+\contentsline {chapter}{\numberline {4}Experiments \& Results}{7}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusion}{8}{chapter.5}%
+\contentsline {chapter}{References}{9}{chapter*.4}%

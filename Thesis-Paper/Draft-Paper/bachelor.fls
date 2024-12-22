@@ -379,6 +379,16 @@ INPUT ./figures/Deployment_UML.jpg
 INPUT ./figures/Deployment_UML.jpg
 INPUT ./figures/Deployment_UML.jpg
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
+INPUT ./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png
+INPUT ./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png
+INPUT ./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png
+INPUT ./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png
+INPUT ./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png
+INPUT ./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_Generated.jpeg
+INPUT ./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_Generated.jpeg
+INPUT ./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_Generated.jpeg
+INPUT ./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_Generated.jpeg
+INPUT ./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_Generated.jpeg
 INPUT ./sections/results.tex
 INPUT ./sections/results.tex
 OUTPUT sections/results.aux
