@@ -55,7 +55,8 @@ public class DatabaseManager : MonoBehaviour
                         levelInfo.data.characters,
                         levelInfo.data.challengeGoals,
                         levelInfo.data.text,
-                        levelInfo.data.turns
+                        levelInfo.data.turns,
+                        levelInfo.data.conversionGame
                     );
 
                     // Add the new level to the list
@@ -95,4 +96,5 @@ public class LevelData
     public List<string> challengeGoals { get; set; }
     public string text { get; set; }
     public int turns { get; set; }
+    public string conversionGame { get; set; }
 }

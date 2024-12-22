@@ -44,7 +44,6 @@ public class ChallengeHandler : MonoBehaviour
             GameManager.Instance.levelManager.NextTurn(false);
         }
 
-        // TODO change how yoy display the challenge complete text
         // Find the ChallengeCompleteText object in the scene
         GameObject challengeCompleteTextObject = GameObject.Find("ChallengeCompleteText");
 
@@ -60,8 +59,16 @@ public class ChallengeHandler : MonoBehaviour
 
         Debug.Log("challenge handler Goal string: " + goalString);
 
-        // Convert goalString from decimal to binary
-        goalStringConverted = Convert.ToString(int.Parse(goalString), 2);
+        //if converstion game is equal to "binary" then convert the goal string to binary
+        if (GameManager.Instance.levelManager.getConversionGame() == "binary")
+        {
+            // Convert goalString from decimal to binary
+            goalStringConverted = Convert.ToString(int.Parse(goalString), 2);
+        }
+        else
+        {
+            goalStringConverted = goalString;
+        }
     }
 
     public void SetUserString(string user)

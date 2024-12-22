@@ -239,4 +239,10 @@ public class LevelManager : MonoBehaviour
         return currentTurn == levels[currentLevel - 1].turns;
     }
 
+    // get the game conversion of the current level
+    public string getConversionGame()
+    {
+        return levels[currentLevel - 1].conversionGame;
+    }
+
 }
