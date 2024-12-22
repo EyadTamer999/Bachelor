@@ -2,15 +2,15 @@
 
 \section{Proposed Solution}
 
-Building on the work of Gordillo et al. \cite{sgame2020}, our solution addresses key limitations in their approach. While SGAME provides a platform for creating educational video games by integrating SCORM-compliant learning objects, it has notable restrictions. Specifically, the game creation process in SGAME is confined to combining pre-existing games with a predefined set of educational questions across various fields. Additionally, the system’s support for educational content is limited to the Spanish language, significantly restricting its usability for users from diverse linguistic and cultural backgrounds. Furthermore, SGAME's educational content is primarily focused on middle school to high school curricula, leaving a gap in addressing broader educational needs, such as higher education or specialized training.
+Building on the work of Gordillo et al. \cite{sgame2020}, our solution addresses key limitations in their approach. Although SGAME provides a platform for creating educational video games by integrating SCORM-compliant learning objects, it has notable restrictions. Specifically, the game creation process in SGAME is confined to combining preexisting games with a predefined set of educational questions across various fields. Furthermore, the system's support for educational content is limited to the Spanish language, significantly restricting its usability to users from diverse linguistic and cultural backgrounds. Furthermore, SGAME's educational content is primarily focused on middle school to high school curricula, leaving a gap in addressing broader educational needs, such as higher education or specialized training.
 
-To overcome these limitations, our tool is designed to give users greater control over the educational content they can incorporate into their games. Unlike SGAME, which ties games to fixed educational fields, our solution allows the same game template to be adapted for different educational contexts. This approach ensures flexibility, enabling instructors to create games tailored to their specific educational needs and in their preferred language. However, we recognize that certain game templates may naturally align better with specific fields, and such constraints will be accounted for to maintain educational and gameplay coherence.
+To overcome these limitations, our tool is designed to give users greater control over the educational content they can incorporate into their games. Unlike SGAME, which links games to fixed educational fields, our solution allows the same game template to be adapted for different educational contexts. This approach ensures flexibility, allowing instructors to create games tailored to their specific educational needs and in their preferred language. However, we recognize that certain game templates may naturally align better with specific fields, and such constraints will be taken into account to maintain educational and gameplay coherence.
 
-By addressing these limitations, our tool enhances inclusivity and usability while fostering a more customizable and versatile approach to creating educational games. This empowers instructors to provide engaging and context-specific learning experiences.
+By addressing these limitations, our tool improves inclusivity and usability while fostering a more customizable and versatile approach to creating educational games. This empowers instructors to provide context-specific and engaging learning experiences.
 
 \section{System Architecture}
 
-To achieve a tool that can be accessed from various devices and platforms, we have opted for a web-based architecture. The instructor will use a portal to create the game and share it via a link, QR code, or game code with the students. The students will be able to access the game from their devices, as the game will run on any device with a web browser.
+To achieve a tool that can be accessed from various devices and platforms, we have opted for a web-based architecture. The instructor will use a portal to create the game and share it via a link, QR code, or game code with students. Students will be able to access the game from their devices, as the game will run on any device with a Web browser.
 
 We also leverage a Backend as a Service (BaaS) in the cloud to store the data of the games created, as shown in Figure \ref{fig:architecture}. For this purpose, we are using Firebase, which allows the data to be stored in the cloud, making the game accessible from anywhere.
 
@@ -25,7 +25,7 @@ The portal is built using Next.js, a React framework that enables server-side re
 
 \section{Instructor Portal}
 
-The instructor portal is a web application that serves as the tool for generating the games. By generating, we mean pushing data to the Firebase Realtime Database. For games like the click-based puzzle game, if an image is required, the image is uploaded to Firebase Storage—at least, that was the original plan. Unfortunately, by the time of implementation, Firebase changed its pricing policy, necessitating a shift to a different storage solution. We opted for Appwrite, an open-source service with a more favorable pricing policy.
+The instructor portal is a web application that serves as a tool for generating games. By generating, we mean pushing data to the Firebase real-time database. For games like the click-based puzzle game, if an image is required, the image is uploaded to Firebase Storage—at least that was the original plan. Unfortunately, by the time of implementation, Firebase changed its pricing policy, necessitating a shift to a different storage solution. We opt for Appwrite, an open source service with a more favorable pricing policy.
 
 After the data is pushed to the database, the portal generates a link, a QR code, and a game code that the instructor can share with the students.
 
@@ -36,8 +36,22 @@ We have developed two game templates: a Space Invaders-like game and a click-bas
 The Space Invaders-like game is inspired by the classic arcade game, featuring fast-paced gameplay where the player must shoot enemies before they reach the bottom of the screen or hit the player with a projectile. In contrast, the click-based puzzle game offers a more relaxed experience, requiring the player to solve a puzzle by clicking on the correct answer in a provided image.
 
 \subsection{Space Invaders-like Game}
+The space invaders game template is desgined after the classic arcade game, with a sligtly different look. the player controls a spaceship that can move in the x-axis and y-axis, and shoot bullets to destroy the enemies. The enemies move in a predefined path, and the player must shoot them before they reach the bottom of the screen or the player is hit by an enemy projectile.
+the educational twist in the game is that each enemy is marked by a character and shooting that enemy is like choosing the answer to a question. The game is made up of levels each level has an odd number of turns/challenges, and the player must answer correctly to more than half of the challenges to pass the level 
+ex. if the level has 5 challenges the player must answer correctly to at least 3 of them to pass the level. 
+The player can see the current turn they are on, the current level they are on, the challenge text, the goal,
+their choice, and buttons such the submit and reset incase of any mis-inputs.
 
-The Space Invaders-like game template allows instructors to incorporate educational content into the fast-paced gameplay. Details on how this template is customized and utilized are discussed further in the implementation section.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.49\textwidth]{figures/Space_Invaders/Instructor_Portal_Space_Invader.png}
+    \includegraphics[width=0.49\textwidth]{figures/Space_Invaders/Space_Invaders_Game.jpeg}
+    \caption{Space Invaders-like Game}
+    \label{fig:space-invaders-game}
+\end{figure}
+
+
+
 
 \subsection{Click-based Puzzle Game}
 
