@@ -9,7 +9,13 @@ export default function SpaceInvaders() {
   const [levels, setLevels] = useState([
     {
       level: 1,
-      data: { text: "", characters: "", turns: "", challengeGoals: "" },
+      data: {
+        text: "",
+        characters: "",
+        turns: "",
+        challengeGoals: "",
+        conversionGame: "",
+      },
     },
   ]);
   const [gameId, setGameId] = useState("");
@@ -27,7 +33,13 @@ export default function SpaceInvaders() {
             ...prevLevels,
             {
               level: newLevel,
-              data: { text: "", characters: "", turns: "", challengeGoals: "" },
+              data: {
+                text: "",
+                characters: "",
+                turns: "",
+                challengeGoals: "",
+                conversionGame: "",
+              },
             },
           ];
         }
@@ -305,6 +317,34 @@ export default function SpaceInvaders() {
               }
               onChange={(e) => handleChange("text", e.target.value)}
             />
+          </div>
+
+          <div className="mb-4">
+            <Tooltip
+              content="The conversion game that will be displayed in the game"
+              position="top"
+            >
+              <label className="text-sm font-medium text-neutral-dark">
+                Conversion Game
+                <span className="text-xs text-error">*</span>
+                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
+              </label>
+            </Tooltip>
+            {/* drop down menu for conversion game */}
+            <select
+              className="w-full px-4 py-2 border border-primary rounded-lg bg-neutral-white text-primary focus:outline-none focus:ring focus:ring-primary-light"
+              value={
+                levels.find((level) => level.level === currentLevel)?.data
+                  ?.conversionGame || ""
+              }
+              onChange={(e) => handleChange("conversionGame", e.target.value)}
+            >
+              <option value="">none</option>
+              <option value="binary">Binary</option>
+            </select>
+            <div className="text-xs text-error">
+              *Currently only binary conversion is supported
+            </div>
           </div>
 
           <div className="mb-4">
