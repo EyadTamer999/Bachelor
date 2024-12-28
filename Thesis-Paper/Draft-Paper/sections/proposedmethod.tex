@@ -22,17 +22,26 @@ The instructor portal is built using Next.js, a React framework known for its se
 
 InstaGame’s customization system is designed to provide instructors with the tools they need to tailor educational content to their specific requirements. The platform supports the creation of games that encompass a wide range of educational fields and contexts, enabling instructors to design experiences that align with their teaching objectives.
 
-For instance, the click-based puzzle game template allows instructors to upload images, define clickable regions, and input corresponding educational content such as dialogues, questions, and explanations, as shown in Figure \ref{fig:customization}. The system’s user-friendly interface ensures that instructors can easily navigate and input data. Additionally, the platform supports the creation of multiple levels, each with distinct content and objectives, enabling instructors to design comprehensive games that cater to diverse learning needs. This versatility accommodates study fields ranging from anatomy and geography to engineering and history.
+For instance, the click-based puzzle game template allows instructors to upload images, define clickable regions, and input corresponding educational content such as dialogues, questions, and explanations, as shown in Figure \ref{fig:}. The system’s user-friendly interface ensures that instructors can easily navigate and input data. Additionally, the platform supports the creation of multiple levels, each with distinct content and objectives, enabling instructors to design comprehensive games that cater to diverse learning needs. This versatility accommodates study fields ranging from anatomy and geography to engineering and history.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png}
-	\caption{Game Customization System}
-	\label{fig:customization}
+	\caption{Game Customization System for Click-based Puzzle Game}
+	\label{fig:customizationClickPuzzle}
 \end{figure}
 
 
-Another game template, the Space Invaders-like game, enables instructors to input questions and choices, which are displayed as enemies. Players must answer questions correctly by eliminating the enemies holding the correct answers. Instructors can customize various elements, including the title text displayed at the top of the screen, whether the game requires players to convert a goal into an answer (conversion game), the characters displayed on enemies (representing the choices), the possible goals that the system can choose from, and the number of turns within the level. Notably, the number of turns must be odd to determine if the player has won or lost the level.
+Another game template, the Space Invaders-like game, enables instructors to input questions and choices, which are displayed as enemies. Players must answer questions correctly by eliminating the enemies holding the correct answers. Instructors can customize various elements, including the title text displayed at the top of the screen, whether the game requires players to convert a goal into an answer (conversion game), the characters displayed on enemies (representing the choices), the possible goals that the system can choose from, and the number of turns within the level. Notably, the number of turns must be odd to determine if the player has won or lost the level, this is calculated by the system based on the majority of correect turns that have been won, for example, if the level has 5 turns, the player must win 3 turns to win the level, or if the level has 7 turns, the player must win 4 turns to win the level.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/Space_Invaders/Instructor_Portal_Space_Invader.png}
+	\caption{Game Customization System for Space Invaders-like Game}
+	\label{fig:customizationSpaceInvaders}
+\end{figure}
+
+
 
 % TODO cite MDA framework and provide the references
 Both templates adhere to the MDA game design framework, which consists of mechanics, dynamics, and aesthetics. The mechanics are the rules and procedures that guide the player's actions, such as answering questions or clicking on images. The dynamics refer to the interactions between the player and the game, such as the feedback provided after answering a question. The aesthetics are the emotional responses elicited by the game, such as the sense of accomplishment when completing a level.

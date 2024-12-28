@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  28 DEC 2024 16:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  28 DEC 2024 16:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -746,26 +746,40 @@ Package pdftex.def Info: figures/Deployment_UML.jpg  used on input line 16.
 (pdftex.def)             Requested size: 362.37569pt x 373.16795pt.
 
 
+LaTeX Warning: Reference `fig:' on page 4 undefined on input line 25.
+
+
+
 [4 <./figures/Deployment_UML.jpg>]
-<figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png, id=103, 602.25pt x 485.56406pt>
+<figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png, id=102, 602.25pt x 485.56406pt>
 File: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png Graphic file (type png)
 <use figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png>
 Package pdftex.def Info: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png  used on input line 29.
 (pdftex.def)             Requested size: 362.37569pt x 292.1779pt.
+<figures/Space_Invaders/Instructor_Portal_Space_Invader.png, id=104, 516.42938pt x 545.78906pt>
+File: figures/Space_Invaders/Instructor_Portal_Space_Invader.png Graphic file (type png)
+<use figures/Space_Invaders/Instructor_Portal_Space_Invader.png>
+Package pdftex.def Info: figures/Space_Invaders/Instructor_Portal_Space_Invader.png  used on input line 39.
+(pdftex.def)             Requested size: 362.37569pt x 382.9908pt.
 
 
 [5 <./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png>]
 
-[6])
+[6 <./figures/Space_Invaders/Instructor_Portal_Space_Invader.png>]
+Underfull \vbox (badness 1052) has occurred while \output is active []
 
-[7]
+
+
+[7])
+
+[8]
 \openout2 = `sections/results.aux'.
 
  (./sections/results.tex
 Chapter 4.
 )
 
-[8
+[9
 
 
 
@@ -777,7 +791,7 @@ Chapter 4.
 Chapter 5.
 )
 
-[9
+[10
 
 
 
@@ -787,7 +801,7 @@ Chapter 5.
 
  (./appendix.tex) (./bachelor.bbl)
 
-[10
+[11
 
 
 
@@ -799,22 +813,26 @@ Chapter 5.
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `bachelor.out' has not changed.
-(rerunfilecheck)             Checksum: F4A7874ADAFB3867F6D77ABEFD2E8490;1399.
+(rerunfilecheck)             Checksum: D7C3825F0C50A11CEBBA95F10BF22DAB;1399.
  ) 
 Here is how much of TeX's memory you used:
- 23725 strings out of 473579
- 441851 string characters out of 5732263
- 820696 words of memory out of 5000000
- 46115 multiletter control sequences out of 15000+600000
+ 23736 strings out of 473579
+ 442377 string characters out of 5732263
+ 819812 words of memory out of 5000000
+ 46124 multiletter control sequences out of 15000+600000
  564615 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,6n,101p,1106b,506s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,6n,101p,1106b,510s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on bachelor.pdf (13 pages, 139105 bytes).
+Output written on bachelor.pdf (14 pages, 163188 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 132 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 168 PDF objects out of 1000 (max. 8388607)
+ 136 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
