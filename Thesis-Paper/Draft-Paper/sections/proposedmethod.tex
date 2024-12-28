@@ -1,16 +1,15 @@
 \chapter{InstaGame}\label{chap:method}
 
-% Introduction to the tool
-\section{Introduction}
 
-The proposed tool, InstaGame, is designed to address key limitations identified in existing educational game creation platforms, such as SGAME \cite{sgame2020}. While SGAME enables educators to integrate SCORM-compliant learning objects into preexisting game templates, it restricts flexibility in game creation, limits educational content to the Spanish language, and primarily caters to middle school to high school curricula. In contrast, InstaGame empowers instructors to create highly customizable games tailored to diverse educational contexts and languages. By decoupling game templates from specific fields, the tool fosters inclusivity and usability while accommodating a wide range of educational levels and subjects.
+InstaGame is an innovative platform designed to empower educators by enabling the creation of customizable educational games. Building on existing research, InstaGame addresses key limitations found in similar tools, such as SGAME \cite{sgame2020}. While SGAME integrates SCORM-compliant learning objects into preexisting games, it restricts game creation to predefined templates and educational fields, limiting flexibility and broader applicability. Additionally, SGAME's language support is limited to Spanish, narrowing its accessibility for global users. InstaGame overcomes these challenges by offering a more versatile and inclusive solution that accommodates diverse educational needs, linguistic preferences, and content areas.
 
-% explain the design and architecture of the tool
+The work presented enables instructors to tailor games to diverse educational contexts by adapting templates to align with various curricula. Each game template excels in specific fields due to its unique mechanics and design, allowing educators to select the most suitable option for their goals. InstaGame further emphasizes user-friendly tools, making it accessible to educators with varying technical expertise, thereby fostering an engaging and inclusive learning environment. InstaGame also alllows the instructor to create games from any device with an internet browser, ensuring that educators can easily integrate the platform into their teaching practices without the need to install additional software or learn complex programming languages and game design. Once the instructor generates a game, they can share it with students through multiple channels, including unique links, QR codes, and game codes, ensuring broad accessibility and seamless distribution.
+
 \section{Design and Architecture}
 
-To ensure accessibility across devices and platforms, InstaGame adopts a web-based architecture. Instructors use a portal to design games and share them with students via links, QR codes, or game codes, making them accessible on any device with a web browser. The backend leverages Firebase as a Backend as a Service (BaaS) to store game data in the cloud, ensuring global availability. However, due to changes in Firebase's pricing policy, Appwrite, an open-source service, was integrated as an alternative storage solution.
+The architecture of InstaGame is designed to provide seamless accessibility and scalability. Leveraging a web-based framework, the platform ensures that instructors and students can access the tool from any device with an internet browser. Figure \ref{fig:architecture} illustrates the system’s architecture, which integrates a robust cloud-based backend to manage and store game data.
 
-The instructor portal is developed using Next.js, a React framework that supports server-side rendering, while the game templates include a Space Invaders-like game developed in Unity and hosted on itch.io, as well as a click-based puzzle game created with Next.js. These templates are highly adaptable, enabling instructors to incorporate educational content specific to their needs. The system architecture is depicted in Figure \ref{fig:architecture}.
+The instructor portal is built using Next.js, a React framework known for its server-side rendering capabilities and efficient performance. Firebase, a Backend as a Service (BaaS) platform, is employed for real-time database management, ensuring that game data is stored and can be accessed from anywhere. A cloud storage is also used to store game assets, such as images, and Appwrite, open-source service, was adopted for storage solutions. The architecture prioritizes reliability and accessibility to support educators in generating and sharing educational games.
 
 \begin{figure}
 	\centering
@@ -19,24 +18,47 @@ The instructor portal is developed using Next.js, a React framework that support
 	\label{fig:architecture}
 \end{figure}
 
-% explain the levling system behind the tool
-\section{Leveling System}
+\section{Game Customization System}
 
-InstaGame incorporates a leveling system to maintain student engagement and provide a structured learning experience. For instance, in the Space Invaders-like game template, players must complete levels by answering educational questions correctly. Each level consists of an odd number of challenges or turns, and players must achieve more than half correct answers to advance. For example, a level with five challenges requires at least three correct answers for progression.
+InstaGame’s customization system is designed to provide instructors with the tools they need to tailor educational content to their specific requirements. The platform supports the creation of games that encompass a wide range of educational fields and contexts, enabling instructors to design experiences that align with their teaching objectives.
 
-The interface displays relevant information such as the current turn, level, challenge text, and goal. Interactive elements, including "Submit" and "Reset" buttons, allow players to confirm their choices or correct input errors. This system ensures that students are consistently challenged while reinforcing their understanding of the subject matter.
+For instance, the click-based puzzle game template allows instructors to upload images, define clickable regions, and input corresponding educational content such as dialogues, questions, and explanations, as shown in Figure \ref{fig:customization}. The system’s user-friendly interface ensures that instructors can easily navigate and input data. Additionally, the platform supports the creation of multiple levels, each with distinct content and objectives, enabling instructors to design comprehensive games that cater to diverse learning needs. This versatility accommodates study fields ranging from anatomy and geography to engineering and history.
 
-% explain the goal checking system behind the tool
-\section{Goal Checking System}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png}
+	\caption{Game Customization System}
+	\label{fig:customization}
+\end{figure}
 
-The goal-checking system in InstaGame ensures alignment between gameplay and educational objectives. In the Space Invaders-like game, each enemy represents a potential answer to an educational question. Players must destroy enemies corresponding to the correct answers to progress through the game. Similarly, in the click-based puzzle game, players interact with images to select the correct answers, such as diagnosing a disease by clicking on the affected organ.
 
-Instructors define the goals and criteria for success when creating games. For example, in the puzzle game, instructors upload images, mark clickable regions, and provide contextual information, such as dialogues describing symptoms or conditions. The system evaluates player actions against these predefined goals to determine success, offering immediate feedback to enhance the learning experience.
+Another game template, the Space Invaders-like game, enables instructors to input questions and choices, which are displayed as enemies. Players must answer questions correctly by eliminating the enemies holding the correct answers. Instructors can customize various elements, including the title text displayed at the top of the screen, whether the game requires players to convert a goal into an answer (conversion game), the characters displayed on enemies (representing the choices), the possible goals that the system can choose from, and the number of turns within the level. Notably, the number of turns must be odd to determine if the player has won or lost the level.
 
-% explain the game sharing system being used in the tool
+% TODO cite MDA framework and provide the references
+Both templates adhere to the MDA game design framework, which consists of mechanics, dynamics, and aesthetics. The mechanics are the rules and procedures that guide the player's actions, such as answering questions or clicking on images. The dynamics refer to the interactions between the player and the game, such as the feedback provided after answering a question. The aesthetics are the emotional responses elicited by the game, such as the sense of accomplishment when completing a level.
+
+% TODO add the references to the elemental pentad framework
+In addition to the MDA framework, the templates also align with the elemental pentad framework, which is a more comprehensive approach directed toward game-based learning (GBL). The elemental pentad consists of five elements: mechanics, story, aesthetics, technology, and pedagogy. The mechanics refer to the rules and procedures that guide the player's actions, such as answering questions or clicking on images, as mentioned earlier. The story represents the narrative that contextualizes the game, such as the dialogue present in the click-based puzzle game. The aesthetics refer to the emotional responses evoked by the game, such as the sense of accomplishment upon completing a level, as previously noted. The technology refers to the platform used to deliver the game, such as a web browser or mobile device. The pedagogy pertains to the educational theories that inform the game design, such as constructivism or behaviorism.
+
+By incorporating these elements, the templates provide a comprehensive learning experience that engages students while supporting educational goals. Notably, these elements are always present but are slightly altered based on the instructor's input. For example, the mechanics are determined by the instructor's questions and choices, the story is influenced by the instructor's dialogue and explanations, the aesthetics are shaped by the instructor's feedback and rewards, the technology is determined by the platform used to access the game, and the pedagogy is informed by the instructor's educational objectives.
+
+
+
 \section{Game Sharing System}
 
-InstaGame simplifies the process of sharing games with students through its game sharing system. Once a game is created using the instructor portal, a link, QR code, and game code are generated automatically. These sharing options enable students to access the game seamlessly on their preferred devices.
+InstaGame features a streamlined game sharing system designed to facilitate easy distribution of educational games to students. Once a game is generated, the platform generates a unique link, a QR code, and a game code. These sharing options provide instructors with multiple ways to distribute the game, catering to various classroom setups and technological capabilities.
 
-For games requiring additional assets, such as images for the click-based puzzle game, instructors upload the necessary files to Firebase Storage or Appwrite during game creation. This ensures that all required resources are readily available to students upon accessing the game. By streamlining the sharing process, InstaGame enhances accessibility and fosters collaboration between instructors and students.
+The generated link can be shared directly via email or messaging platforms, while the QR code allows students to access the game instantly using their devices. The game code serves as an additional access method, particularly useful in scenarios where students are using a shared portal or platform to enter their assigned activities. This multi-faceted sharing system ensures flexibility and convenience, enabling broad accessibility for both instructors and students.
 
+
+% TODO show game screenshots
+\section{Gameplay}
+
+InstaGame supports two game templates—a Space Invaders-like game and a click-based puzzle game—each offering unique gameplay mechanics tailored to different learning objectives.
+
+In the Space Invaders-like game, players engage in fast-paced gameplay where they must eliminate enemies before they reach the bottom of the screen or hit the player with a projectile. This template is well-suited for reinforcing quick decision-making and recall in subjects like mathematics or vocabulary. The click-based puzzle game, on the other hand, offers a more relaxed experience, requiring players to solve puzzles by identifying correct answers within an image. For example, an anatomy-based game could task players with diagnosing a condition by selecting the appropriate organ.
+
+% TODO add more details about the goal checjing system and add pseudocode
+\section{Goal Checking System}
+
+The goal checking system ensures that player actions are evaluated against predefined criteria set by the instructor. This allows for accurate assessment of student performance and ensures that gameplay aligns with educational objectives. By integrating these systems, InstaGame fosters a balance between engaging gameplay and meaningful learning outcomes.
