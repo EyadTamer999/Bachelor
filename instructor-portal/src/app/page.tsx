@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import spaceInvadersIcon from "@/assets/Space_Invaders_Game.jpeg";
+import clickGameIcon from "@/assets/Click_Game_Icon.png";
 
 export default function Home() {
   const [showGrid, setShowGrid] = useState(false);
@@ -12,18 +15,19 @@ export default function Home() {
     {
       id: 1,
       title: "Space Invaders",
-      // description:
-      // "Challenge your students to convert decimal to binary or create chemcial forumlas by shooting enemies.",
-      tags: ["Computer Science", "Chemistry", "Physics"],
-      img: "https://placehold.co/600x400/png",
+      description:
+        "Challenge your students to convert decimal to binary or create chemcial forumlas by shooting enemies.",
+      tags: ["Computer Science", "Chemistry", "Math"],
+      img: spaceInvadersIcon,
       url: "/space-invaders",
     },
     {
       id: 2,
-      title: "Diagnose The Patient",
-      // description: "Diagnose the patient by choosing the areas that are affected.",
-      tags: ["Biology", "Health Science", "Automotive"],
-      img: "https://placehold.co/600x400/png",
+      title: "Puzzle Click Game",
+      description:
+        "Challenge your students to find all the hidden markers in the image.",
+      tags: ["Biology", "Business/HR", "Automotive"],
+      img: clickGameIcon,
       url: "/diagnose",
     },
   ];
@@ -84,16 +88,26 @@ export default function Home() {
                   className="bg-neutral-white rounded-lg shadow-md p-6 flex items-center justify-center text-lg font-semibold text-primary hover:shadow-lg hover:scale-105 transition-transform duration-300"
                 >
                   <div className="flex items-center">
-                    <img
+                    <Image
+                      className="w-20 h-20 object-cover rounded-lg mr-4"
                       src={game.img}
                       alt={game.title}
-                      className="w-20 h-20 object-cover rounded-lg mr-4"
                     />
                     <div>
                       <h2 className="text-xl font-bold mb-2">{game.title}</h2>
                       <p className="text-neutral-gray text-sm">
-                        {game.tags.join(", ")}
+                        {game.description}
                       </p>
+                      <div className="flex gap-2 mt-2">
+                        {game.tags.map((tag, index) => (
+                          <span
+                            key={index}
+                            className="bg-secondary text-neutral-white px-2 py-1 rounded-md text-xs"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </Link>

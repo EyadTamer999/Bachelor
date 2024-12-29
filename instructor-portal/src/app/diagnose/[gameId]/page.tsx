@@ -64,6 +64,15 @@ export default function DiagnoseGame() {
         setLoading(true);
         const fetchGame = async () => {
           const data = await getDiagnoseGame(gameId);
+
+          // check if the game exists
+          if (!data) {
+            setModalContent("Game not found.");
+            setModalVisible(true);
+            return;
+          }
+
+          // set the game data
           setDiagnoseGame(data);
           if (data?.levels?.length > 0) {
             updateCurrentLevelData(0, data.levels[0]);
