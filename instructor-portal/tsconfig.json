@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/diagnose/[gameId]/CharacterDisplay.jsx", "src/app/diagnose/[gameId]/LevelInfo.jsx", "src/app/diagnose/[gameId]/ImageMarkerSection.jsx", "src/app/diagnose/[gameId]/ControlButtons.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/diagnose/[gameId]/CharacterDisplay.jsx", "src/app/diagnose/[gameId]/LevelInfo.jsx", "src/app/diagnose/[gameId]/ImageMarkerSection.jsx", "src/app/diagnose/[gameId]/ControlButtons.jsx", "src/app/shared/GameId.jsx"],
   "exclude": ["node_modules"]
 }
