@@ -1,7 +1,7 @@
 import React from "react";
 import { useQRCode } from "next-qrcode";
 
-export default function QRCodeDisplay({ gameName, gameId }) {
+export default function QRCodeDisplay({ gameLink, gameId }) {
   const { Canvas } = useQRCode();
   return (
     <div>
@@ -10,7 +10,7 @@ export default function QRCodeDisplay({ gameName, gameId }) {
       </span>
       <div className="flex-col items-center justify-center space-y-4 mt-4">
         <a
-          href={`/diagnose/${gameId}`}
+          href={gameLink}
           target="_blank"
           rel="noreferrer"
           className="bg-success text-neutral-white px-6 py-3 rounded-xl shadow-md hover:bg-success/90 focus:ring focus:ring-success/50 transition-all"
@@ -20,7 +20,7 @@ export default function QRCodeDisplay({ gameName, gameId }) {
 
         <div className="flex items-center justify-center space-x-4">
           <Canvas
-            text={`${window.location.origin}/${gameName}/${gameId}`}
+            text={gameLink}
             options={{
               errorCorrectionLevel: "M",
               margin: 3,

@@ -202,7 +202,10 @@ export default function SpaceInvaders() {
         {success && (
           <div className="text-accent-green font-medium text-center bg-accent-green-light p-3 rounded-lg">
             {success} <br />
-            <GameId gameId={gameId} gameName={"space-invaders"} />
+            <GameId
+              gameId={gameId}
+              gameLink={"https://bachelor-project.itch.io/space-invaders"}
+            />
           </div>
         )}
       </div>

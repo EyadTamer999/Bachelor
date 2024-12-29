@@ -361,7 +361,7 @@ export default function DiagnoseCreator() {
         {success && (
           <div className="text-accent-green font-medium text-center bg-accent-green-light p-3 rounded-lg">
             {success} <br />
-            <GameId gameName={"diagnose"} gameId={gameId} />
+            <GameId gameId={gameId} gameLink={`/diagnose/${gameId}`} />
           </div>
         )}
       </div>
