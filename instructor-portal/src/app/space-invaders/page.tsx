@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { generateSpaceInvaderGame } from "@/utils/fetchApi";
 import Tooltip from "@/app/shared/ToolTip";
+import { useQRCode } from "next-qrcode";
 
 export default function SpaceInvaders() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -18,8 +19,9 @@ export default function SpaceInvaders() {
       },
     },
   ]);
-  const [gameId, setGameId] = useState("");
 
+  const { Canvas } = useQRCode();
+  const [gameId, setGameId] = useState("");
   const [warning, setWarning] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
@@ -180,45 +182,6 @@ export default function SpaceInvaders() {
     return parsedString;
   };
 
-  const handleQrCodeDownload = () => {
-    const qrCode = document.querySelector("img") as HTMLImageElement;
-
-    if (!qrCode) {
-      console.error("QR code image not found!");
-      return;
-    }
-
-    // Add event listener to check if the image is loaded
-    if (!qrCode.complete || qrCode.naturalWidth === 0) {
-      qrCode.onload = () => {
-        downloadQrCode(qrCode);
-      };
-      qrCode.onerror = () => {
-        console.error("Failed to load QR code image.");
-      };
-    } else {
-      downloadQrCode(qrCode);
-    }
-  };
-
-  const downloadQrCode = (qrCode: HTMLImageElement) => {
-    const canvas = document.createElement("canvas");
-    canvas.width = qrCode.width;
-    canvas.height = qrCode.height;
-
-    const ctx = canvas.getContext("2d");
-    if (ctx) {
-      ctx.drawImage(qrCode, 0, 0);
-
-      const link = document.createElement("a");
-      link.download = "qr-code.png";
-      link.href = canvas.toDataURL("image/png");
-      link.click();
-    } else {
-      console.error("Failed to get canvas context");
-    }
-  };
-
   return (
     <div className="flex flex-col items-center bg-neutral-white min-h-screen px-4 py-8 lg:px-16">
       <div className="mb-6 w-full max-w-md text-center space-y-2">
@@ -254,17 +217,18 @@ export default function SpaceInvaders() {
               </a>
 
               <div className="flex items-center justify-center space-x-4">
-                <button
-                  onClick={handleQrCodeDownload}
-                  className="bg-primary hover:bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-primary-light transition-transform"
-                >
-                  Download QR Code
-                </button>
-
-                <img
-                  className="rounded-lg"
-                  src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${window.location.origin}/diagnose/${gameId}`}
-                  alt="QR Code"
+                <Canvas
+                  text={`${window.location.origin}/space-invaders/${gameId}`}
+                  options={{
+                    errorCorrectionLevel: "M",
+                    margin: 3,
+                    scale: 4,
+                    width: 200,
+                    color: {
+                      dark: "#000000FF",
+                      light: "#FFFFFFFF",
+                    },
+                  }}
                 />
               </div>
             </div>
