@@ -67,7 +67,44 @@ InstaGame supports two game templates, a Space Invaders-like game and a click-ba
 
 In the Space Invaders-like game, players engage in fast-paced gameplay where they must eliminate enemies before they reach the bottom of the screen or hit the player with a projectile. This template is well-suited for reinforcing quick decision-making and recall in subjects like mathematics or vocabulary. The click-based puzzle game, on the other hand, offers a more relaxed experience, requiring players to solve puzzles by identifying correct answers within an image. For example, an anatomy-based game could task players with diagnosing a condition by selecting the appropriate organ.
 
-% TODO add more details about the goal checjing system and add pseudocode
 \section{Goal Checking System}
+The goal checking system ensures that player actions are evaluated against predefined criteria set by the instructor. This allows for accurate assessment of student performance and ensures that gameplay aligns with educational objectives. By integrating these systems, InstaGame fosters a balance between engaging gameplay and meaningful learning outcomes. This ensures that the instructor has full control over what is considered a correct answer, and the student has control over their answer, and as a foundational concept of the platfrom, the students input is compared to the instructors input to determine if the answer is correct or not. In pseudocode, the goal checking system would look like the following: 
+\begin{verbatim}
+	1. Initialize Goal Checking System:
+	   - Define `correctAnswer` as the input provided by the instructor.
+	   - Define `studentInput` as the answer submitted by the student.
+	
+	2. Receive Student Input:
+	   - Prompt the student to submit their input.
+	   - Store the submitted input in `studentInput`.
+	
+	3. Compare Student Input with Correct Answer:
+	   - If `studentInput` exactly matches `correctAnswer`:
+		   - Trigger Winning Condition:
+			   - Set `isCorrect` to `True`.
+			   - Execute `winningAction` (e.g., display success message, 
+			   proceed to next level, etc.).
+	   - Else:
+		   - Trigger Losing Condition:
+			   - Set `isCorrect` to `False`.
+			   - Execute `losingAction` (e.g., display failure message, allow retry, etc.).
+	
+	4. End Goal Checking System.
+	
+	Example Code Implementation:
+	---------------------------
+	correctAnswer = instructorInput  # Input provided by the instructor
+	studentInput = getStudentInput()  # Function to receive student's input
+	
+	# Compare inputs
+	if studentInput == correctAnswer:
+		isCorrect = True
+		print("Correct! You win!")
+		winningAction()  # Execute winning action
+	else:
+		isCorrect = False
+		print("Incorrect. You lose!")
+		losingAction()  # Execute losing action
+	\end{verbatim}
 
-The goal checking system ensures that player actions are evaluated against predefined criteria set by the instructor. This allows for accurate assessment of student performance and ensures that gameplay aligns with educational objectives. By integrating these systems, InstaGame fosters a balance between engaging gameplay and meaningful learning outcomes.
+The pseudocode outlines the core functionality and concept of the goal checking system, which is essential for evaluating student responses and providing meaningful feedback. By implementing this system, InstaGame ensures that gameplay is aligned with educational objectives and that students receive accurate assessments of their performance.
