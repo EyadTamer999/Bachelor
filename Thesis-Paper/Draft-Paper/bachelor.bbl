@@ -1,8 +1,23 @@
 \begin{thebibliography}{1}
 
+\bibitem{ahmad2019}
+Mifrah Ahmad.
+\newblock Categorizing game design elements into educational game design fundamentals.
+\newblock In Ioannis Deliyannis, editor, {\em Game Design and Intelligent Interaction}, chapter~1. IntechOpen, Rijeka, 2019.
+
+\bibitem{tetrad2011}
+Mohamad Ahyar.
+\newblock Analysis of game design framework through elemental tetrad.
+\newblock 04 2022.
+
 \bibitem{sgame2020}
 Aldo Gordillo, Enrique Barra, and Juan Quemada.
 \newblock Sgame: An authoring tool to easily create educational video games by integrating scorm-compliant learning objects.
 \newblock {\em IEEE Access}, 9:126414--126430, 2021.
+
+\bibitem{MDA2004}
+Robin Hunicke, Marc Leblanc, and Robert Zubek.
+\newblock Mda: A formal approach to game design and game research.
+\newblock {\em AAAI Workshop - Technical Report}, 1, 01 2004.
 
 \end{thebibliography}
