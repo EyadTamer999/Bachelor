@@ -19,6 +19,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import { useEffect } from "react";
+import introjs from "intro.js";
+import "intro.js/introjs.css";
+
 export default function SpaceInvaders() {
   const [currentLevel, setCurrentLevel] = useState(1);
   const [levels, setLevels] = useState([
@@ -195,11 +199,88 @@ export default function SpaceInvaders() {
     return parsedString;
   };
 
+  useEffect(() => {
+    showHints();
+  }, []);
+
+  const showHints = () => {
+    introjs()
+      .setOptions({
+        steps: [
+          {
+            element: "#my_levels",
+            title: "My Level(s)",
+            intro:
+              "This section displays the levels you have created for the game. You can add, delete, and edit levels here.",
+          },
+          {
+            element: "#current_level",
+            title: "Current Level",
+            intro:
+              "This section allows you to edit the current level. You can add, delete, and edit the challenge text, conversion game, characters, challenge goals, and number of turns.",
+          },
+          {
+            element: "#challenge_text",
+            title: "Challenge Text",
+            intro:
+              "Enter the objective text that will be displayed in the game.",
+          },
+          {
+            element: "#conversion_game",
+            title: "Conversion Game",
+            intro:
+              "Select the conversion game that will be displayed in the game.",
+          },
+          {
+            element: "#characters",
+            title: "Characters",
+            intro:
+              "Enter the letters/numbers that will be displayed in the game. Use a comma to separate multiple characters. You can also use a range (e.g., 1-10 or A-Z).",
+          },
+          {
+            element: "#challenge_goals",
+            title: "Challenge Goals",
+            intro:
+              "Enter the possible answers for the challenge. Use a comma to separate multiple goals. You can also use a range (e.g., 1-10 or A-Z).",
+          },
+          {
+            element: "#number_of_turns",
+            title: "Number Of Turns",
+            intro:
+              "Enter the number of challenges the player has to complete within level. Must be an odd number: 1, 3, 5, 7, etc.",
+          },
+          {
+            element: "#generate_button",
+            title: "Generate Game",
+            intro:
+              "Click here to generate the game with the levels you have created.",
+          },
+          {
+            element: "#help",
+            title: "Help",
+            intro: "Click here to view these hints again at any time.",
+          },
+        ],
+      })
+      .start();
+  };
+
   return (
     <div className="container mx-auto px-4 py-8 space-y-8">
       <Card className="w-full max-w-2xl mx-auto">
+        {/* Help button */}
+        <div className="flex justify-end">
+          <Tooltip content="Help">
+            <Button id="help" onClick={showHints} variant="secondary">
+              ?
+            </Button>
+          </Tooltip>
+        </div>
         <CardHeader>
-          <CardTitle className="flex items-center justify-center space-x-2">
+          <CardTitle
+            id="my_levels"
+            className="flex items-center justify-center space-x-2"
+          >
             <span>My Level(s): {levels.length}</span>
             <Tooltip content="The Level(s) you have created for the game.">
               <AlertCircle className="h-5 w-5" />
@@ -229,6 +310,7 @@ export default function SpaceInvaders() {
       <div className="flex items-center justify-center space-x-4">
         <Tooltip content="Go to previous level">
           <Button
+            id="decrement_level"
             variant="outline"
             size="icon"
             disabled={currentLevel === 1}
@@ -241,12 +323,15 @@ export default function SpaceInvaders() {
 
         <Card className="w-full max-w-2xl">
           <CardHeader>
-            <CardTitle className="flex items-center justify-center space-x-2">
+            <CardTitle
+              id="current_level"
+              className="flex items-center justify-center space-x-2"
+            >
               <span>Current Level: {currentLevel}</span>
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="space-y-2">
+            <div id="challenge_text" className="space-y-2">
               <Label htmlFor="text" className="flex items-center space-x-2">
                 <span>Challenge Text</span>
                 <Tooltip content="The objective text that will be displayed in the game">
@@ -264,7 +349,7 @@ export default function SpaceInvaders() {
               />
             </div>
 
-            <div className="space-y-2">
+            <div id="conversion_game" className="space-y-2">
               <Label
                 htmlFor="conversionGame"
                 className="flex items-center space-x-2"
@@ -294,7 +379,7 @@ export default function SpaceInvaders() {
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div id="characters" className="space-y-2">
               <Label
                 htmlFor="characters"
                 className="flex items-center space-x-2"
@@ -315,7 +400,7 @@ export default function SpaceInvaders() {
               />
             </div>
 
-            <div className="space-y-2">
+            <div id="challenge_goals" className="space-y-2">
               <Label
                 htmlFor="challengeGoals"
                 className="flex items-center space-x-2"
@@ -336,7 +421,7 @@ export default function SpaceInvaders() {
               />
             </div>
 
-            <div className="space-y-2">
+            <div id="number_of_turns" className="space-y-2">
               <Label htmlFor="turns" className="flex items-center space-x-2">
                 <span>Number Of Turns</span>
                 <Tooltip content="The number of challenges the player has to complete within level, must be an odd number: 1, 3, 5, 7, etc.">
@@ -356,7 +441,11 @@ export default function SpaceInvaders() {
 
             {currentLevel !== 1 && (
               <div className="flex justify-center">
-                <Button variant="destructive" onClick={deleteLevel}>
+                <Button
+                  id="delete_level"
+                  variant="destructive"
+                  onClick={deleteLevel}
+                >
                   Delete Level
                 </Button>
               </div>
@@ -366,6 +455,7 @@ export default function SpaceInvaders() {
 
         <Tooltip content="Go to next level">
           <Button
+            id="increment_level"
             variant="outline"
             size="icon"
             onClick={handleIncrementLevel}
@@ -383,7 +473,11 @@ export default function SpaceInvaders() {
       </div>
 
       <div className="flex justify-center">
-        <Button onClick={handleGenerateGame} disabled={loading}>
+        <Button
+          id="generate_button"
+          onClick={handleGenerateGame}
+          disabled={loading}
+        >
           {loading ? "Generating..." : "Generate Game"}
         </Button>
       </div>

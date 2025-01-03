@@ -433,7 +433,7 @@ export default function DiagnoseCreator() {
           },
           {
             intro:
-              "Once you have generated the game, you will see the game ID, a link to the game, and a QR code to the game. You can share these with your students to play the game.",
+              "Once you have generated the game, you will see the game ID, a link to the game, and a QR code to the game.You can share these with your students to play the game. <img src='https://cloud.appwrite.io/v1/storage/buckets/675319790008ed3cf795/files/67782fed00324732e3dc/view?project=6753194800246da32e87&project=6753194800246da32e87&mode=admin' />",
           },
           {
             element: "#help",
