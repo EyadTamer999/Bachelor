@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { generateDiagnoseGame, uploadImage } from "@/utils/fetchApi"; // Make sure this is properly implemented.
 import Marker from "react-image-marker";
 import Tooltip from "@/app/shared/ToolTip";
@@ -22,6 +22,8 @@ import {
 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Slider } from "@/components/ui/slider";
+import introjs from "intro.js";
+import "intro.js/introjs.css";
 
 export default function DiagnoseCreator() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -356,11 +358,109 @@ export default function DiagnoseCreator() {
     });
   };
 
+  useEffect(() => {
+    showHints();
+  }, []);
+
+  const showHints = () => {
+    introjs()
+      .setOptions({
+        steps: [
+          {
+            intro: "Welcome to the Click Puzzle Game!",
+          },
+          {
+            intro:
+              "The goal is to create a game where the student will click on the correct answer based on the dialog text and the image with markers you provide.",
+          },
+          {
+            element: "#my_levels",
+            title: "Levels",
+            intro:
+              "This is where you can see the levels you have created, each level consists of a dialog text, extra information, and an image with markers.",
+          },
+          {
+            element: "#current_level",
+            title: "Current Level",
+            intro:
+              "This is the current level you are working on, you can add dialog text, extra information, and an image with markers.",
+          },
+          {
+            element: "#dialog",
+            title: "Dialog Text",
+            intro:
+              "Enter the dialog text for the character in this level, this will be displayed to the student as the character's speaking.<img src='https://cloud.appwrite.io/v1/storage/buckets/675319790008ed3cf795/files/67782cd9003661c143c8/view?project=6753194800246da32e87&project=6753194800246da32e87&mode=admin' />",
+          },
+          {
+            element: "#extra_info",
+            intro: "Enter extra information for the character or the level.",
+          },
+          {
+            element: "#image_upload",
+            intro:
+              "Upload an image that you will base on the answers, if using an iPhone please upload image from files or using camera.",
+          },
+          {
+            intro:
+              "Adjust the marker size as the border limits of the correct answer.",
+          },
+          {
+            intro:
+              "Click the button to generate the game with the levels you have created.",
+          },
+          {
+            element: "#decrement_level",
+            title: "Previous Level",
+            intro:
+              "Click here to go to the previous level, you can go back to the previous level to make changes.",
+          },
+          {
+            element: "#increment_level",
+            title: "Add Level",
+            intro:
+              "Click here to add a new level or navigate to the next level, you can add as many levels as you want.",
+          },
+          {
+            element: "#delete_level",
+            title: "Delete Level",
+            intro: "Click here to delete the current level.",
+          },
+          {
+            element: "#generate_button",
+            title: "Generate Game",
+            intro:
+              "Click here to generate the game with the levels you have created.",
+          },
+          {
+            intro:
+              "Once you have generated the game, you will see the game ID, a link to the game, and a QR code to the game. You can share these with your students to play the game.",
+          },
+          {
+            element: "#help",
+            title: "Help",
+            intro: "Click here to view these hints again at any time.",
+          },
+        ],
+      })
+      .start();
+  };
+
   return (
     <div className="container mx-auto px-4 py-8 space-y-8">
       <Card className="w-full max-w-2xl mx-auto">
+        {/* Help button */}
+        <div className="flex justify-end">
+          <Tooltip content="Help">
+            <Button id="help" onClick={showHints} variant="secondary">
+              ?
+            </Button>
+          </Tooltip>
+        </div>
         <CardHeader>
-          <CardTitle className="flex items-center justify-center space-x-2">
+          <CardTitle
+            id="my_levels"
+            className="flex items-center justify-center space-x-2"
+          >
             <span>My Level(s): {levels.length}</span>
             <Tooltip content="The Level(s) you have created for the game.">
               <AlertCircle className="h-5 w-5" />
@@ -387,6 +487,8 @@ export default function DiagnoseCreator() {
       <div className="flex items-center justify-center space-x-4">
         <Tooltip content="Go to previous level">
           <Button
+            id="decrement_level"
+            disabled={currentLevel === 1}
             variant="outline"
             size="icon"
             onClick={handleDecrementLevel}
@@ -398,7 +500,10 @@ export default function DiagnoseCreator() {
 
         <Card className="w-full max-w-2xl">
           <CardHeader>
-            <CardTitle className="flex items-center justify-center space-x-2">
+            <CardTitle
+              id="current_level"
+              className="flex items-center justify-center space-x-2"
+            >
               <span>Level {currentLevel}</span>
               <Tooltip content="The current level you are working on">
                 <AlertCircle className="h-5 w-5" />
@@ -406,7 +511,7 @@ export default function DiagnoseCreator() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="space-y-2">
+            <div id="dialog" className="space-y-2">
               <Label htmlFor="dialog" className="flex items-center space-x-2">
                 <span>Dialog Text</span>
                 <Tooltip content="The dialog text for the character in the level">
@@ -424,7 +529,7 @@ export default function DiagnoseCreator() {
               />
             </div>
 
-            <div className="space-y-2">
+            <div id="extra_info" className="space-y-2">
               <Label
                 htmlFor="extraInfo"
                 className="flex items-center space-x-2"
@@ -445,7 +550,7 @@ export default function DiagnoseCreator() {
               />
             </div>
 
-            <div className="space-y-2">
+            <div id="image_upload" className="space-y-2">
               <Label htmlFor="image" className="flex items-center space-x-2">
                 <span>Upload Image</span>
                 <Tooltip content="Upload an image that you will base on the answers, if using an iPhone please upload image from files or using camera">
@@ -559,7 +664,7 @@ export default function DiagnoseCreator() {
             )}
 
             {currentLevel !== 1 && (
-              <div className="flex justify-center">
+              <div id="delete_level" className="flex justify-center">
                 <Button variant="destructive" onClick={deleteLevel}>
                   Delete Level
                 </Button>
@@ -570,6 +675,7 @@ export default function DiagnoseCreator() {
 
         <Tooltip content="Go to next level">
           <Button
+            id="increment_level"
             variant="outline"
             size="icon"
             onClick={handleIncrementLevel}
@@ -587,7 +693,11 @@ export default function DiagnoseCreator() {
       </div>
 
       <div className="flex justify-center">
-        <Button onClick={handleGenerateGame} disabled={loading}>
+        <Button
+          id="generate_button"
+          onClick={handleGenerateGame}
+          disabled={loading}
+        >
           {loading ? "Generating..." : "Generate Game"}
         </Button>
       </div>
