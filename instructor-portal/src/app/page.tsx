@@ -3,34 +3,42 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import spaceInvadersIcon from "@/assets/Space_Invaders_Game.jpeg";
 import clickGameIcon from "@/assets/Click_Game_Icon.png";
+
+const games = [
+  {
+    id: 1,
+    title: "Space Invaders",
+    description:
+      "Challenge your students to convert decimal to binary or create chemical formulas by shooting enemies.",
+    tags: ["Computer Science", "Chemistry", "Math"],
+    img: spaceInvadersIcon,
+    url: "/space-invaders",
+  },
+  {
+    id: 2,
+    title: "Puzzle Click Game",
+    description:
+      "Challenge your students to find all the hidden markers in the image.",
+    tags: ["Biology", "Business/HR", "Automotive"],
+    img: clickGameIcon,
+    url: "/diagnose",
+  },
+];
 
 export default function Home() {
   const [showGrid, setShowGrid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  // The games json
-  const games = [
-    {
-      id: 1,
-      title: "Space Invaders",
-      description:
-        "Challenge your students to convert decimal to binary or create chemcial forumlas by shooting enemies.",
-      tags: ["Computer Science", "Chemistry", "Math"],
-      img: spaceInvadersIcon,
-      url: "/space-invaders",
-    },
-    {
-      id: 2,
-      title: "Puzzle Click Game",
-      description:
-        "Challenge your students to find all the hidden markers in the image.",
-      tags: ["Biology", "Business/HR", "Automotive"],
-      img: clickGameIcon,
-      url: "/diagnose",
-    },
-  ];
 
   const handleButtonClick = () => {
     setIsLoading(true);
@@ -42,80 +50,71 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-white text-text">
-      <div className="container mx-auto">
-        {/* Welcome Section */}
-        {!showGrid && (
-          <div
-            className={`flex flex-col items-center justify-center h-screen transition-opacity duration-600 ease-in-out ${
-              isLoading ? "animate-fadeOut" : "animate-fadeIn"
-            }`}
-            aria-hidden={showGrid}
+    <div className="container mx-auto px-4 py-8 min-h-screen">
+      {!showGrid && (
+        <div
+          className={`flex flex-col items-center justify-center h-screen transition-opacity duration-600 ease-in-out ${
+            isLoading ? "opacity-0" : "opacity-100"
+          }`}
+          aria-hidden={showGrid}
+        >
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-primary mb-4 text-center">
+            Welcome to the Instructor Portal
+          </h1>
+          <p className="text-muted-foreground text-lg mb-6 text-center max-w-2xl">
+            Create interactive games to engage and educate your students.
+          </p>
+          <Button
+            onClick={handleButtonClick}
+            size="lg"
+            className="text-lg"
+            disabled={isLoading}
           >
-            <h1 className="text-5xl font-extrabold text-primary mb-4 text-center">
-              Welcome to the Instructor Portal
-            </h1>
-            <p className="text-neutral-gray text-lg mb-6 text-center">
-              Create interactive games to engage and educate your students.
-            </p>
-            <button
-              onClick={handleButtonClick}
-              className="bg-secondary hover:bg-accent-green text-neutral-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300 hover:scale-105"
-              aria-label="Click to create a game"
-            >
-              {isLoading ? "Loading..." : "Create Game"}
-            </button>
-          </div>
-        )}
+            {isLoading ? "Loading..." : "Create Game"}
+          </Button>
+        </div>
+      )}
 
-        {/* Grid Section */}
-        {showGrid && (
-          <div className="flex items-center justify-center flex-col">
-            <h1 className="text-3xl font-bold text-primary mt-2 mb-6 text-center">
-              Choose a game to create
-            </h1>
+      {showGrid && (
+        <div className="space-y-8">
+          <h1 className="text-3xl font-bold text-primary text-center">
+            Choose a game to create
+          </h1>
 
-            <div
-              className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8 transition-all duration-600 ease-in-out ${
-                showGrid ? "animate-fadeIn" : "animate-fadeOut"
-              }`}
-            >
-              {games.map((game, index) => (
-                // Game Card
-                <Link
-                  key={index}
-                  href={game.url}
-                  className="bg-neutral-white rounded-lg shadow-md p-6 flex items-center justify-center text-lg font-semibold text-primary hover:shadow-lg hover:scale-105 transition-transform duration-300"
-                >
-                  <div className="flex items-center">
-                    <Image
-                      className="w-20 h-20 object-cover rounded-lg mr-4"
-                      src={game.img}
-                      alt={game.title}
-                    />
-                    <div>
-                      <h2 className="text-xl font-bold mb-2">{game.title}</h2>
-                      <p className="text-neutral-gray text-sm">
-                        {game.description}
-                      </p>
-                      <div className="flex gap-2 mt-2">
-                        {game.tags.map((tag, index) => (
-                          <span
-                            key={index}
-                            className="bg-secondary text-neutral-white px-2 py-1 rounded-md text-xs"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {games.map((game) => (
+              <Card key={game.id} className="overflow-hidden">
+                <Link href={game.url} className="block h-full">
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center space-x-4">
+                      <Image
+                        className="w-20 h-20 object-cover rounded-lg"
+                        src={game.img}
+                        alt={game.title}
+                      />
+                      <div>
+                        <CardTitle>{game.title}</CardTitle>
+                        <CardDescription className="mt-2">
+                          {game.description}
+                        </CardDescription>
                       </div>
                     </div>
-                  </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {game.tags.map((tag, index) => (
+                        <Badge key={index} variant="secondary">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
                 </Link>
-              ))}
-            </div>
+              </Card>
+            ))}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

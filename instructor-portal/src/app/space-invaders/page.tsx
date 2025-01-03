@@ -4,6 +4,20 @@ import React, { useState } from "react";
 import { generateSpaceInvaderGame } from "@/utils/fetchApi";
 import Tooltip from "@/app/shared/ToolTip";
 import GameId from "@/app/shared/GameId";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { AlertCircle, ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function SpaceInvaders() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -182,215 +196,196 @@ export default function SpaceInvaders() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-neutral-white min-h-screen px-4 py-8 lg:px-16">
-      <div className="mb-6 w-full max-w-md text-center space-y-2">
-        <Tooltip
-          content="The Level(s) you have created for the game."
-          position="bottom"
-        >
-          <h2 className="bg-primary text-neutral-white px-5 py-3 rounded-lg shadow-md text-lg font-semibold md:text-xl lg:px-8 lg:py-4">
-            My Level(s): {levels.length > 0 ? levels.length : 1}
-            {"  ℹ️"}
-          </h2>
-        </Tooltip>
-        {warning && (
-          <div className="text-error font-medium text-center bg-error-light p-3 rounded-lg">
-            {warning}
-          </div>
-        )}
+    <div className="container mx-auto px-4 py-8 space-y-8">
+      <Card className="w-full max-w-2xl mx-auto">
+        <CardHeader>
+          <CardTitle className="flex items-center justify-center space-x-2">
+            <span>My Level(s): {levels.length}</span>
+            <Tooltip content="The Level(s) you have created for the game.">
+              <AlertCircle className="h-5 w-5" />
+            </Tooltip>
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {warning && (
+            <Alert variant="destructive" className="mb-4">
+              <AlertDescription>{warning}</AlertDescription>
+            </Alert>
+          )}
+          {success && (
+            <Alert variant="default" className="mb-4">
+              <AlertDescription>
+                {success} <br />
+                <GameId
+                  gameId={gameId}
+                  gameLink={"https://bachelor-project.itch.io/space-invaders"}
+                />
+              </AlertDescription>
+            </Alert>
+          )}
+        </CardContent>
+      </Card>
 
-        {success && (
-          <div className="text-accent-green font-medium text-center bg-accent-green-light p-3 rounded-lg">
-            {success} <br />
-            <GameId
-              gameId={gameId}
-              gameLink={"https://bachelor-project.itch.io/space-invaders"}
-            />
-          </div>
-        )}
-      </div>
-
-      <div className="flex items-center w-full justify-center space-x-4">
-        <Tooltip content="Go to previous level" position="bottom">
-          <button
+      <div className="flex items-center justify-center space-x-4">
+        <Tooltip content="Go to previous level">
+          <Button
+            variant="outline"
+            size="icon"
+            disabled={currentLevel === 1}
             onClick={handleDecrementLevel}
-            className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
             aria-label="Decrement Level"
           >
-            ⬅️
-          </button>
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
         </Tooltip>
 
-        <div className="bg-neutral-light rounded-2xl p-6 w-full max-w-md shadow-md">
-          <div className="mb-4">
-            <Tooltip
-              content="The current level you are working on"
-              position="top"
-            >
-              <h3 className="text-center text-primary font-semibold text-xl md:text-2xl">
-                Level {currentLevel}
-                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
-              </h3>
-            </Tooltip>
-          </div>
-
-          <div className="mb-4">
-            <Tooltip
-              content="The objective text that will be displayed in the game"
-              position="top"
-            >
-              <label className="text-sm font-medium text-neutral-dark">
-                Challenge Text
-                <span className="text-xs text-error">*</span>
-                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
-              </label>
-            </Tooltip>
-            <input
-              type="text"
-              placeholder="e.g., Convert To Binary"
-              className="w-full px-4 py-2 border border-primary rounded-lg bg-neutral-white text-primary focus:outline-none focus:ring focus:ring-primary-light"
-              value={
-                levels.find((level) => level.level === currentLevel)?.data
-                  ?.text || ""
-              }
-              onChange={(e) => handleChange("text", e.target.value)}
-            />
-          </div>
-
-          <div className="mb-4">
-            <Tooltip
-              content="The conversion game that will be displayed in the game"
-              position="top"
-            >
-              <label className="text-sm font-medium text-neutral-dark">
-                Conversion Game
-                <span className="text-xs text-error">*</span>
-                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
-              </label>
-            </Tooltip>
-            {/* drop down menu for conversion game */}
-            <select
-              className="w-full px-4 py-2 border border-primary rounded-lg bg-neutral-white text-primary focus:outline-none focus:ring focus:ring-primary-light"
-              value={
-                levels.find((level) => level.level === currentLevel)?.data
-                  ?.conversionGame || ""
-              }
-              onChange={(e) => handleChange("conversionGame", e.target.value)}
-            >
-              <option value="">none</option>
-              <option value="binary">Binary</option>
-            </select>
-            <div className="text-xs text-error">
-              *Currently only binary conversion is supported
+        <Card className="w-full max-w-2xl">
+          <CardHeader>
+            <CardTitle className="flex items-center justify-center space-x-2">
+              <span>Current Level: {currentLevel}</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="text" className="flex items-center space-x-2">
+                <span>Challenge Text</span>
+                <Tooltip content="The objective text that will be displayed in the game">
+                  <AlertCircle className="h-4 w-4" />
+                </Tooltip>
+              </Label>
+              <Textarea
+                id="text"
+                placeholder="e.g., Convert To Binary"
+                value={
+                  levels.find((level) => level.level === currentLevel)?.data
+                    .text || ""
+                }
+                onChange={(e) => handleChange("text", e.target.value)}
+              />
             </div>
-          </div>
 
-          <div className="mb-4">
-            <Tooltip
-              content="The letters/numbers that will be displayed in the game. Use a comma to separate multiple characters. You can also use a range (e.g., 1-10 or A-Z)"
-              position="top"
-            >
-              <label className="text-sm font-medium text-neutral-dark">
-                Characters
-                <span className="text-xs text-error">*</span>
-                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
-              </label>
-            </Tooltip>
-            <input
-              type="text"
-              placeholder="1-10 or A,B,C or a-z"
-              className="w-full px-4 py-2 border border-primary rounded-lg bg-neutral-white text-primary focus:outline-none focus:ring focus:ring-primary-light"
-              value={
-                levels.find((level) => level.level === currentLevel)?.data
-                  ?.characters || ""
-              }
-              onChange={(e) => handleChange("characters", e.target.value)}
-            />
-          </div>
+            <div className="space-y-2">
+              <Label
+                htmlFor="conversionGame"
+                className="flex items-center space-x-2"
+              >
+                <span>Conversion Game</span>
+                <Tooltip content="The conversion game that will be displayed in the game">
+                  <AlertCircle className="h-4 w-4" />
+                </Tooltip>
+              </Label>
+              <Select
+                value={
+                  levels.find((level) => level.level === currentLevel)?.data
+                    .conversionGame || "none"
+                }
+                onValueChange={(value) => handleChange("conversionGame", value)}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select conversion game" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="none">None</SelectItem>
+                  <SelectItem value="binary">Binary</SelectItem>
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-muted-foreground">
+                *Currently only binary conversion is supported
+              </p>
+            </div>
 
-          <div className="mb-4">
-            <Tooltip
-              content="The possible answers for the challenge. Use a comma to separate multiple goals. You can also use a range (e.g., 1-10 or A-Z)"
-              position="top"
-            >
-              <label className="text-sm font-medium text-neutral-dark">
-                Challenge Goals
-                <span className="text-xs text-error">*</span>
-                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
-              </label>
-            </Tooltip>
-            <input
-              type="text"
-              placeholder="Enter the possible goals: 1-10 or A,B,C or a-z"
-              className="w-full px-4 py-2 border border-primary rounded-lg bg-neutral-white text-primary focus:outline-none focus:ring focus:ring-primary-light"
-              value={
-                levels.find((level) => level.level === currentLevel)?.data
-                  ?.challengeGoals || ""
-              }
-              onChange={(e) => handleChange("challengeGoals", e.target.value)}
-            />
-          </div>
+            <div className="space-y-2">
+              <Label
+                htmlFor="characters"
+                className="flex items-center space-x-2"
+              >
+                <span>Characters</span>
+                <Tooltip content="The letters/numbers that will be displayed in the game. Use a comma to separate multiple characters. You can also use a range (e.g., 1-10 or A-Z)">
+                  <AlertCircle className="h-4 w-4" />
+                </Tooltip>
+              </Label>
+              <Input
+                id="characters"
+                placeholder="1-10 or A,B,C or a-z"
+                value={
+                  levels.find((level) => level.level === currentLevel)?.data
+                    .characters || ""
+                }
+                onChange={(e) => handleChange("characters", e.target.value)}
+              />
+            </div>
 
-          <div className="mb-6">
-            <Tooltip
-              content="The number of challenges the player has to complete within level, must be an odd number: 1, 3, 5, 7, etc."
-              position="top"
-            >
-              <label className="text-sm font-medium text-neutral-dark">
-                Number Of Turns
-                <span className="text-xs text-error">*</span>
-                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
-              </label>
-            </Tooltip>
-            <input
-              type="text"
-              placeholder="Enter an odd number of turns"
-              className="w-full px-4 py-2 border border-primary rounded-lg bg-neutral-white text-primary focus:outline-none focus:ring focus:ring-primary-light"
-              value={
-                levels.find((level) => level.level === currentLevel)?.data
-                  ?.turns || ""
-              }
-              onChange={(e) => handleChange("turns", e.target.value)}
-            />
-          </div>
+            <div className="space-y-2">
+              <Label
+                htmlFor="challengeGoals"
+                className="flex items-center space-x-2"
+              >
+                <span>Challenge Goals</span>
+                <Tooltip content="The possible answers for the challenge. Use a comma to separate multiple goals. You can also use a range (e.g., 1-10 or A-Z)">
+                  <AlertCircle className="h-4 w-4" />
+                </Tooltip>
+              </Label>
+              <Input
+                id="challengeGoals"
+                placeholder="Enter the possible goals: 1-10 or A,B,C or a-z"
+                value={
+                  levels.find((level) => level.level === currentLevel)?.data
+                    .challengeGoals || ""
+                }
+                onChange={(e) => handleChange("challengeGoals", e.target.value)}
+              />
+            </div>
 
-          {currentLevel !== 1 && (
-            <div className="flex justify-center">
-              <Tooltip content="Delete the current level" position="top">
-                <button
-                  onClick={deleteLevel}
-                  className="bg-error hover:bg-error-dark text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-error-light transition-transform"
-                >
+            <div className="space-y-2">
+              <Label htmlFor="turns" className="flex items-center space-x-2">
+                <span>Number Of Turns</span>
+                <Tooltip content="The number of challenges the player has to complete within level, must be an odd number: 1, 3, 5, 7, etc.">
+                  <AlertCircle className="h-4 w-4" />
+                </Tooltip>
+              </Label>
+              <Input
+                id="turns"
+                placeholder="Enter an odd number of turns"
+                value={
+                  levels.find((level) => level.level === currentLevel)?.data
+                    .turns || ""
+                }
+                onChange={(e) => handleChange("turns", e.target.value)}
+              />
+            </div>
+
+            {currentLevel !== 1 && (
+              <div className="flex justify-center">
+                <Button variant="destructive" onClick={deleteLevel}>
                   Delete Level
-                </button>
-              </Tooltip>
-            </div>
-          )}
-        </div>
+                </Button>
+              </div>
+            )}
+          </CardContent>
+        </Card>
 
-        <Tooltip content="Go to next level" position="bottom">
-          <button
+        <Tooltip content="Go to next level">
+          <Button
+            variant="outline"
+            size="icon"
             onClick={handleIncrementLevel}
-            className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
             aria-label={
               currentLevel === levels.length ? "Add Level" : "Increment Level"
             }
           >
-            {currentLevel === levels.length ? "➕" : "➡️"}
-          </button>
+            {currentLevel === levels.length ? (
+              <Plus className="h-4 w-4" />
+            ) : (
+              <ChevronRight className="h-4 w-4" />
+            )}
+          </Button>
         </Tooltip>
       </div>
 
-      <div className="mt-6">
-        <button
-          onClick={handleGenerateGame}
-          className={`bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md hover:bg-accent-green-dark focus:ring focus:ring-accent-green-light transition-transform ${
-            loading ? "opacity-70 cursor-not-allowed" : ""
-          }`}
-          disabled={loading}
-        >
+      <div className="flex justify-center">
+        <Button onClick={handleGenerateGame} disabled={loading}>
           {loading ? "Generating..." : "Generate Game"}
-        </button>
+        </Button>
       </div>
     </div>
   );
