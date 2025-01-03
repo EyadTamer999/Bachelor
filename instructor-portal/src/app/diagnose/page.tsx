@@ -6,6 +6,23 @@ import Marker from "react-image-marker";
 import Tooltip from "@/app/shared/ToolTip";
 import GameId from "@/app/shared/GameId";
 
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import {
+  AlertCircle,
+  ChevronLeft,
+  ChevronRight,
+  Plus,
+  RefreshCw,
+  Trash2,
+  Undo,
+} from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Slider } from "@/components/ui/slider";
+
 export default function DiagnoseCreator() {
   const [currentLevel, setCurrentLevel] = useState(1);
   const [levels, setLevels] = useState([
@@ -340,259 +357,238 @@ export default function DiagnoseCreator() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-neutral-white min-h-screen px-4 py-8 lg:px-16">
-      <div className="mb-6 w-full max-w-md text-center space-y-2">
-        <Tooltip
-          content="The Level(s) you have created for the game."
-          position="bottom"
-        >
-          <h2 className="bg-primary text-neutral-white px-5 py-3 rounded-lg shadow-md text-lg font-semibold md:text-xl lg:px-8 lg:py-4 ">
-            My Level(s): {levels.length > 0 ? levels.length : 1}
-            {"  ℹ️"}
-          </h2>
-        </Tooltip>
+    <div className="container mx-auto px-4 py-8 space-y-8">
+      <Card className="w-full max-w-2xl mx-auto">
+        <CardHeader>
+          <CardTitle className="flex items-center justify-center space-x-2">
+            <span>My Level(s): {levels.length}</span>
+            <Tooltip content="The Level(s) you have created for the game.">
+              <AlertCircle className="h-5 w-5" />
+            </Tooltip>
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {warning && (
+            <Alert variant="destructive" className="mb-4">
+              <AlertDescription>{warning}</AlertDescription>
+            </Alert>
+          )}
+          {success && (
+            <Alert variant="default" className="mb-4">
+              <AlertDescription>
+                {success} <br />
+                <GameId gameId={gameId} gameLink={`/diagnose/${gameId}`} />
+              </AlertDescription>
+            </Alert>
+          )}
+        </CardContent>
+      </Card>
 
-        {warning && (
-          <div className="text-error font-medium text-center bg-error-light p-3 rounded-lg">
-            {warning}
-          </div>
-        )}
-
-        {success && (
-          <div className="text-accent-green font-medium text-center bg-accent-green-light p-3 rounded-lg">
-            {success} <br />
-            <GameId gameId={gameId} gameLink={`/diagnose/${gameId}`} />
-          </div>
-        )}
-      </div>
-
-      <div className="flex items-center w-full justify-center space-x-4">
-        <Tooltip content="Go to previous level" position="bottom">
-          <button
+      <div className="flex items-center justify-center space-x-4">
+        <Tooltip content="Go to previous level">
+          <Button
+            variant="outline"
+            size="icon"
             onClick={handleDecrementLevel}
-            className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
             aria-label="Decrement Level"
           >
-            ⬅️
-          </button>
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
         </Tooltip>
 
-        <div className="bg-neutral-light rounded-2xl p-6 w-full max-w-md shadow-md">
-          <div className="mb-4">
-            <Tooltip
-              content="The current level you are working on"
-              position="top"
-            >
-              <h3 className="text-center text-primary font-semibold text-xl md:text-2xl">
-                Level {currentLevel}
-                <span className="text-lg md:text-xl">{"  ℹ️"}</span>
-              </h3>
-            </Tooltip>
-          </div>
-
-          <div className="mb-4">
-            <Tooltip
-              content="The dialog text for the character in the level"
-              position="top"
-            >
-              <label className="text-sm font-medium text-neutral-dark">
-                Dialog Text
-                <span className="text-xs text-error">*</span>
-                <span className="text-xs text-neutral-dark">{"  ℹ️"}</span>
-              </label>
-            </Tooltip>
-            <textarea
-              placeholder="Enter dialog text for the character"
-              className="resize-y w-full px-4 py-2 border border-primary rounded-lg bg-neutral-white text-primary focus:outline-none focus:ring focus:ring-primary-light"
-              value={
-                levels.find((level) => level.level === currentLevel)?.data
-                  ?.dialog || ""
-              }
-              onChange={(e) => handleChange("dialog", e.target.value)}
-            />
-          </div>
-
-          <div className="mb-4">
-            <Tooltip
-              content="Extra information for the character or the level"
-              position="top"
-            >
-              <label className="text-sm font-medium text-neutral-dark">
-                Extra Info
-                <span className="text-xs text-error">*</span>
-                <span className="text-xs text-neutral-dark">{"  ℹ️"}</span>
-              </label>
-            </Tooltip>
-            <textarea
-              placeholder="Enter extra information for the character/character's issue"
-              className="resize-y w-full px-4 py-2 border border-primary rounded-lg bg-neutral-white text-primary focus:outline-none focus:ring focus:ring-primary-light"
-              value={
-                levels.find((level) => level.level === currentLevel)?.data
-                  ?.extraInfo || ""
-              }
-              onChange={(e) => handleChange("extraInfo", e.target.value)}
-            />
-          </div>
-
-          <div className="mb-4">
-            <Tooltip
-              content="Upload an image that you will base on the answers, if using an iPhone please upload image from files or using camera"
-              position="top"
-            >
-              <label className="text-sm font-medium text-neutral-dark">
-                Upload Image
-                <span className="text-xs text-error">*</span>
-                <span className="text-xs text-neutral-dark">{"  ℹ️"}</span>
-              </label>
-            </Tooltip>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleSetImage}
-              className="block w-full text-sm text-primary border border-primary rounded-lg bg-neutral-white focus:outline-none focus:ring focus:ring-primary-light"
-            />
-          </div>
-
-          {levels.find((level) => level.level === currentLevel)?.data?.img
-            ?.src && (
-            <div className="space-y-2 mb-4">
-              <label className="text-sm font-medium text-neutral-dark">
-                Image Preview
-              </label>
-              <div className="relative w-full h-full">
-                <div
-                  onMouseMove={handleMouseEnter}
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    height: "100%",
-                  }}
-                >
-                  <Marker
-                    markers={
-                      levels.find((level) => level.level === currentLevel)?.data
-                        ?.img?.markers || []
-                    }
-                    onAddMarker={handleAddMarker}
-                    src={
-                      levels.find((level) => level.level === currentLevel)?.data
-                        ?.img?.src || ""
-                    }
-                    markerComponent={(marker: any) => (
-                      <div
-                        style={{
-                          position: "absolute",
-                          top: hoverPosition.top,
-                          left: hoverPosition.left,
-                          // borderRadius: "50%",
-                          width: `${marker.marginSize * 2}px`,
-                          height: `${marker.marginSize * 2}px`,
-                          border: "2px dashed red", // Visualize the marker area
-                          pointerEvents: "none", // Ensure it doesn't block other elements
-                        }}
-                      />
-                    )}
-                  />
-                  {/* Show placeholder on hover */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: hoverPosition.top,
-                      left: hoverPosition.left,
-                      // borderRadius: "50%",
-                      width: `${marginSize * 2}px`,
-                      height: `${marginSize * 2}px`,
-                      border: "2px dashed blue", // Placeholder marker style
-                      pointerEvents: "none", // Ensure it doesn't block other elements
-                      transform: "translate(-10px, -10px)", // Center the marker on the position
-                    }}
-                  />
-                </div>
-
-                {/* Margin Slider */}
-                <div className="flex items-center justify-center space-x-4 mt-4">
-                  <Tooltip
-                    content="Adjust the marker size as the border limits of the correct answer"
-                    position="top"
-                  >
-                    <label className="text-sm font-medium text-neutral-dark">
-                      Marker Margin
-                      <span className="text-xs text-neutral-dark">
-                        {"  ℹ️"}
-                      </span>
-                    </label>
-                  </Tooltip>
-                  <input
-                    type="range"
-                    min={20}
-                    max={50}
-                    value={marginSize}
-                    onChange={(e) => setMarginSize(+e.target.value)}
-                    className="w-40"
-                  />
-                  <span>{marginSize}</span>
-                </div>
-              </div>
-
-              {/* Buttons */}
-              <div className="flex justify-center space-x-4">
-                <button
-                  onClick={deleteImage}
-                  className="bg-primary hover:bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-primary-light"
-                >
-                  Delete Image
-                </button>
-
-                <button
-                  onClick={() => handleResetMarkers()}
-                  className="bg-primary hover:bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-primary-light"
-                >
-                  Reset Markers
-                </button>
-
-                <button
-                  onClick={() => handleUndoMarker()}
-                  className="bg-primary hover:bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-primary-light"
-                >
-                  Undo Marker
-                </button>
-              </div>
+        <Card className="w-full max-w-2xl">
+          <CardHeader>
+            <CardTitle className="flex items-center justify-center space-x-2">
+              <span>Level {currentLevel}</span>
+              <Tooltip content="The current level you are working on">
+                <AlertCircle className="h-5 w-5" />
+              </Tooltip>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="space-y-2">
+              <Label htmlFor="dialog" className="flex items-center space-x-2">
+                <span>Dialog Text</span>
+                <Tooltip content="The dialog text for the character in the level">
+                  <AlertCircle className="h-4 w-4" />
+                </Tooltip>
+              </Label>
+              <Textarea
+                id="dialog"
+                placeholder="Enter dialog text for the character"
+                value={
+                  levels.find((level) => level.level === currentLevel)?.data
+                    .dialog || ""
+                }
+                onChange={(e) => handleChange("dialog", e.target.value)}
+              />
             </div>
-          )}
 
-          {currentLevel !== 1 && (
-            <div className="flex justify-center">
-              <button
-                onClick={deleteLevel}
-                className="bg-error hover:bg-error-dark text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-error-light transition-transform"
+            <div className="space-y-2">
+              <Label
+                htmlFor="extraInfo"
+                className="flex items-center space-x-2"
               >
-                Delete Level
-              </button>
+                <span>Extra Info</span>
+                <Tooltip content="Extra information for the character or the level">
+                  <AlertCircle className="h-4 w-4" />
+                </Tooltip>
+              </Label>
+              <Textarea
+                id="extraInfo"
+                placeholder="Enter extra information for the character/character's issue"
+                value={
+                  levels.find((level) => level.level === currentLevel)?.data
+                    .extraInfo || ""
+                }
+                onChange={(e) => handleChange("extraInfo", e.target.value)}
+              />
             </div>
-          )}
-        </div>
 
-        <Tooltip content="Go to next level" position="bottom">
-          <button
+            <div className="space-y-2">
+              <Label htmlFor="image" className="flex items-center space-x-2">
+                <span>Upload Image</span>
+                <Tooltip content="Upload an image that you will base on the answers, if using an iPhone please upload image from files or using camera">
+                  <AlertCircle className="h-4 w-4" />
+                </Tooltip>
+              </Label>
+              <Input
+                id="image"
+                type="file"
+                accept="image/*"
+                onChange={handleSetImage}
+              />
+            </div>
+
+            {levels.find((level) => level.level === currentLevel)?.data?.img
+              ?.src && (
+              <div className="space-y-2 mb-4">
+                <label className="text-sm font-medium text-neutral-dark">
+                  Image Preview
+                </label>
+                <div className="relative w-full h-full">
+                  <div
+                    onMouseMove={handleMouseEnter}
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <Marker
+                      markers={
+                        levels.find((level) => level.level === currentLevel)
+                          ?.data?.img?.markers || []
+                      }
+                      onAddMarker={handleAddMarker}
+                      src={
+                        levels.find((level) => level.level === currentLevel)
+                          ?.data?.img?.src || ""
+                      }
+                      markerComponent={(marker: any) => (
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: hoverPosition.top,
+                            left: hoverPosition.left,
+                            // borderRadius: "50%",
+                            width: `${marker.marginSize * 2}px`,
+                            height: `${marker.marginSize * 2}px`,
+                            border: "2px dashed red", // Visualize the marker area
+                            pointerEvents: "none", // Ensure it doesn't block other elements
+                          }}
+                        />
+                      )}
+                    />
+                    {/* Show placeholder on hover */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: hoverPosition.top,
+                        left: hoverPosition.left,
+                        // borderRadius: "50%",
+                        width: `${marginSize * 2}px`,
+                        height: `${marginSize * 2}px`,
+                        border: "2px dashed blue", // Placeholder marker style
+                        pointerEvents: "none", // Ensure it doesn't block other elements
+                        transform: "translate(-10px, -10px)", // Center the marker on the position
+                      }}
+                    />
+                  </div>
+
+                  {/* Margin Slider */}
+                  <div className="space-y-2 mt-3">
+                    <Label
+                      htmlFor="markerSize"
+                      className="flex items-center space-x-2"
+                    >
+                      <span>Marker Margin</span>
+                      <Tooltip content="Adjust the marker size as the border limits of the correct answer">
+                        <AlertCircle className="h-4 w-4" />
+                      </Tooltip>
+                    </Label>
+                    <Slider
+                      id="markerSize"
+                      min={20}
+                      max={50}
+                      step={1}
+                      value={[marginSize]}
+                      onValueChange={(value: any) => setMarginSize(value[0])}
+                    />
+                    <span className="text-sm text-muted-foreground">
+                      {marginSize}
+                    </span>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex justify-center space-x-4">
+                    <Button variant="destructive" onClick={deleteImage}>
+                      <Trash2 className="mr-2 h-4 w-4" /> Delete Image
+                    </Button>
+                    <Button variant="secondary" onClick={handleResetMarkers}>
+                      <RefreshCw className="mr-2 h-4 w-4" /> Reset Markers
+                    </Button>
+                    <Button variant="secondary" onClick={handleUndoMarker}>
+                      <Undo className="mr-2 h-4 w-4" /> Undo Marker
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {currentLevel !== 1 && (
+              <div className="flex justify-center">
+                <Button variant="destructive" onClick={deleteLevel}>
+                  Delete Level
+                </Button>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        <Tooltip content="Go to next level">
+          <Button
+            variant="outline"
+            size="icon"
             onClick={handleIncrementLevel}
-            className="bg-secondary hover:bg-accent-green text-neutral-white px-3 py-3 rounded-xl shadow-md focus:ring focus:ring-secondary-light transition-transform md:px-10 md:py-4"
             aria-label={
               currentLevel === levels.length ? "Add Level" : "Increment Level"
             }
           >
-            {currentLevel === levels.length ? "➕" : "➡️"}
-          </button>
+            {currentLevel === levels.length ? (
+              <Plus className="h-4 w-4" />
+            ) : (
+              <ChevronRight className="h-4 w-4" />
+            )}
+          </Button>
         </Tooltip>
       </div>
 
-      <button
-        onClick={handleGenerateGame}
-        className="bg-primary hover:bg-accent-green text-neutral-white px-6 py-3 rounded-xl shadow-md focus:ring focus:ring-primary-light mt-10"
-        aria-label="Generate Game"
-        disabled={loading}
-      >
-        {loading ? "Generating..." : "Generate Game"}
-      </button>
+      <div className="flex justify-center">
+        <Button onClick={handleGenerateGame} disabled={loading}>
+          {loading ? "Generating..." : "Generate Game"}
+        </Button>
+      </div>
     </div>
   );
 }
