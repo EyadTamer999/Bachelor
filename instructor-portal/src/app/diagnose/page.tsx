@@ -469,10 +469,12 @@ export default function DiagnoseCreator() {
                 <div className="relative w-full h-full">
                   <div
                     onMouseMove={handleMouseEnter}
+                    className="relative mx-auto"
                     style={{
+                      width: "400px",
+                      height: "400px",
+                      overflow: "hidden",
                       position: "relative",
-                      width: "100%",
-                      height: "100%",
                     }}
                   >
                     <Marker
