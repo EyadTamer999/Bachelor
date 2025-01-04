@@ -1,8 +1,8 @@
-PWD c:/Users/Eyad Tamer/Downloads/Bachelor/Notes
+PWD c:/Users/Eyad Tamer/Downloads/Bachelor/Literature Review/Notes
 INPUT c:/texlive/2024/texmf.cnf
 INPUT c:/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/Eyad Tamer/Downloads/Bachelor/Notes/Paper_Analysis.tex
+INPUT c:/Users/Eyad Tamer/Downloads/Bachelor/Literature Review/Notes/Paper_Analysis.tex
 OUTPUT Paper_Analysis.log
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
