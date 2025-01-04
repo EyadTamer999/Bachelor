@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  1 JAN 2025 17:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  4 JAN 2025 17:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -747,47 +747,72 @@ Package pdftex.def Info: figures/Deployment_UML.jpg  used on input line 16.
 
 
 [4 <./figures/Deployment_UML.jpg>]
-<figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png, id=103, 602.25pt x 485.56406pt>
+<figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png, id=104, 602.25pt x 485.56406pt>
 File: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png Graphic file (type png)
 <use figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png>
 Package pdftex.def Info: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png  used on input line 29.
 (pdftex.def)             Requested size: 362.37569pt x 292.1779pt.
-<figures/Space_Invaders/Instructor_Portal_Space_Invader.png, id=105, 516.42938pt x 545.78906pt>
-File: figures/Space_Invaders/Instructor_Portal_Space_Invader.png Graphic file (type png)
-<use figures/Space_Invaders/Instructor_Portal_Space_Invader.png>
-Package pdftex.def Info: figures/Space_Invaders/Instructor_Portal_Space_Invader.png  used on input line 39.
-(pdftex.def)             Requested size: 362.37569pt x 382.9908pt.
+<figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png, id=106, 628.59843pt x 326.72063pt>
+File: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png Graphic file (type png)
+<use figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png>
+Package pdftex.def Info: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png  used on input line 36.
+(pdftex.def)             Requested size: 362.37569pt x 188.34647pt.
 
 
 [5 <./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png>]
+<figures/Space_Invaders/Instructor_Portal_Space_Invader.png, id=114, 516.42938pt x 545.78906pt>
+File: figures/Space_Invaders/Instructor_Portal_Space_Invader.png Graphic file (type png)
+<use figures/Space_Invaders/Instructor_Portal_Space_Invader.png>
+Package pdftex.def Info: figures/Space_Invaders/Instructor_Portal_Space_Invader.png  used on input line 45.
+(pdftex.def)             Requested size: 362.37569pt x 382.9908pt.
 
-[6 <./figures/Space_Invaders/Instructor_Portal_Space_Invader.png>]
-<figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg, id=125, 368.87813pt x 440.39531pt>
+
+[6 <./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png>]
+
+[7 <./figures/Space_Invaders/Instructor_Portal_Space_Invader.png>]
+<figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg, id=135, 368.87813pt x 440.39531pt>
 File: figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg Graphic file (type jpg)
 <use figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg>
-Package pdftex.def Info: figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg  used on input line 57.
+Package pdftex.def Info: figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg  used on input line 62.
 (pdftex.def)             Requested size: 362.37569pt x 432.63275pt.
+<figures/Space_Invaders/Space_Invaders_Game.jpeg, id=138, 402.75468pt x 716.6775pt>
+File: figures/Space_Invaders/Space_Invaders_Game.jpeg Graphic file (type jpg)
+<use figures/Space_Invaders/Space_Invaders_Game.jpeg>
+Package pdftex.def Info: figures/Space_Invaders/Space_Invaders_Game.jpeg  used on input line 80.
+(pdftex.def)             Requested size: 362.37569pt x 644.82884pt.
 
 
-[7]
+LaTeX Warning: Float too large for page by 30.69576pt on input line 83.
 
-[8 <./figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg>]
 
-[9]
-Overfull \hbox (53.38235pt too wide) in paragraph at lines 111--111
+
+[8]
+
+[9 <./figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg>]
+<figures/Diagnose_Game/Diagnose_Game.jpeg, id=150, 1744.5175pt x 892.33376pt>
+File: figures/Diagnose_Game/Diagnose_Game.jpeg Graphic file (type jpg)
+<use figures/Diagnose_Game/Diagnose_Game.jpeg>
+Package pdftex.def Info: figures/Diagnose_Game/Diagnose_Game.jpeg  used on input line 87.
+(pdftex.def)             Requested size: 362.37569pt x 185.35323pt.
+
+Overfull \hbox (53.38235pt too wide) in paragraph at lines 130--130
 []      \OT1/cmtt/m/n/12 - Execute `losingAction` (e.g., display failure message, allow retry, etc.).[] 
  []
 
-)
+
 
 [10]
+
+[11 <./figures/Space_Invaders/Space_Invaders_Game.jpeg>])
+
+[12 <./figures/Diagnose_Game/Diagnose_Game.jpeg>]
 \openout2 = `sections/results.aux'.
 
  (./sections/results.tex
 Chapter 4.
 )
 
-[11
+[13
 
 
 
@@ -799,7 +824,7 @@ Chapter 4.
 Chapter 5.
 )
 
-[12
+[14
 
 
 
@@ -809,7 +834,7 @@ Chapter 5.
 
  (./appendix.tex) (./bachelor.bbl)
 
-[13
+[15
 
 
 
@@ -822,21 +847,21 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `bachelor.out' has not changed.
-(rerunfilecheck)             Checksum: 57503860AD4AABBDE79DA47CEF6C30A6;1399.
+(rerunfilecheck)             Checksum: CE0F4DE4AA86E8424AAA08065B9E0049;1399.
  ) 
 Here is how much of TeX's memory you used:
- 23757 strings out of 473579
- 443152 string characters out of 5732263
- 821957 words of memory out of 5000000
- 46138 multiletter control sequences out of 15000+600000
+ 23786 strings out of 473579
+ 444478 string characters out of 5732263
+ 824125 words of memory out of 5000000
+ 46162 multiletter control sequences out of 15000+600000
  564784 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,7n,101p,1192b,660s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,7n,101p,1845b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on bachelor.pdf (16 pages, 196451 bytes).
+Output written on bachelor.pdf (18 pages, 395179 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
