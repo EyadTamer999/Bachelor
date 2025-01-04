@@ -10,6 +10,11 @@ Mohamad Ahyar.
 \newblock Analysis of game design framework through elemental tetrad.
 \newblock 04 2022.
 
+\bibitem{fernando2024}
+Pumudu Fernando and Salinda Premadasa.
+\newblock Use of gamification and game-based learning in educating generation alpha: A systematic literature review.
+\newblock {\em Educational Technology & Society}, 27:114--132, 04 2024.
+
 \bibitem{sgame2020}
 Aldo Gordillo, Enrique Barra, and Juan Quemada.
 \newblock Sgame: An authoring tool to easily create educational video games by integrating scorm-compliant learning objects.
@@ -19,5 +24,25 @@ Aldo Gordillo, Enrique Barra, and Juan Quemada.
 Robin Hunicke, Marc Leblanc, and Robert Zubek.
 \newblock Mda: A formal approach to game design and game research.
 \newblock {\em AAAI Workshop - Technical Report}, 1, 01 2004.
+
+\bibitem{jack2024gamification}
+Eilidh Jack, Craig Alexander, and Elinor~M. Jones.
+\newblock Levelling up learning: Exploring the impact of gamification in flipped classrooms.
+\newblock {\em arXiv preprint arXiv:2402.18313}, 2024.
+
+\bibitem{khoshkangini2021}
+Reza Khoshkangini, Annapaola Marconi, and Giuseppe Valetto.
+\newblock Automatic generation and recommendation of person-alized challenges for gamification.
+\newblock {\em User Modeling and User-Adapted Interaction}, 31, 03 2021.
+
+\bibitem{lara2023badges}
+Raúl Lara-Cabrera, Fernando Ortega, Edgar Talavera, and Daniel López-Fernández.
+\newblock Using 3d printed badges to improve student performance and reduce dropout rates in stem higher education.
+\newblock {\em arXiv preprint arXiv:2303.08939}, 2023.
+
+\bibitem{sustainability2022gamification}
+Authors not specified.
+\newblock Can gamification influence the academic performance of students?
+\newblock {\em Sustainability}, 2022.
 
 \end{thebibliography}

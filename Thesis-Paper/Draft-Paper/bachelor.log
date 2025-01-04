@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  4 JAN 2025 17:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  4 JAN 2025 19:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -607,7 +607,7 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count366
 \l__pdf_internal_box=\box69
-) (./bachelor.aux (./title_page.aux) (./acknowledgments.aux) (./abstract.aux) (./sections/introduction.aux) (./sections/background.aux) (./sections/relatedwork.aux) (./sections/proposedmethod.aux) (./sections/results.aux) (./sections/conclusion.aux) (./appendix.aux))
+) (./bachelor.aux)
 \openout1 = `bachelor.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
@@ -652,14 +652,13 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring ON on input line 82.
- (./bachelor.out) (./bachelor.out)
 \@outlinefile=\write4
 \openout4 = `bachelor.out'.
 
 \openout2 = `title_page.aux'.
 
  (./title_page.tex
-<figures/image.png, id=51, 460.72125pt x 110.4125pt>
+<figures/image.png, id=7, 460.72125pt x 110.4125pt>
 File: figures/image.png Graphic file (type png)
 <use figures/image.png>
 Package pdftex.def Info: figures/image.png  used on input line 34.
@@ -680,7 +679,8 @@ Package pdftex.def Info: figures/image.png  used on input line 34.
 No file acknowledgments.tex.
 \openout2 = `abstract.aux'.
 
-(./abstract.tex) (./bachelor.toc)
+(./abstract.tex)
+No file bachelor.toc.
 \tf@toc=\write5
 \openout5 = `bachelor.toc'.
 
@@ -702,20 +702,37 @@ No file acknowledgments.tex.
 
  (./sections/introduction.tex
 Chapter 1.
-)
+
+LaTeX Warning: Citation `lara2023badges' on page 1 undefined on input line 5.
+
+
+LaTeX Warning: Citation `jack2024gamification' on page 1 undefined on input line 5.
+
+
+LaTeX Warning: Citation `sustainability2022gamification' on page 1 undefined on input line 5.
+
+
+LaTeX Warning: Citation `fernando2024' on page 1 undefined on input line 5.
+
+
+LaTeX Warning: Citation `khoshkangini2021' on page 1 undefined on input line 8.
+
+
 
 [1
 
 
 
-]
+])
+
+[2]
 \openout2 = `sections/background.aux'.
 
  (./sections/background.tex
 Chapter 2.
 )
 
-[2
+[3
 
 
 
@@ -729,8 +746,14 @@ Chapter 2.
  (./sections/proposedmethod.tex
 Chapter 3.
 
+LaTeX Warning: Citation `sgame2020' on page 4 undefined on input line 4.
 
-[3
+
+LaTeX Warning: Reference `fig:architecture' on page 4 undefined on input line 10.
+
+
+
+[4
 
 
 
@@ -739,57 +762,88 @@ Chapter 3.
 
 
 ]
-<figures/Deployment_UML.jpg, id=95, 674.52pt x 694.595pt>
+<figures/Deployment_UML.jpg, id=46, 674.52pt x 694.595pt>
 File: figures/Deployment_UML.jpg Graphic file (type jpg)
 <use figures/Deployment_UML.jpg>
 Package pdftex.def Info: figures/Deployment_UML.jpg  used on input line 16.
 (pdftex.def)             Requested size: 362.37569pt x 373.16795pt.
 
 
-[4 <./figures/Deployment_UML.jpg>]
-<figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png, id=104, 602.25pt x 485.56406pt>
+LaTeX Warning: Reference `fig:customizationClickPuzzle' on page 5 undefined on input line 25.
+
+
+LaTeX Warning: Reference `fig:tutorialHint' on page 5 undefined on input line 25.
+
+
+
+[5 <./figures/Deployment_UML.jpg>]
+<figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png, id=53, 602.25pt x 485.56406pt>
 File: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png Graphic file (type png)
 <use figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png>
 Package pdftex.def Info: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png  used on input line 29.
 (pdftex.def)             Requested size: 362.37569pt x 292.1779pt.
-<figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png, id=106, 628.59843pt x 326.72063pt>
+<figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png, id=55, 628.59843pt x 326.72063pt>
 File: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png Graphic file (type png)
 <use figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png>
 Package pdftex.def Info: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png  used on input line 36.
 (pdftex.def)             Requested size: 362.37569pt x 188.34647pt.
 
 
-[5 <./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png>]
-<figures/Space_Invaders/Instructor_Portal_Space_Invader.png, id=114, 516.42938pt x 545.78906pt>
+[6 <./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png>]
+<figures/Space_Invaders/Instructor_Portal_Space_Invader.png, id=62, 516.42938pt x 545.78906pt>
 File: figures/Space_Invaders/Instructor_Portal_Space_Invader.png Graphic file (type png)
 <use figures/Space_Invaders/Instructor_Portal_Space_Invader.png>
 Package pdftex.def Info: figures/Space_Invaders/Instructor_Portal_Space_Invader.png  used on input line 45.
 (pdftex.def)             Requested size: 362.37569pt x 382.9908pt.
 
 
-[6 <./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png>]
+LaTeX Warning: Citation `MDA2004' on page 7 undefined on input line 50.
 
-[7 <./figures/Space_Invaders/Instructor_Portal_Space_Invader.png>]
-<figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg, id=135, 368.87813pt x 440.39531pt>
+
+LaTeX Warning: Citation `tetrad2011' on page 7 undefined on input line 52.
+
+
+LaTeX Warning: Citation `ahmad2019' on page 7 undefined on input line 52.
+
+
+LaTeX Warning: Citation `MDA2004' on page 7 undefined on input line 52.
+
+
+
+[7 <./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hints.png>]
+
+[8 <./figures/Space_Invaders/Instructor_Portal_Space_Invader.png>]
+
+LaTeX Warning: Reference `fig:shareGame' on page 9 undefined on input line 59.
+
+
+LaTeX Warning: Reference `fig:shareGame' on page 9 undefined on input line 59.
+
+<figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg, id=75, 368.87813pt x 440.39531pt>
 File: figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg Graphic file (type jpg)
 <use figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg>
 Package pdftex.def Info: figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg  used on input line 62.
 (pdftex.def)             Requested size: 362.37569pt x 432.63275pt.
-<figures/Space_Invaders/Space_Invaders_Game.jpeg, id=138, 402.75468pt x 716.6775pt>
+
+LaTeX Warning: Reference `fig:gameplaySpaceInvaders' on page 9 undefined on input line 76.
+
+
+LaTeX Warning: Reference `fig:gameplayClickPuzzle' on page 9 undefined on input line 76.
+
+<figures/Space_Invaders/Space_Invaders_Game.jpeg, id=76, 402.75468pt x 716.6775pt>
 File: figures/Space_Invaders/Space_Invaders_Game.jpeg Graphic file (type jpg)
 <use figures/Space_Invaders/Space_Invaders_Game.jpeg>
 Package pdftex.def Info: figures/Space_Invaders/Space_Invaders_Game.jpeg  used on input line 80.
 (pdftex.def)             Requested size: 362.37569pt x 644.82884pt.
 
-
 LaTeX Warning: Float too large for page by 30.69576pt on input line 83.
 
 
 
-[8]
+[9]
 
-[9 <./figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg>]
-<figures/Diagnose_Game/Diagnose_Game.jpeg, id=150, 1744.5175pt x 892.33376pt>
+[10 <./figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.jpeg>]
+<figures/Diagnose_Game/Diagnose_Game.jpeg, id=90, 1744.5175pt x 892.33376pt>
 File: figures/Diagnose_Game/Diagnose_Game.jpeg Graphic file (type jpg)
 <use figures/Diagnose_Game/Diagnose_Game.jpeg>
 Package pdftex.def Info: figures/Diagnose_Game/Diagnose_Game.jpeg  used on input line 87.
@@ -801,18 +855,18 @@ Overfull \hbox (53.38235pt too wide) in paragraph at lines 130--130
 
 
 
-[10]
+[11]
 
-[11 <./figures/Space_Invaders/Space_Invaders_Game.jpeg>])
+[12 <./figures/Space_Invaders/Space_Invaders_Game.jpeg>])
 
-[12 <./figures/Diagnose_Game/Diagnose_Game.jpeg>]
+[13 <./figures/Diagnose_Game/Diagnose_Game.jpeg>]
 \openout2 = `sections/results.aux'.
 
  (./sections/results.tex
 Chapter 4.
 )
 
-[13
+[14
 
 
 
@@ -824,7 +878,7 @@ Chapter 4.
 Chapter 5.
 )
 
-[14
+[15
 
 
 
@@ -832,9 +886,20 @@ Chapter 5.
 ]
 \openout2 = `appendix.aux'.
 
- (./appendix.tex) (./bachelor.bbl)
+ (./appendix.tex) (./bachelor.bbl
+./bachelor.bbl:16: Misplaced alignment tab character &.
+l.16 \newblock {\em Educational Technology &
+                                             Society}, 27:114--132, 04 2024.
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-[15
+)
+
+[16
 
 
 
@@ -846,22 +911,35 @@ Chapter 5.
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
-Package rerunfilecheck Info: File `bachelor.out' has not changed.
-(rerunfilecheck)             Checksum: CE0F4DE4AA86E8424AAA08065B9E0049;1399.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `bachelor.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `bachelor.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  CE0F4DE4AA86E8424AAA08065B9E0049;1399.
  ) 
 Here is how much of TeX's memory you used:
- 23786 strings out of 473579
- 444478 string characters out of 5732263
- 824125 words of memory out of 5000000
- 46162 multiletter control sequences out of 15000+600000
+ 23749 strings out of 473579
+ 443844 string characters out of 5732263
+ 814073 words of memory out of 5000000
+ 46146 multiletter control sequences out of 15000+600000
  564784 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,7n,101p,1845b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on bachelor.pdf (18 pages, 395179 bytes).
+Output written on bachelor.pdf (19 pages, 402521 bytes).
 PDF statistics:
- 215 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 169 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
