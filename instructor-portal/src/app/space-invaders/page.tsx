@@ -208,6 +208,11 @@ export default function SpaceInvaders() {
       .setOptions({
         steps: [
           {
+            title: "Space Invaders Game Generator",
+            intro:
+              "Welcome to the Space Invaders Game Generator! This tool allows you to create levels for the game and generate a unique game link for your students to play.",
+          },
+          {
             element: "#my_levels",
             title: "My Level(s)",
             intro:
@@ -229,7 +234,7 @@ export default function SpaceInvaders() {
             element: "#conversion_game",
             title: "Conversion Game",
             intro:
-              "Select the conversion game that will be displayed in the game.",
+              "Select the conversion game that will used for the student to convert the characters to. Currently only binary conversion is supported. Leave as 'None' if you do not want to use a conversion game.",
           },
           {
             element: "#characters",
@@ -254,6 +259,11 @@ export default function SpaceInvaders() {
             title: "Generate Game",
             intro:
               "Click here to generate the game with the levels you have created.",
+          },
+          {
+            title: "Game Preview",
+            intro:
+              " this is how the game should look like at the end <img src='https://cloud.appwrite.io/v1/storage/buckets/675319790008ed3cf795/files/677bde8e001e1144c5ba/view?project=6753194800246da32e87&project=6753194800246da32e87&mode=admin' alt='Game Preview' />",
           },
           {
             element: "#help",
