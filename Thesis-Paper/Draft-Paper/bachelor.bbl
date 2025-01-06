@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{ahmad2019}
 Mifrah Ahmad.
@@ -9,6 +9,12 @@ Mifrah Ahmad.
 Mohamad Ahyar.
 \newblock Analysis of game design framework through elemental tetrad.
 \newblock 04 2022.
+
+\bibitem{crawford1982art}
+Chris Crawford.
+\newblock {\em The Art of Computer Game Design}.
+\newblock Washington State University, 1982.
+\newblock Electronic version published in 1997, accessible at Washington State University Vancouver.
 
 \bibitem{fernando2024}
 Pumudu Fernando and Salinda Premadasa.
@@ -44,5 +50,10 @@ Raúl Lara-Cabrera, Fernando Ortega, Edgar Talavera, and Daniel López-Fernánde
 Authors not specified.
 \newblock Can gamification influence the academic performance of students?
 \newblock {\em Sustainability}, 2022.
+
+\bibitem{noor2010}
+Noor Shaker, Georgios Yannakakis, and Julian Togelius.
+\newblock Towards automatic personalized content generation for platform games.
+\newblock 12 2010.
 
 \end{thebibliography}
