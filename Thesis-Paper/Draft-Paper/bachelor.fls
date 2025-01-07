@@ -360,6 +360,8 @@ OUTPUT sections/background.aux
 INPUT ./sections/background.tex
 INPUT ./sections/background.tex
 INPUT sections/background.tex
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./sections/relatedwork.tex
 INPUT ./sections/relatedwork.tex
 OUTPUT sections/relatedwork.aux
@@ -373,8 +375,6 @@ OUTPUT sections/proposedmethod.aux
 INPUT ./sections/proposedmethod.tex
 INPUT ./sections/proposedmethod.tex
 INPUT sections/proposedmethod.tex
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./figures/Deployment_UML.jpg
 INPUT ./figures/Deployment_UML.jpg
 INPUT ./figures/Deployment_UML.jpg

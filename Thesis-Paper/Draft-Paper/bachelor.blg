@@ -16,45 +16,45 @@ Database file #1: references.bib
 Warning--empty journal in tetrad2011
 Warning--empty booktitle in noor2010
 Warning--empty booktitle in karuna2019
-You've used 13 entries,
+You've used 12 entries,
             2118 wiz_defined-function locations,
-            585 strings with 6591 characters,
-and the built_in function-call counts, 4008 in all, are:
-= -- 376
-> -- 200
+            581 strings with 6462 characters,
+and the built_in function-call counts, 3804 in all, are:
+= -- 356
+> -- 193
 < -- 3
-+ -- 79
-- -- 64
-* -- 258
-:= -- 699
-add.period$ -- 42
-call.type$ -- 13
-change.case$ -- 68
++ -- 76
+- -- 62
+* -- 250
+:= -- 660
+add.period$ -- 39
+call.type$ -- 12
+change.case$ -- 64
 chr.to.int$ -- 0
-cite$ -- 16
-duplicate$ -- 164
-empty$ -- 312
-format.name$ -- 64
-if$ -- 832
+cite$ -- 15
+duplicate$ -- 154
+empty$ -- 295
+format.name$ -- 62
+if$ -- 791
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 14
-newline$ -- 69
-num.names$ -- 30
-pop$ -- 79
+int.to.str$ -- 12
+missing$ -- 13
+newline$ -- 64
+num.names$ -- 28
+pop$ -- 75
 preamble$ -- 1
-purify$ -- 56
+purify$ -- 53
 quote$ -- 0
-skip$ -- 110
+skip$ -- 103
 stack$ -- 0
-substring$ -- 171
-swap$ -- 27
+substring$ -- 166
+swap$ -- 26
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 50
+type$ -- 46
 warning$ -- 3
-while$ -- 35
-width$ -- 15
-write$ -- 142
+while$ -- 33
+width$ -- 14
+write$ -- 132
 (There were 3 warnings)
