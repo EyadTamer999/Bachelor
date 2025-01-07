@@ -434,6 +434,10 @@ OUTPUT appendix.aux
 INPUT ./appendix.tex
 INPUT ./appendix.tex
 INPUT appendix.tex
+INPUT ./bachelor.lof
+INPUT ./bachelor.lof
+INPUT bachelor.lof
+OUTPUT bachelor.lof
 INPUT ./bachelor.bbl
 INPUT ./bachelor.bbl
 INPUT bachelor.bbl

@@ -16,4 +16,6 @@
 \contentsline {chapter}{\numberline {6}Conclusion}{20}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Limitations}{20}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Future work}{20}{section.6.2}%
-\contentsline {chapter}{References}{22}{chapter*.10}%
+\contentsline {chapter}{Appendix}{21}{section*.11}%
+\contentsline {section}{List of Figures}{22}{appendix*.12}%
+\contentsline {chapter}{References}{24}{appendix*.13}%
