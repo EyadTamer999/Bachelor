@@ -360,13 +360,13 @@ OUTPUT sections/background.aux
 INPUT ./sections/background.tex
 INPUT ./sections/background.tex
 INPUT sections/background.tex
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT ./sections/relatedwork.tex
 INPUT ./sections/relatedwork.tex
 OUTPUT sections/relatedwork.aux
 INPUT ./sections/relatedwork.tex
 INPUT ./sections/relatedwork.tex
 INPUT sections/relatedwork.tex
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT ./sections/proposedmethod.tex
 INPUT ./sections/proposedmethod.tex
 OUTPUT sections/proposedmethod.aux
@@ -411,6 +411,11 @@ INPUT ./figures/Diagnose_Game/Diagnose_Game.jpeg
 INPUT ./figures/Diagnose_Game/Diagnose_Game.jpeg
 INPUT ./figures/Diagnose_Game/Diagnose_Game.jpeg
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+INPUT ./figures/Diagnose_Game/Diagnose_Game_Correct.jpeg
+INPUT ./figures/Diagnose_Game/Diagnose_Game_Correct.jpeg
+INPUT ./figures/Diagnose_Game/Diagnose_Game_Correct.jpeg
+INPUT ./figures/Diagnose_Game/Diagnose_Game_Correct.jpeg
+INPUT ./figures/Diagnose_Game/Diagnose_Game_Correct.jpeg
 INPUT ./sections/results.tex
 INPUT ./sections/results.tex
 OUTPUT sections/results.aux

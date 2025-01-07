@@ -26,6 +26,11 @@ Aldo Gordillo, Enrique Barra, and Juan Quemada.
 \newblock Sgame: An authoring tool to easily create educational video games by integrating scorm-compliant learning objects.
 \newblock {\em IEEE Access}, 9:126414--126430, 2021.
 
+\bibitem{horn2023}
+Florian Horn, Sabrina Vogt, and Stefan~Peter G{\"o}bel.
+\newblock Gametulearn: An interactive educational game authoring tool for 3d environments.
+\newblock In Mads Haahr, Alberto Rojas-Salazar, and Stefan G{\"o}bel, editors, {\em Serious Games}, pages 384--390, Cham, 2023. Springer Nature Switzerland.
+
 \bibitem{MDA2004}
 Robin Hunicke, Marc Leblanc, and Robert Zubek.
 \newblock Mda: A formal approach to game design and game research.
@@ -55,5 +60,10 @@ Authors not specified.
 Noor Shaker, Georgios Yannakakis, and Julian Togelius.
 \newblock Towards automatic personalized content generation for platform games.
 \newblock 12 2010.
+
+\bibitem{karuna2019}
+Karuna Yampray and Wilawan Inchamnan.
+\newblock A method to visualization data collection by using gamification.
+\newblock pages 1--4, 11 2019.
 
 \end{thebibliography}

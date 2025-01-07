@@ -22,7 +22,7 @@ The instructor portal is built using Next.js, a React framework known for its se
 
 InstaGame’s customization system is designed to provide instructors with the tools they need to tailor educational content to their specific requirements. The platform supports the creation of games that encompass a wide range of educational fields and contexts, enabling instructors to design experiences that align with their teaching objectives.
 
-For instance, the click-based puzzle game template allows instructors to upload images, define clickable regions, and input corresponding educational content such as dialogues, questions, and explanations, as shown in Figure \ref{fig:customizationClickPuzzle}. The system’s user-friendly interface ensures that instructors can easily navigate and input data. Additionally, the platform supports the creation of multiple levels, each with distinct content and objectives, enabling instructors to design comprehensive games that cater to diverse learning needs. This versatility accommodates study fields ranging from anatomy and geography to engineering and history. The instructor can also always refer back to the tutorial and hint to guide them through the process of creating a game, ensuring that they can create a game that is engaging and educational, this is particularly useful for instructors who are new to the platform or are not familiar with what makes a game engaging and educational, and example of the hint system is being used in .
+For instance, the click-based puzzle game template allows instructors to upload images, define clickable regions, and input corresponding educational content such as dialogues, questions, and explanations, as shown in figure \ref{fig:customizationClickPuzzle}. The system’s user-friendly interface ensures that instructors can easily navigate and input data. Additionally, the platform supports the creation of multiple levels, each with distinct content and objectives, enabling instructors to design comprehensive games that cater to diverse learning needs. This versatility accommodates study fields ranging from anatomy and geography to engineering and history. The instructor can also always refer back to the tutorial and hint to guide them through the process of creating a game, ensuring that they can create a game that is engaging and educational, this is particularly useful for instructors who are new to the platform or are not familiar with what makes a game engaging and educational, and example of the hint system is being used in figure \ref{fig:customizationClickPuzzleHint}.
 
 \begin{figure}
 	\centering
@@ -34,8 +34,8 @@ For instance, the click-based puzzle game template allows instructors to upload 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hint.png}
-	\caption{Game Customization System for Space Invaders-like Game}
-	\label{fig:customizationSpaceInvaders}
+	\caption{Game Customization System for Click-based Puzzle Game with Hint}
+	\label{fig:customizationClickPuzzleHint}
 \end{figure}
 
 
@@ -50,14 +50,14 @@ Another game template, the Space Invaders-like game, enables instructors to inpu
 
 Both templates adhere to the MDA \cite{MDA2004} game design framework, which consists of mechanics, dynamics, and aesthetics. The mechanics are the rules and procedures that guide the player's actions, such as answering questions or clicking on images. The dynamics refer to the interactions between the player and the game, such as the feedback provided after answering a question. The aesthetics are the emotional responses elicited by the game, such as the sense of accomplishment when completing a level.
 
-In addition to the MDA framework, the templates also align with the elemental pentad framework, which is a more comprehensive approach directed toward game-based learning (GBL). The elemental pentad, which is another framework derived from the more famous elemental tetrad \cite{tetrad2011}, consists of five elements: mechanics, story, aesthetics, technology, and pedagogy \cite{ahmad2019}. The mechanics refer to the rules and procedures that guide the player's actions, such as answering questions or clicking on images, as mentioned earlier. The story represents the narrative that contextualizes the game, such as the dialogue present in the click-based puzzle game. The aesthetics refer to the emotional responses evoked by the game \cite{MDA2004}, such as the sense of accomplishment upon completing a level, as previously noted. The technology refers to the platform used to deliver the game, such as a web browser or mobile device. The pedagogy pertains to the educational theories that inform the game design, such as constructivism or behaviorism.
+In addition to the MDA framework, the templates also align with the elemental pentad framework, which is a more comprehensive approach directed toward game-based learning (GBL). The elemental pentad, which is another framework derived from the more famous elemental tetrad \cite{tetrad2011}, consists of five elements: mechanics, story, aesthetics, technology, and pedagogy \cite{ahmad2019}. The mechanics refer to the rules and procedures that guide the player's actions, such as answering questions or clicking on images, as mentioned earlier. The story represents the narrative that contextualizes the game, such as the dialogue present in the click-based puzzle game. The aesthetics refer to the emotional responses evoked by the game \cite{MDA2004}, such as the sense of accomplishment upon completing a level, as previously noted. The technology refers to the platform used to deliver the game, such as a web browser or mobile device. The pedagogy pertains to the educational theories that inform the game design, such as constructivism or behaviorism. The tempaltes also include content-based gamification elements, such as characters in the puzzle game and enemies in the Space Invaders-like game, which are designed to enhance player engagement and motivation, there is also structural gamification elements, such as levels and challenges, which are designed to provide a sense of progression and achievement. 
 
 By incorporating these elements, the templates provide a comprehensive learning experience that engages students while supporting educational goals. Notably, these elements are always present but are slightly altered based on the instructor's input. For example, the mechanics are determined by the instructor's questions and choices, the story is influenced by the instructor's dialogue and explanations, the aesthetics are shaped by the instructor's feedback and rewards, the technology is determined by the platform used to access the game, and the pedagogy is informed by the instructor's educational objectives.
 
 
 \section{Game Sharing System}
 
-InstaGame features a streamlined game sharing system designed to facilitate easy distribution of educational games to students. Once a game is generated, the platform generates a unique link (view game button in \ref{fig:shareGame}), a QR code, and a game code, as shown in \ref{fig:shareGame}. 
+InstaGame features a streamlined game sharing system designed to facilitate easy distribution of educational games to students. Once a game is generated, the platform generates a unique link (the view game button in figure \ref{fig:shareGame}), a QR code, and a game code, as shown in figure \ref{fig:shareGame}. 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/Space_Invaders/Instructor_Portal_Space_Invader_Generated_Links.png}
@@ -73,7 +73,7 @@ The generated link can be shared directly via email or messaging platforms, whil
 
 InstaGame supports two game templates, a Space Invaders-like game and a click-based puzzle game, each offering unique gameplay mechanics tailored to different learning objectives.
 
-In the Space Invaders-like game, players engage in fast-paced gameplay where they must eliminate enemies before they reach the bottom of the screen or hit the player with a projectile, as shown in \ref{fig:gameplaySpaceInvaders}. This template is well-suited for reinforcing quick decision-making and recall in subjects like mathematics or vocabulary. The click-based puzzle game, on the other hand, offers a more relaxed experience, requiring players to solve puzzles by identifying correct answers within an image. For example, an anatomy-based game could task players with diagnosing a condition by selecting the appropriate organ, as show in \ref{fig:gameplayClickPuzzle}. This template is ideal for fostering critical thinking and visual recognition skills in subjects like biology.
+In the Space Invaders-like game, players engage in fast-paced gameplay where they must eliminate enemies before they reach the bottom of the screen or hit the player with a projectile, as shown in figure \ref{fig:gameplaySpaceInvaders}. This template is well-suited for reinforcing quick decision-making and recall in subjects like mathematics or vocabulary. The click-based puzzle game, on the other hand, offers a more relaxed experience, requiring players to solve puzzles by identifying correct answers within an image. For example, an anatomy-based game could task players with diagnosing a condition by selecting the appropriate organ, as show in figure \ref{fig:gameplayClickPuzzle}. This template is ideal for fostering critical thinking and visual recognition skills in subjects like biology.
 
 \begin{figure}
 	\centering
@@ -127,6 +127,13 @@ The goal checking system ensures that player actions are evaluated against prede
 		isCorrect = False
 		print("Incorrect. You lose!")
 		losingAction()  # Execute losing action
-	\end{verbatim}
+\end{verbatim}
 
-The pseudocode outlines the core functionality and concept of the goal checking system, which is essential for evaluating student responses and providing meaningful feedback. By implementing this system, InstaGame ensures that gameplay is aligned with educational objectives and that students receive accurate assessments of their performance.
+The pseudocode outlines the core functionality and concept of the goal checking system, which is essential for evaluating student responses and providing meaningful feedback, in figure \ref{fig:correctAnswer} the users is met with a modal informing that the answer is correct and all the markers have been found to give the user a sense of accomplishment over the level. By implementing this system, InstaGame ensures that gameplay is aligned with educational objectives and that students receive accurate assessments of their performance. The goal checking system is a fundamental component of the platform, since the instructor needs to always add input to the game to deteermine a correct answer that the student needs to match, this ensures that the game is always aligned with the instructors educational objectives, this also gives the instructor a sense of control over the game.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/Diagnose_Game/Diagnose_Game_Correct.jpeg}
+	\caption{Correct Answer in Click-based Puzzle Game}
+	\label{fig:correctAnswer}
+\end{figure}
