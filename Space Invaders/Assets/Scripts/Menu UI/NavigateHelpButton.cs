@@ -5,15 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class NavigateHelp : MonoBehaviour
 {
-    public void GoToHelpScene()
+    public void LoadSceneByName(string sceneName)
     {
-        SceneManager.LoadScene("Help");
-    }
-
-    public void GoToMainMenu()
-    {
-        Debug.Log("Go to main menu");
-        SceneManager.LoadScene("Main Game");
+        SceneManager.LoadScene(sceneName);
     }
 
 }

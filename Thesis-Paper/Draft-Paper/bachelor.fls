@@ -353,6 +353,8 @@ OUTPUT sections/introduction.aux
 INPUT ./sections/introduction.tex
 INPUT ./sections/introduction.tex
 INPUT sections/introduction.tex
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
 INPUT ./sections/background.tex
 INPUT ./sections/background.tex
@@ -360,8 +362,6 @@ OUTPUT sections/background.aux
 INPUT ./sections/background.tex
 INPUT ./sections/background.tex
 INPUT sections/background.tex
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
-INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./sections/relatedwork.tex
 INPUT ./sections/relatedwork.tex
 OUTPUT sections/relatedwork.aux

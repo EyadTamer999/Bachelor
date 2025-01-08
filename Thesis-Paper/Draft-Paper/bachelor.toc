@@ -1,4 +1,7 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Aim of the Study}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Thesis Outline}{2}{section.1.3}%
 \contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Game-Based Learning}{3}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Gamification}{4}{section.2.2}%
@@ -12,7 +15,8 @@
 \contentsline {chapter}{\numberline {5}Experiments \& Results}{18}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Experimental Setup}{18}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Focus Group Session}{18}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Usability Study}{19}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Focus Group Results}{19}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Focus Group Session Design Changes}{19}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Conclusion}{20}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Limitations}{20}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Future work}{20}{section.6.2}%
