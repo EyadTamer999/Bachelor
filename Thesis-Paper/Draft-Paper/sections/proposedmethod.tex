@@ -3,13 +3,13 @@
 
 InstaGame is an innovative platform designed to empower educators by enabling the creation of customizable educational games. Building on existing research, InstaGame addresses key limitations found in similar tools, such as SGAME \cite{sgame2020}. While SGAME integrates SCORM-compliant learning objects into preexisting games, it restricts game creation to predefined templates and educational fields, limiting flexibility and broader applicability. Additionally, SGAME's language support is limited to Spanish, narrowing its accessibility for global users. InstaGame overcomes these challenges by offering a more versatile and inclusive solution that accommodates diverse educational needs, linguistic preferences, and content areas.
 
-The work presented enables instructors to tailor games to diverse educational contexts by adapting templates to align with various curricula. Each game template excels in specific fields due to its unique mechanics and design, allowing educators to select the most suitable option for their goals. InstaGame further emphasizes user-friendly tools, and a tutorial with hint to show how to create a game, making it accessible to educators with varying technical expertise, thereby fostering an engaging and inclusive learning environment. InstaGame also alllows the instructor to create games from any device with an internet browser, ensuring that educators can easily integrate the platform into their teaching practices without the need to install additional software or learn complex programming languages and game design. Once the instructor generates a game, they can share it with students through multiple channels, including unique links, QR codes, and game codes, ensuring broad accessibility and seamless distribution.
+The work presented enables instructors to tailor games to diverse educational contexts by adapting templates to align with various curricula. Each game template excels in specific fields due to its unique mechanics and design, allowing educators to select the most suitable option for their goals. InstaGame also alllows the instructor to create games from any device with an internet browser, ensuring that educators can easily integrate the platform into their teaching practices without the need to install additional software or learn complex programming languages and game design. Once the instructor generates a game, they can share it with students through multiple channels, including unique links, QR codes, and game codes, ensuring broad accessibility and seamless distribution.
 
 \section{Design and Architecture}
 
 The architecture of InstaGame is designed to provide seamless accessibility and scalability. Leveraging a web-based framework, the platform ensures that instructors and students can access the tool from any device with an internet browser. Figure \ref{fig:architecture} illustrates the system’s architecture, which integrates a robust cloud-based backend to manage and store game data.
 
-The instructor portal is built using Next.js, a React framework known for its server-side rendering capabilities and efficient performance. Firebase, a Backend as a Service (BaaS) platform, is employed for real-time database management, ensuring that game data is stored and can be accessed from anywhere. A cloud storage is also used to store game assets, such as images, and Appwrite, open-source service, was adopted for storage solutions. The architecture prioritizes reliability and accessibility to support educators in generating and sharing educational games. The UI is designed to be intuitive and user-friendly, enabling instructors to navigate the platform with ease and create games that align with their teaching objectives, the use of minimalistic design and color schemes ensures that the instructor can easily navigate the platform and focus on creating a game, the use of a tutorial and hint system also ensures that the instructor can easily create a game, even if they are not familiar with game design or educational games, the tutorial and hint system guides the instructor through the process of creating a game, ensuring that they can create a game that is engaging and educational.
+The instructor portal is built using Next.js, a React framework known for its server-side rendering capabilities and efficient performance. Firebase, a Backend as a Service (BaaS) platform, is employed for real-time database management, ensuring that game data is stored and can be accessed from anywhere. A cloud storage is also used to store game assets, such as images, and Appwrite, open-source service, was adopted for storage solutions. The architecture prioritizes reliability and accessibility to support educators in generating and sharing educational games. The UI is designed to be intuitive and user-friendly, enabling instructors to navigate the platform with ease and create games that align with their teaching objectives, the use of minimalistic design and color schemes ensures that the instructor can easily navigate the platform and focus on creating a game.
 
 \begin{figure}
 	\centering
@@ -22,28 +22,20 @@ The instructor portal is built using Next.js, a React framework known for its se
 
 InstaGame’s customization system is designed to provide instructors with the tools they need to tailor educational content to their specific requirements. The platform supports the creation of games that encompass a wide range of educational fields and contexts, enabling instructors to design experiences that align with their teaching objectives.
 
-For instance, the click-based puzzle game template allows instructors to upload images, define clickable regions, and input corresponding educational content such as dialogues, questions, and explanations, as shown in figure \ref{fig:customizationClickPuzzle}. The system’s user-friendly interface ensures that instructors can easily navigate and input data. Additionally, the platform supports the creation of multiple levels, each with distinct content and objectives, enabling instructors to design comprehensive games that cater to diverse learning needs. This versatility accommodates study fields ranging from anatomy and geography to engineering and history. The instructor can also always refer back to the tutorial and hint to guide them through the process of creating a game, ensuring that they can create a game that is engaging and educational, this is particularly useful for instructors who are new to the platform or are not familiar with what makes a game engaging and educational, and example of the hint system is being used in figure \ref{fig:customizationClickPuzzleHint}.
+For instance, the click-based puzzle game template allows instructors to upload images, define clickable regions, and input corresponding educational content such as dialogues, questions, and explanations, as shown in figure \ref{fig:customizationClickPuzzle}. The system’s user-friendly interface ensures that instructors can easily navigate and input data. Additionally, the platform supports the creation of multiple levels, each with distinct content and objectives, enabling instructors to design comprehensive games that cater to diverse learning needs. This versatility accommodates study fields ranging from anatomy and geography to engineering and history. 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png}
+	\includegraphics[width=0.8\textwidth]{figures/Diagnose_Game/Instructor_Portal_Diagnose_Gam_olde.png}
 	\caption{Game Customization System for Click-based Puzzle Game}
 	\label{fig:customizationClickPuzzle}
 \end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{figures/Diagnose_Game/Instructor_Portal_Diagnose_Game_hint.png}
-	\caption{Game Customization System for Click-based Puzzle Game with Hint}
-	\label{fig:customizationClickPuzzleHint}
-\end{figure}
-
 
 Another game template, the Space Invaders-like game, enables instructors to input questions and choices, which are displayed as enemies. Players must answer questions correctly by eliminating the enemies holding the correct answers. Instructors can customize various elements, including the title text displayed at the top of the screen, whether the game requires players to convert a goal into an answer (conversion game), the characters displayed on enemies (representing the choices), the possible goals that the system can choose from, and the number of turns within the level. Notably, the number of turns must be odd to determine if the player has won or lost the level, this is calculated by the system based on the majority of correect turns that have been won, for example, if the level has 5 turns, the player must win 3 turns to win the level, or if the level has 7 turns, the player must win 4 turns to win the level.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/Space_Invaders/Instructor_Portal_Space_Invader.png}
+	\includegraphics[width=0.8\textwidth]{figures/Space_Invaders/old.png}
 	\caption{Game Customization System for Space Invaders-like Game}
 	\label{fig:customizationSpaceInvaders}
 \end{figure}
