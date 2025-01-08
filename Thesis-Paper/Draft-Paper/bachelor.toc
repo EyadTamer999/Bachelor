@@ -1,0 +1,22 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Aim of the Study}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Thesis Outline}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Related Work}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}InstaGame}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Design and Architecture}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Game Customization System}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Game Sharing System}{14}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Gameplay}{14}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Goal Checking System}{15}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Experiments \& Results}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Experimental Setup}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Focus Group Session}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Focus Group Results}{20}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Focus Group Session Design Changes}{20}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Conclusion}{24}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Future work}{24}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Limitations}{25}{section.5.2}%
+\contentsline {chapter}{Appendix}{26}{section*.17}%
+\contentsline {section}{List of Figures}{27}{appendix*.18}%
+\contentsline {chapter}{References}{29}{appendix*.19}%
