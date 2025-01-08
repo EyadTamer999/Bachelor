@@ -234,7 +234,7 @@ export default function SpaceInvaders() {
             element: "#conversion_game",
             title: "Conversion Game",
             intro:
-              "Select the conversion game that will used for the student to convert the characters to. Currently only binary conversion is supported. Leave as 'None' if you do not want to use a conversions in your game.",
+              "Select the conversion game that will used for the student to convert the characters to. Currently only binary conversion is supported. Leave as 'None' if you do not want to use a conversions in your game.\nNote: if using a 'Binary' conversion game enter the decimal values in the challenge goal that you would like to see the player convert, for example if you want the player to convert 3 into binary then enter '3', and the student is supposed to put in the answer '11'",
           },
           {
             element: "#characters",
