@@ -228,13 +228,13 @@ export default function SpaceInvaders() {
             element: "#challenge_text",
             title: "Challenge Text",
             intro:
-              "Enter the objective text that will be displayed in the game.",
+              "Enter the objective text that will be displayed in the game, this is the question type that is being asked to the student, so make sure to be clear on what you want to display to the student.",
           },
           {
             element: "#conversion_game",
             title: "Conversion Game",
             intro:
-              "Select the conversion game that will used for the student to convert the characters to. Currently only binary conversion is supported. Leave as 'None' if you do not want to use a conversion game.",
+              "Select the conversion game that will used for the student to convert the characters to. Currently only binary conversion is supported. Leave as 'None' if you do not want to use a conversions in your game.",
           },
           {
             element: "#characters",
@@ -246,13 +246,13 @@ export default function SpaceInvaders() {
             element: "#challenge_goals",
             title: "Challenge Goals",
             intro:
-              "Enter the possible answers for the challenge. Use a comma to separate multiple goals. You can also use a range (e.g., 1-10 or A-Z).",
+              "This is the question bank where the system picks a random goal to be set as the correct answer, Enter the possible answers for the challenge. Use a comma to separate multiple goals. You can also use a range (e.g., 1-10 or A-Z).",
           },
           {
             element: "#number_of_turns",
             title: "Number Of Turns",
             intro:
-              "Enter the number of challenges the player has to complete within level. Must be an odd number: 1, 3, 5, 7, etc.",
+              "Enter the number of challenges the player has to complete within the level. Must be an odd number: 1, 3, 5, 7, etc.\nthe level is won depending on how many challenges are won, so the player is required to win more than half the set turns to move on.",
           },
           {
             element: "#generate_button",
@@ -263,7 +263,7 @@ export default function SpaceInvaders() {
           {
             title: "Game Preview",
             intro:
-              " this is how the game should look like at the end <img src='https://cloud.appwrite.io/v1/storage/buckets/675319790008ed3cf795/files/677bde8e001e1144c5ba/view?project=6753194800246da32e87&project=6753194800246da32e87&mode=admin' alt='Game Preview' />",
+              "This is how the game should look like at the end <img src='https://cloud.appwrite.io/v1/storage/buckets/675319790008ed3cf795/files/677bde8e001e1144c5ba/view?project=6753194800246da32e87&project=6753194800246da32e87&mode=admin' alt='Game Preview' />\nUse this image as reference.",
           },
           {
             element: "#help",
