@@ -7,6 +7,7 @@ import CharacterDisplay from "./CharacterDisplay";
 import LevelInfo from "./LevelInfo";
 import ImageMarkerSection from "./ImageMarkerSection";
 import ControlButtons from "./ControlButtons";
+import { set } from "firebase/database";
 
 type DiagnoseGameLevel = {
   data: {
@@ -55,7 +56,7 @@ export default function DiagnoseGame() {
   const [loading, setLoading] = useState<boolean>(true);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [modalContent, setModalContent] = useState<string>("");
-
+  const [isChallengeFailed, setIsChallengeFailed] = useState<boolean>(false);
   const [isLevelWon, setIsLevelWon] = useState<boolean>(false);
 
   useEffect(() => {
@@ -138,29 +139,26 @@ export default function DiagnoseGame() {
 
     const usedUserMarkers = new Set<number>();
 
-    // Helper function to calculate if two markers are within range
     const isWithinRange = (
       correctMarker: { marginSize: number; left: number; top: number },
-      userMarker: MarkerType
+      userMarker: { left: number; top: number }
     ) => {
-      // Define the square's boundaries for the correct marker
-      // the margin size * 2 is the side of the square
-      // and the correct marker's left and top are top left corner of the square
-      const correctMarkerSquare = {
-        left: correctMarker.left,
-        right: correctMarker.left + correctMarker.marginSize * 2,
-        top: correctMarker.top,
-        bottom: correctMarker.top + correctMarker.marginSize * 2,
-      };
+      // Calculate the bounds of the square
+      const leftBound = correctMarker.left;
+      const rightBound = correctMarker.left + correctMarker.marginSize;
+      const topBound = correctMarker.top;
+      const bottomBound = correctMarker.top + correctMarker.marginSize;
 
-      console.log("correctMarkerSquare", correctMarkerSquare);
+      console.log("Bounds", topBound, leftBound, bottomBound, rightBound);
 
-      // check if the user marker is within the square
+      console.log("User Marker", userMarker);
+
+      // Check if the user marker's position is within the bounds
       return (
-        userMarker.left >= correctMarkerSquare.left &&
-        userMarker.left <= correctMarkerSquare.right &&
-        userMarker.top >= correctMarkerSquare.top &&
-        userMarker.top <= correctMarkerSquare.bottom
+        userMarker.left >= leftBound &&
+        userMarker.left <= rightBound &&
+        userMarker.top >= topBound &&
+        userMarker.top <= bottomBound
       );
     };
 
@@ -212,6 +210,7 @@ export default function DiagnoseGame() {
             markers={markers}
             correctMarkers={currentImage.markers}
             onAddMarker={handleAddMarker}
+            isChallengeFailed={isChallengeFailed}
           />
           <ControlButtons
             markers={markers}
@@ -231,19 +230,35 @@ export default function DiagnoseGame() {
             {currentLevel + 1 === diagnoseGame.levels.length && isLevelWon && (
               <button
                 className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4"
-                onClick={() => window.location.reload()}
+                onClick={() => setModalVisible(false)}
               >
-                Play Again!
+                Close
               </button>
             )}
 
             {currentLevel + 1 === diagnoseGame.levels.length && !isLevelWon && (
-              <button
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4"
-                onClick={() => setModalVisible(false)}
-              >
-                Try Again!
-              </button>
+              <div className="flex flex-row gap-4">
+                <button
+                  className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4"
+                  onClick={() => {
+                    setModalVisible(false);
+                    setIsChallengeFailed(false);
+                    handleClearMarkers();
+                  }}
+                >
+                  Try Again!
+                </button>
+
+                <button
+                  className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4"
+                  onClick={() => {
+                    setModalVisible(false);
+                    setIsChallengeFailed(true);
+                  }}
+                >
+                  View Solution
+                </button>
+              </div>
             )}
 
             {/* don't show if game is won at last level*/}
@@ -276,6 +291,7 @@ export default function DiagnoseGame() {
                         setModalVisible(false);
 
                         setIsLevelWon(false);
+                        setIsChallengeFailed(false);
                       }}
                     >
                       Next Level

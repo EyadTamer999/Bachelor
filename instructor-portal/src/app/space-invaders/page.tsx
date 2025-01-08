@@ -302,24 +302,6 @@ export default function SpaceInvaders() {
             </Tooltip>
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          {warning && (
-            <Alert variant="destructive" className="mb-4">
-              <AlertDescription>{warning}</AlertDescription>
-            </Alert>
-          )}
-          {success && (
-            <Alert variant="default" className="mb-4">
-              <AlertDescription>
-                {success} <br />
-                <GameId
-                  gameId={gameId}
-                  gameLink={"https://bachelor-project.itch.io/space-invaders"}
-                />
-              </AlertDescription>
-            </Alert>
-          )}
-        </CardContent>
       </Card>
 
       <div className="flex items-center justify-center space-x-4">
@@ -464,6 +446,25 @@ export default function SpaceInvaders() {
                   Delete Level
                 </Button>
               </div>
+            )}
+          </CardContent>
+
+          <CardContent>
+            {warning && (
+              <Alert variant="destructive" className="mb-4">
+                <AlertDescription>{warning}</AlertDescription>
+              </Alert>
+            )}
+            {success && (
+              <Alert variant="default" className="mb-4">
+                <AlertDescription>
+                  {success} <br />
+                  <GameId
+                    gameId={gameId}
+                    gameLink={"https://bachelor-project.itch.io/space-invaders"}
+                  />
+                </AlertDescription>
+              </Alert>
             )}
           </CardContent>
         </Card>

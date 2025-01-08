@@ -43,7 +43,7 @@ export default function DiagnoseCreator() {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const [imgFiles, setImgFiles] = useState<any[]>([]);
-  const [marginSize, setMarginSize] = useState(20);
+  const [marginSize, setMarginSize] = useState(25);
 
   const handleIncrementLevel = () => {
     setCurrentLevel((prev) => {
@@ -110,6 +110,18 @@ export default function DiagnoseCreator() {
   };
 
   const handleAddMarker = (marker: any) => {
+    console.log(marker);
+    // if a marker check if the top left corner is within the image and not a negative value
+    if (
+      marker.top < 0 ||
+      marker.left < 0 ||
+      marker.top > 87 ||
+      marker.left > 87
+    ) {
+      setWarning("Marker should be within the image");
+      return;
+    }
+
     setLevels((prevLevels: any) => {
       return prevLevels.map((level: any) => {
         if (level.level === currentLevel) {
@@ -467,21 +479,6 @@ export default function DiagnoseCreator() {
             </Tooltip>
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          {warning && (
-            <Alert variant="destructive" className="mb-4">
-              <AlertDescription>{warning}</AlertDescription>
-            </Alert>
-          )}
-          {success && (
-            <Alert variant="default" className="mb-4">
-              <AlertDescription>
-                {success} <br />
-                <GameId gameId={gameId} gameLink={`/diagnose/${gameId}`} />
-              </AlertDescription>
-            </Alert>
-          )}
-        </CardContent>
       </Card>
 
       <div className="flex items-center justify-center space-x-4">
@@ -636,8 +633,8 @@ export default function DiagnoseCreator() {
                     </Label>
                     <Slider
                       id="markerSize"
-                      min={20}
-                      max={50}
+                      min={25}
+                      max={70}
                       step={1}
                       value={[marginSize]}
                       onValueChange={(value: any) => setMarginSize(value[0])}
@@ -670,6 +667,21 @@ export default function DiagnoseCreator() {
                 </Button>
               </div>
             )}
+            <CardContent>
+              {warning && !success && (
+                <Alert variant="destructive" className="mb-4">
+                  <AlertDescription>{warning}</AlertDescription>
+                </Alert>
+              )}
+              {success && (
+                <Alert variant="default" className="mb-4">
+                  <AlertDescription>
+                    {success} <br />
+                    <GameId gameId={gameId} gameLink={`/diagnose/${gameId}`} />
+                  </AlertDescription>
+                </Alert>
+              )}
+            </CardContent>
           </CardContent>
         </Card>
 
@@ -692,7 +704,7 @@ export default function DiagnoseCreator() {
         </Tooltip>
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex flex-col items-center justify-center space-y-4">
         <Button
           id="generate_button"
           onClick={handleGenerateGame}

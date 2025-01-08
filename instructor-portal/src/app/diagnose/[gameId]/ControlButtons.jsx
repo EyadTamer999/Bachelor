@@ -19,6 +19,7 @@ const ControlButtons = ({
         Undo
       </button>
     </div>
+
     <button
       className={`bg-blue-500 text-white p-4 rounded-lg shadow-md ${markers.length === 0
         ? "bg-gray-500 cursor-not-allowed"
@@ -29,6 +30,7 @@ const ControlButtons = ({
     >
       Submit
     </button>
+
   </div>
 );
 
