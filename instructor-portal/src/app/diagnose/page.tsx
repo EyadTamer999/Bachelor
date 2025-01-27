@@ -679,7 +679,8 @@ export default function DiagnoseCreator() {
                     {success} <br />
                     <GameId
                       gameId={gameId}
-                      gameLink={window.location.href + gameId}
+                      //current link + the game id
+                      gameLink={`https://bachelor-eight.vercel.app/diagnose/${gameId}`}
                     />
                   </AlertDescription>
                 </Alert>
