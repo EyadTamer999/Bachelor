@@ -677,7 +677,10 @@ export default function DiagnoseCreator() {
                 <Alert variant="default" className="mb-4">
                   <AlertDescription>
                     {success} <br />
-                    <GameId gameId={gameId} gameLink={`/diagnose/${gameId}`} />
+                    <GameId
+                      gameId={gameId}
+                      gameLink={window.location.href + gameId}
+                    />
                   </AlertDescription>
                 </Alert>
               )}
