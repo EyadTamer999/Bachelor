@@ -14,9 +14,9 @@
 \contentsline {section}{\numberline {4.2}Focus Group Session}{19}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Focus Group Results}{20}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Focus Group Session Design Changes}{20}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{24}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Future work}{24}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Limitations}{25}{section.5.2}%
-\contentsline {chapter}{Appendix}{26}{section*.18}%
-\contentsline {section}{List of Figures}{27}{appendix*.19}%
-\contentsline {chapter}{References}{29}{appendix*.20}%
+\contentsline {section}{\numberline {4.5}Usability Study}{20}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Usability Study Results}{23}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Conclusion}{25}{chapter.5}%
+\contentsline {chapter}{Appendix}{27}{section*.19}%
+\contentsline {section}{List of Figures}{28}{appendix*.20}%
+\contentsline {chapter}{References}{30}{appendix*.21}%

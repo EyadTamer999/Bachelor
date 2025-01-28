@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  9 JAN 2025 01:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  28 JAN 2025 22:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -879,7 +879,7 @@ File: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png Graphic file (ty
 <use figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png>
 Package pdftex.def Info: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png  used on input line 36.
 (pdftex.def)             Requested size: 362.37569pt x 291.80621pt.
-)
+
 
 [20]
 
@@ -888,25 +888,32 @@ Package pdftex.def Info: figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.p
 [22 <./figures/Space_Invaders/Instructor_Portal_Space_Invader_hint.png>]
 
 [23 <./figures/Diagnose_Game/Instructor_Portal_Diagnose_Game.png>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 51.
+
+)
+
+[24]
 \openout2 = `sections/conclusion.aux'.
 
  (./sections/conclusion.tex
 Chapter 5.
 )
 
-[24
+[25
 
 
 
 
 ]
 
-[25]
+[26]
 \openout2 = `appendix.aux'.
 
  (./appendix.tex
 
-[26
+[27
 
 
 
@@ -917,17 +924,17 @@ Chapter 5.
 
 )
 
-[27
+[28
 
 ] (./bachelor.bbl
 
-[28
+[29
 
 
 
 ])
 
-[29] (./bachelor.aux (./title_page.aux) (./acknowledgments.aux) (./abstract.aux) (./sections/introduction.aux) (./sections/background.aux) (./sections/relatedwork.aux) (./sections/proposedmethod.aux) (./sections/results.aux) (./sections/conclusion.aux) (./appendix.aux))
+[30] (./bachelor.aux (./title_page.aux) (./acknowledgments.aux) (./abstract.aux) (./sections/introduction.aux) (./sections/background.aux) (./sections/relatedwork.aux) (./sections/proposedmethod.aux) (./sections/results.aux) (./sections/conclusion.aux) (./appendix.aux))
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
@@ -937,21 +944,21 @@ L3 programming layer <2024-08-30>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `bachelor.out' has not changed.
-(rerunfilecheck)             Checksum: 31BD3900C3F90B5911DFFBEEDAA67E26;2936.
+(rerunfilecheck)             Checksum: 00B567A01BEA453BC37E5E9B81670F1D;3022.
  ) 
 Here is how much of TeX's memory you used:
- 23925 strings out of 473579
- 448036 string characters out of 5732263
- 824248 words of memory out of 5000000
- 46250 multiletter control sequences out of 15000+600000
+ 23934 strings out of 473579
+ 448221 string characters out of 5732263
+ 825305 words of memory out of 5000000
+ 46257 multiletter control sequences out of 15000+600000
  564784 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,7n,101p,2076b,668s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,8n,101p,2076b,668s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on bachelor.pdf (34 pages, 1168120 bytes).
+Output written on bachelor.pdf (35 pages, 1170639 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 355 compressed objects within 4 object streams
- 88 named destinations out of 1000 (max. 500000)
+ 439 PDF objects out of 1000 (max. 8388607)
+ 360 compressed objects within 4 object streams
+ 90 named destinations out of 1000 (max. 500000)
  264 words of extra memory for PDF output out of 10000 (max. 10000000)
 
